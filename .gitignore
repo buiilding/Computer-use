@@ -25,6 +25,3 @@ Thumbs.db
 
 # Weights and large model files (if not managed by LFS)
 weights/
-
-# Debug files
-debug_*.png 
