@@ -5,16 +5,15 @@ import base64
 import PIL.Image as Image
 
 from .base_agent import BaseAgent
-from core.state import State, pick # Changed from ..core.state
-from utils import screenshot # Changed from ..utils
-from utils import input_functions # Changed from ..utils
-from config import settings # This should be fine as config is directly under src
+from utils import screenshot
+from utils import input_functions
+from config import settings
 
 class PlanningAgent(BaseAgent):
     def __init__(self, som_model, caption_model_processor):
         super().__init__(
             model_name=settings.PLANNING_MODEL_NAME,
-            system_prompt_path="test_prompts/Planning_Agent.txt" # Relative to project root
+            system_prompt_path="test_prompts/Planning_Agent.txt"
         )
         self.som_model = som_model
         self.caption_model_processor = caption_model_processor
@@ -33,14 +32,11 @@ class PlanningAgent(BaseAgent):
 
     def __call__(self, state: State) -> dict:
         output_payload = {"new_tasklist": None}
-        # The screenshot and elements for the Gemini prompt will be taken if needed
         effective_screenshot_for_gemini = state.get("cur_screenshot")
         elements_for_prompt = state.get("cur_elements")
 
         if state["plan_mode"] == "initial" or state["plan_mode"] == "replan_full":
             try:
-                # print(f"PlanningAgent: Taking new screenshot for plan_mode: {state['plan_mode']}")
-                # Assuming take_screenshot is now in src.utils.screenshot
                 new_screenshot_bytes_io, new_elements = screenshot.take_screenshot(
                     self.som_model, self.caption_model_processor
                 )
@@ -51,14 +47,10 @@ class PlanningAgent(BaseAgent):
                 elements_for_prompt = new_elements
             except Exception as e:
                 print(f"Error taking screenshot in PlanningAgent ({state['plan_mode']}): {e}")
-                # Allow to proceed without screenshot if it fails, Gemini might still be able to plan
                 pass 
         
         plan_prompt_context = {"request": state["request"], "expected_output": state["expected_output"]}
-        # if elements_for_prompt: # Removed as per user request in original Ho.py
-        #     plan_prompt_context["cur_elements"] = elements_for_prompt
         
-        # Update global transformed list with the elements being used for the current plan
         if elements_for_prompt is not None:
             input_functions.update_global_transformed_list(elements_for_prompt)
 

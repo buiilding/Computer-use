@@ -15,17 +15,14 @@ class ActionAgent(BaseAgent):
     def __init__(self, som_model, caption_model_processor):
         super().__init__(
             model_name=settings.ACTION_MODEL_NAME,
-            system_prompt_path="test_prompts/Action_Agent.txt", # Relative to project root
+            system_prompt_path="test_prompts/Action_Agent.txt",
             tools=[{"function_declarations" : function_declarations}]
         )
         self.som_model = som_model
         self.caption_model_processor = caption_model_processor
 
-    # The call_function logic is specific to how ActionAgent processes tool calls from Gemini
-    # It might be refactored later, but for now, it stays here as it was in Ho.py's ActionAgent
     def call_function(self, function_call_name: str, function_call_args: dict) -> any:
         """Call the function with the given name and arguments, filtering for valid parameters."""
-        # Assuming the actual functions (like click, type) are in input_functions module
         if hasattr(input_functions, function_call_name):
             function_to_call = getattr(input_functions, function_call_name)
             
@@ -134,16 +131,10 @@ class ActionAgent(BaseAgent):
                             "cur_elements": elements_action, 
                         }
                     else:
-                        # No function call from Gemini
-                        # (logging handled as in original)
                         return {"cur_action": None, "cur_action_output": "No function call found in response."}
                 else:
-                    # Gemini model not available
-                    # (logging handled as in original)
                     return {"cur_action": None, "cur_action_output": f"{self.__class__.__name__}: Gemini model not available."}
             
-            # Fallthrough for missing task/task_list or other initial checks
-            # (logging handled as in original)
             return {"cur_action": None, "cur_action_output": "Current task or task list is missing, or other prerequisite failed."}
         
         except Exception as e:

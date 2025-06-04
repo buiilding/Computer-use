@@ -6,24 +6,6 @@ import screeninfo
 import numpy as np
 from google.cloud import vision
 from PIL import Image
-# Assuming util.utils is now src.utils.model_loader or similar based on structure
-# For now, let's assume these will be top-level imports in model_loader.py
-# and then imported here, or directly from where they are defined.
-# This needs to be resolved based on where get_yolo_model etc. are finally placed.
-# from .model_loader import get_yolo_model, get_caption_model_processor, get_som_labeled_img
-
-# Placeholder: these imports will need to be correct based on final util structure
-# For now, this will cause an error if run directly unless those functions are globally available
-# or model_loader.py correctly exposes them and is imported. The original Ho.py had them
-# in a util.utils, which isn't directly mapped yet.
-
-# To make this runnable for now, I'll assume they might be moved to this file or a sibling
-# This is a temporary measure for refactoring.
-
-# ---- Placeholder for model loading functions ----
-# These would ideally be in src.utils.model_loader.py and imported.
-# For now, to avoid import errors during refactoring if model_loader.py isn't done yet,
-# let's define dummy versions or expect them to be passed in if not found.
 
 try:
     from .model_helpers import get_som_labeled_img
@@ -38,8 +20,6 @@ except ImportError:
     def get_som_labeled_img(*args, **kwargs):
         print("Dummy get_som_labeled_img called")
         return "", [], [] # It used to return three items
-
-# ---- End Placeholder ----
 
 
 def take_screenshot(som_model, caption_model_processor, omni_enabled: bool = True) -> tuple[io.BytesIO | None, list]:
@@ -239,6 +219,4 @@ def detect_text_and_draw_boxes(image_file):
         texts_list.append(text.description)
         bboxes_list.append((x1, y1, x2, y2))
     return texts_list, bboxes_list
-
-# Note: initialize_omni_models was in Ho.py. It should be moved to src.utils.model_loader.py
-# and the models loaded once and passed around, not re-initialized by screenshot or agents. 
+ 

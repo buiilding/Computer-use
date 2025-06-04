@@ -33,36 +33,15 @@ class BaseAgent:
 
 
     def load_system_prompt(self):
-        # Construct the full path relative to the omni-agent directory
-        # Assuming 'test_prompts' is at the root of 'omni-agent'
-        # and this script is in 'omni-agent/src/agents/'
-        # Path to omni-agent root: os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        # For simplicity, if system_prompt_path is like "test_prompts/Action_Agent.txt"
-        # and the script runs from omni-agent root, it should work.
-        # However, if the script is run from elsewhere or this is a library,
-        # a more robust path mechanism is needed. For now, assume relative to a base path or absolute.
-        
-        # Let's assume system_prompt_path is relative to the project root (omni-agent).
-        # This is often how such paths are configured.
-        # When running from omni-agent/src/core/workflow.py, os.getcwd() might be omni-agent.
-        
-        # Correcting the path to be relative to the project root.
-        # The prompt files are in 'test_prompts/' at the project root.
         project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
         full_prompt_path = os.path.join(project_root, self.system_prompt_path)
 
-        # Check if the constructed path is correct, it might need adjustment based on execution context
-        # print(f"DEBUG: Attempting to load system prompt from: {full_prompt_path}")
-
         try:
-            # If test_prompts is directly inside omni-agent, and execution is from omni-agent
             with open(full_prompt_path, "r", encoding='utf-8') as f:
                 prompt_content = f.read()
-            # print(f"Successfully loaded system prompt for {self.__class__.__name__} from {self.system_prompt_path}")
             return prompt_content
         except FileNotFoundError:
             print(f"Error: System prompt file not found at {self.system_prompt_path} (resolved to {full_prompt_path}). Please check the path.")
-            # Fallback to an empty string or raise an error
             return "" 
         except Exception as e:
             print(f"Error loading system prompt for {self.__class__.__name__} from {self.system_prompt_path}: {str(e)}")

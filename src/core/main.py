@@ -1,47 +1,38 @@
 import os
-import sys # Add this import
+import sys
 
-# Add src/ directory to Python's search path
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SRC_DIR = os.path.dirname(SCRIPT_DIR)
 if SRC_DIR not in sys.path:
     sys.path.insert(0, SRC_DIR)
 
 import io
-import PIL.Image as Image # For type checking in print loop
+import PIL.Image as Image
 from langgraph.graph import StateGraph, START, END
 
-# Project-specific imports (which should now work)
-from config import settings # Will look in src/config.py (or src/config/__init__.py)
-from state import State # The main state definition
-from agents.planning_agent import PlanningAgent # Will look in src/agents/planning_agent.py
+from config import settings
+from state import State
+from agents.planning_agent import PlanningAgent
 from agents.action_agent import ActionAgent
 from agents.evaluation_agent import EvaluationAgent
-from controller import update_task_list_node, controller_node # Controller logic
-from utils.Omni_loader import initialize_omni_models # Will look in src/utils/Omni_loader.py
+from controller import update_task_list_node, controller_node
+from utils.Omni_loader import initialize_omni_models
 
 def run_workflow(initial_request: str, initial_expected_output: str):
     """Sets up and runs the LangGraph workflow."""
 
-    # Clear/Create log files at the start of each run
     for log_file in settings.LOG_FILES:
         try:
-            # Ensure the directory for log files exists if they are not in the current dir
-            # os.makedirs(os.path.dirname(log_file), exist_ok=True) # If logs are in a sub-directory
             with open(log_file, "w", encoding='utf-8') as f:
-                f.write("") # Clear the file
+                f.write("")
             print(f"Log file {log_file} cleared/created.")
         except Exception as e:
             print(f"Warning: Could not clear/create log file {log_file}: {e}")
 
     if not settings.GEMINI_API_KEY:
-        # This was a ValueError in Ho.py, changed to a print and early exit
-        # to align with settings.py allowing GEMINI_API_KEY to be initially None.
         print("Fatal: GEMINI_API_KEY not set. Workflow cannot proceed.")
         return
 
-    # Initialize Omni models (SOM, Caption)
-    # These are loaded once and passed to agents that need them.
     print("Attempting to initialize Omni (SOM/Caption) models...")
     global_som_model, global_caption_model_processor = initialize_omni_models(settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH)
     if global_som_model is None or global_caption_model_processor is None:
@@ -49,8 +40,6 @@ def run_workflow(initial_request: str, initial_expected_output: str):
     else:
         print("Omni (SOM/Caption) models initialized successfully.")
 
-    # Initialize agents, passing models if they were loaded
-    # The API key is handled by BaseAgent via settings.GEMINI_API_KEY
     planning_agent = PlanningAgent( 
         som_model=global_som_model, 
         caption_model_processor=global_caption_model_processor
@@ -132,31 +121,11 @@ def run_workflow(initial_request: str, initial_expected_output: str):
             else:
                 print(f"  {node_output_dict}")
         print("--- End Event ---")
-
-    # Final state after streaming (optional, as stream events show progression)
-    # final_state = graph.invoke(initial_state_data, config={"recursion_limit": 200})
-    # print("\n--- Final State ---")
-    # for k, v in final_state.items():
-    #     if isinstance(v, Image.Image):
-    #         print(f"{k}: <PIL.Image.Image object at ...>")
-    #     else:
-    #         print(f"{k}: {v}")
     print("Workflow finished.")
 
 if __name__ == "__main__":
-    # This allows running the workflow directly from this file for testing
-    # Ensure that when run this way, Python can find the src modules (e.g., run from omni-agent/)
-    # Example: python -m src.core.workflow
     print("Running workflow directly via __main__")
-    
-    # Check current working directory to ensure prompts can be loaded if paths are relative to project root
     print(f"Current Working Directory: {os.getcwd()}") 
-    
-    # For direct execution, you might need to adjust Python path if running from within src/core
-    # sys.path.append(os.path.join(os.path.dirname(__file__), "..")) # Add src to path if needed
-    
-    # To run the workflow, you would call it like this:
-    # Make sure that the 'test_prompts' directory is at the root of your project as expected by BaseAgent
     run_workflow(
         initial_request="Go to Amazon.com and search for 'laptop'.",
         initial_expected_output="I have found a laptop on Amazon.com."

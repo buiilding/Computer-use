@@ -9,7 +9,7 @@ click_declaration = {
             "y": {"type": "integer", "description": "The y-coordinate of the click position. Use this OR index."},
             "wait_time": {"type": "integer", "description": "Time in seconds to wait after performing the action. Defaults to 1."}
         },
-        "required": ["wait_time"] # wait_time seems to be optional in functions.py, but required here. Let's keep as per original for now.
+        "required": ["wait_time"]
     }
 }
 
@@ -22,7 +22,7 @@ type_declaration = {
             "text": {"type": "string", "description": "The text to type."},
             "wait_time": {"type": "integer", "description": "Time in seconds to wait after performing the action. Defaults to 0."}
         },
-        "required": ["text"] # wait_time is optional
+        "required": ["text"]
     }
 }
 
@@ -35,7 +35,7 @@ press_key_declaration = {
             "key": {"type": "string", "description": "The key to press."},
             "wait_time": {"type": "integer", "description": "Time in seconds to wait after performing the action. Defaults to 0."}
         },
-        "required": ["key"] # wait_time is optional
+        "required": ["key"]
     }
 }
 
@@ -49,7 +49,7 @@ scroll_declaration = {
             "amount": {"type": "integer", "description": "The amount to scroll (number of 'clicks' or lines)."},
             "wait_time": {"type": "integer", "description": "Time in seconds to wait after performing the action. Defaults to 0."}
         },
-        "required": ["direction", "amount"] # wait_time is optional
+        "required": ["direction", "amount"]
     }
 }
 

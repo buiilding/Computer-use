@@ -1,4 +1,3 @@
-# from ultralytics import YOLO
 import io
 import base64
 import time
@@ -47,7 +46,6 @@ def get_yolo_model(model_path):
 
 @torch.inference_mode()
 def get_parsed_content_icon(filtered_boxes, starting_idx, image_source, caption_model_processor, prompt=None, batch_size=128):
-    # Number of samples per batch, --> 128 roughly takes 4 GB of GPU memory for florence v2 model
     to_pil = ToPILImage()
     if starting_idx:
         non_ocr_boxes = filtered_boxes[starting_idx:]
@@ -174,7 +172,6 @@ def remove_overlap_new(boxes, iou_threshold, ocr_bbox=None):
         return max(intersection / union, ratio1, ratio2)
 
     def is_inside(box1, box2):
-        # return box1[0] >= box2[0] and box1[1] >= box2[1] and box1[2] <= box2[2] and box1[3] <= box2[3]
         intersection = intersection_area(box1, box2)
         ratio1 = intersection / box_area(box1)
         return ratio1 > 0.80

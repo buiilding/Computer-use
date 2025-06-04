@@ -9,12 +9,8 @@ GLOBAL_TRANSFORMED_LIST = []
 def update_global_transformed_list(new_list: list):
     """Updates the global list of transformed UI elements."""
     global GLOBAL_TRANSFORMED_LIST
-    if isinstance(new_list, list):
-        GLOBAL_TRANSFORMED_LIST = new_list
-        # print(f"DEBUG input_functions.py: GLOBAL_TRANSFORMED_LIST updated with {len(GLOBAL_TRANSFORMED_LIST)} elements.")
-    else:
-        # print(f"DEBUG input_functions.py: update_global_transformed_list received non-list: {type(new_list)}. Not updating.")
-        GLOBAL_TRANSFORMED_LIST = []
+    GLOBAL_TRANSFORMED_LIST = new_list
+
 
 def click(index: int = None, x: int = None, y: int = None, wait_time: int = 1):
     """Simulate a mouse click. Either element 'index' or 'x' and 'y' coordinates must be provided.
@@ -66,7 +62,7 @@ def click(index: int = None, x: int = None, y: int = None, wait_time: int = 1):
 
     if target_x is not None and target_y is not None and not click_status.get("status") == "error":
         try:
-            pyautogui.moveTo(target_x, target_y, duration=0.2) # Smoother move
+            pyautogui.moveTo(target_x, target_y, duration=0.2)
             pyautogui.click(target_x, target_y)
             print(f"🖱️ Clicked at coordinates: ({target_x}, {target_y})")
             click_status = {"status": "success", "message": f"Clicked at ({target_x}, {target_y})"}
@@ -74,10 +70,10 @@ def click(index: int = None, x: int = None, y: int = None, wait_time: int = 1):
             print(f"🔴 Error clicking at ({target_x}, {target_y}): {e}")
             click_status = {"status": "error", "message": str(e)}
     
-    if not click_status: # Ensure status is always set
+    if not click_status:
         click_status = {"status": "error", "message": "Click action failed due to unresolved parameters or an unexpected issue before attempting the click."}
 
-    time.sleep(wait_time if wait_time > 0 else 0.5) # Use wait_time, ensure minimum delay
+    time.sleep(wait_time if wait_time > 0 else 0.5)
     return click_status
     
 def type(text: str, wait_time: int = 0):
@@ -89,14 +85,14 @@ def type(text: str, wait_time: int = 0):
     """
     type_status = {}
     try:
-        pyautogui.write(text, interval=0.05) # Add small interval for reliability
+        pyautogui.write(text, interval=0.05)
         print(f"⌨️ Typed text: {text}")
         type_status = {"status": "success", "message": f"Successfully typed: {text}"}
     except Exception as e:
         print(f"🔴 Error typing text: {e}")
         type_status = {"status": "error", "message": str(e)}
     
-    time.sleep(wait_time if wait_time > 0 else 0.5) # Use wait_time, ensure minimum delay
+    time.sleep(wait_time if wait_time > 0 else 0.5)
     return type_status
 
 def press_key(key: str, wait_time: int = 0):
@@ -122,18 +118,17 @@ def press_key(key: str, wait_time: int = 0):
             normalized_key = key.lower()
             xdotool_key = key_mapping.get(normalized_key, key)
             
-            # Check if xdotool is available
             if os.system("command -v xdotool > /dev/null") == 0:
                 os.system(f"xdotool key {xdotool_key}")
                 print(f"⌨️ Pressed key (via xdotool): {xdotool_key}")
                 press_status = {"status": "success", "message": f"Successfully pressed (xdotool): {xdotool_key}"}
             else:
                 print("xdotool not found, falling back to pyautogui.")
-                raise Exception("xdotool not found") # Force fallback
+                raise Exception("xdotool not found")
         except Exception as e_xdotool:
             print(f"Attempting pyautogui due to xdotool issue: {e_xdotool}")
             try:
-                pyautogui.press(key) # Pyautogui handles key name mapping internally for common keys
+                pyautogui.press(key)
                 print(f"⌨️ Pressed key (via pyautogui): {key}")
                 press_status = {"status": "success", "message": f"Successfully pressed (pyautogui): {key}"}
             except Exception as e_pyautogui:
@@ -148,7 +143,7 @@ def press_key(key: str, wait_time: int = 0):
             print(f"🔴 Error pressing key with pyautogui: {e}")
             press_status = {"status": "error", "message": str(e)}
             
-    time.sleep(wait_time if wait_time > 0 else 0.5) # Use wait_time, ensure minimum delay
+    time.sleep(wait_time if wait_time > 0 else 0.5)
     return press_status
 
 def scroll(direction: str, amount: int, wait_time: int = 0):
@@ -161,8 +156,6 @@ def scroll(direction: str, amount: int, wait_time: int = 0):
     """
     scroll_status = {}
     try:
-        # Pyautogui's scroll amount is per "click" of the mouse wheel.
-        # Positive for up, negative for down.
         scroll_amount_clicks = amount if direction.lower() == "up" else -amount
         pyautogui.scroll(scroll_amount_clicks)
         print(f"↕️ Scrolled {direction} by {amount} units (clicks: {scroll_amount_clicks})")
@@ -171,5 +164,5 @@ def scroll(direction: str, amount: int, wait_time: int = 0):
         print(f"🔴 Error scrolling: {e}")
         scroll_status = {"status": "error", "message": str(e)}
     
-    time.sleep(wait_time if wait_time > 0 else 0.5) # Use wait_time, ensure minimum delay
+    time.sleep(wait_time if wait_time > 0 else 0.5)
     return scroll_status 

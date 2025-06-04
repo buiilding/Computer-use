@@ -12,7 +12,7 @@ class EvaluationAgent(BaseAgent):
     def __init__(self):
         super().__init__(
             model_name=settings.EVALUATION_MODEL_NAME,
-            system_prompt_path="test_prompts/Evaluation_Agent.txt" # Relative to project root
+            system_prompt_path="test_prompts/Evaluation_Agent.txt"
         )
 
     def convert_text_to_dict(self, text_data: str) -> Optional[dict]:
