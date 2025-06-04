@@ -1,0 +1,22 @@
+Action Called: click
+Arguments: {
+  "index": 394.0,
+  "wait_time": 1.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (34, 135)'}
+---
+Action Called: click
+Arguments: {
+  "y": 89.0,
+  "wait_time": 1.0,
+  "x": 251.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (251.0, 89.0)'}
+---
+Action Called: type
+Arguments: {
+  "text": "amazon.com",
+  "wait_time": 1.0
+}
+Output: {'status': 'success', 'message': 'Successfully typed: amazon.com'}
+---

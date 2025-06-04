@@ -1,0 +1,22 @@
+**Output Format:**
+Your SOLE output MUST be a JSON object with two keys: `status` and `reason`.
+```json
+{
+  "status": "success_or_failure_string",
+  "reason": "detailed_explanation_string"
+}
+```
+**Example Output (Success):**
+```json
+{
+  "status": "success",
+  "reason": "Successfully clicked the 'Chrome' icon. A new Chrome window is visible and 'ui_elements_after_action' indicates a window with title containing 'New Tab - Google Chrome'."
+}
+```
+**Example Output (Failure):**
+```json
+{
+  "status": "failure",
+  "reason": "Expected 'amazon.com' to be typed into the address bar. However, 'ui_elements_after_action' shows the address bar element is still empty, and the screenshot confirms no text was entered."
+}
+```

@@ -1,0 +1,10 @@
+--- New Plan (initial) ---
+Task 1: click_element on the chrome_icon coordinates (Expected: Google Chrome browser opens and is in focus)
+Task 2: click_element on the browser address bar coordinates (Expected: The address bar is focused and ready for typing)
+Task 3: type_text the URL 'amazon.com' at the address bar coordinates (Expected: The text 'amazon.com' is fully typed in the address bar)
+Task 4: press_key 'Enter' (Expected: Browser navigates to amazon.com homepage)
+Task 5: click_element on the search box coordinates (Expected: Search box on Amazon page is focused)
+Task 6: type_text 'laptop' in the search box coordinates (Expected: The word 'laptop' is typed into the Amazon search box)
+Task 7: press_key 'Enter' (Expected: Amazon search results for 'laptop' are displayed)
+--- End Plan ---
+

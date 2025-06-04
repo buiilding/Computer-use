@@ -1,0 +1,4 @@
+Look at the screenshot, inside the screenshot, there are indexes of bounding boxes. Analyze the request and the screenshot, and then decide which function to call, follow the request to decide which function to call.
+IN the click function, you could choose to call the index or the coordinates. I will provide you with the index and the coordinates, but just primarily use the screenshot to determine which index or coordinates to achieve the expected output.
+
+The screenshot will be any random state of the GUI, you need to identify the elements on the screen and then call the function to achieve the expected output.

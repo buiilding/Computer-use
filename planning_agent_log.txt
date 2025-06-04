@@ -1,0 +1,12 @@
+--- New Plan (initial) ---
+Failed to generate tasks from Gemini response.
+--- End Plan ---
+
+--- New Plan (replan_full) ---
+Failed to generate tasks from Gemini response.
+--- End Plan ---
+
+--- New Plan (replan_full) ---
+Failed to generate tasks from Gemini response.
+--- End Plan ---
+
