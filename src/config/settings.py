@@ -1,8 +1,12 @@
 import os
+from dotenv import load_dotenv
+
 
 # Define Project Root
 # This goes from src/config/settings.py up two levels to the omni-agent directory.
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
+load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 
 # Device and Model Paths
 OMNI_DEVICE = "cuda"  # Or "cpu"
@@ -18,7 +22,7 @@ MAX_FULL_REPLAN_ATTEMPTS = 2
 LOG_FILES = ["planning_agent_log.txt", "action_agent_log.txt", "evaluation_agent_log.txt"]
 
 # Gemini API Key
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+GEMINI_API_KEY = os.environ.get("GOOGLE_GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     print("Warning: GEMINI_API_KEY not set in environment variables. Agents requiring it may not function.")
 
