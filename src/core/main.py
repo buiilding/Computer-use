@@ -33,7 +33,6 @@ def run_workflow(initial_request: str, initial_expected_output: str):
         print("Fatal: GEMINI_API_KEY not set. Workflow cannot proceed.")
         return
 
-    print("Attempting to initialize Omni (SOM/Caption) models...")
     global_som_model, global_caption_model_processor = initialize_omni_models(settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH)
     if global_som_model is None or global_caption_model_processor is None:
         print("Warning: One or both Omni models (SOM, Caption) failed to initialize. AI-assisted screenshot analysis will be impacted.")
