@@ -5,3 +5,5 @@ run install.sh; ./install.sh
 
 enter your GOOGLE GEMINI API KEY into the variable created
 enter your google credentials file_path
+
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121

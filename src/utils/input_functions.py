@@ -62,7 +62,7 @@ def click(index: int = None, x: int = None, y: int = None, wait_time: int = 1):
 
     if target_x is not None and target_y is not None and not click_status.get("status") == "error":
         try:
-            pyautogui.moveTo(target_x, target_y, duration=0.2)
+            pyautogui.moveTo(target_x, target_y)
             pyautogui.click(target_x, target_y)
             print(f"🖱️ Clicked at coordinates: ({target_x}, {target_y})")
             click_status = {"status": "success", "message": f"Clicked at ({target_x}, {target_y})"}
@@ -73,7 +73,7 @@ def click(index: int = None, x: int = None, y: int = None, wait_time: int = 1):
     if not click_status:
         click_status = {"status": "error", "message": "Click action failed due to unresolved parameters or an unexpected issue before attempting the click."}
 
-    time.sleep(wait_time if wait_time > 0 else 0.5)
+    time.sleep(wait_time if wait_time > 0 else 1)
     return click_status
     
 def type(text: str, wait_time: int = 0):
@@ -85,14 +85,14 @@ def type(text: str, wait_time: int = 0):
     """
     type_status = {}
     try:
-        pyautogui.write(text, interval=0.05)
+        pyautogui.write(text)
         print(f"⌨️ Typed text: {text}")
         type_status = {"status": "success", "message": f"Successfully typed: {text}"}
     except Exception as e:
         print(f"🔴 Error typing text: {e}")
         type_status = {"status": "error", "message": str(e)}
     
-    time.sleep(wait_time if wait_time > 0 else 0.5)
+    time.sleep(wait_time)
     return type_status
 
 def press_key(key: str, wait_time: int = 0):
@@ -143,7 +143,7 @@ def press_key(key: str, wait_time: int = 0):
             print(f"🔴 Error pressing key with pyautogui: {e}")
             press_status = {"status": "error", "message": str(e)}
             
-    time.sleep(wait_time if wait_time > 0 else 0.5)
+    time.sleep(wait_time)
     return press_status
 
 def scroll(direction: str, amount: int, wait_time: int = 0):
@@ -164,5 +164,5 @@ def scroll(direction: str, amount: int, wait_time: int = 0):
         print(f"🔴 Error scrolling: {e}")
         scroll_status = {"status": "error", "message": str(e)}
     
-    time.sleep(wait_time if wait_time > 0 else 0.5)
+    time.sleep(wait_time)
     return scroll_status 

@@ -8,6 +8,7 @@ from .base_agent import BaseAgent
 from utils import screenshot
 from utils import input_functions
 from config import settings
+from core.state import State
 
 class PlanningAgent(BaseAgent):
     def __init__(self, som_model, caption_model_processor):
