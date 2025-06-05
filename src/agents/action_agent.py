@@ -15,7 +15,7 @@ class ActionAgent(BaseAgent):
     def __init__(self, som_model, caption_model_processor):
         super().__init__(
             model_name=settings.ACTION_MODEL_NAME,
-            system_prompt_path="test_prompts/Action_Agent.txt",
+            system_prompt_path=settings.ACTION_PROMPT_PATH,
             tools=[{"function_declarations" : function_declarations}]
         )
         self.som_model = som_model

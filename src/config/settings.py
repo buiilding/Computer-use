@@ -30,3 +30,8 @@ if not GEMINI_API_KEY:
 PLANNING_MODEL_NAME = "gemini-2.0-flash"
 ACTION_MODEL_NAME = "gemini-2.0-flash"
 EVALUATION_MODEL_NAME = "gemini-2.0-flash" 
+
+# Prompt Paths
+PLANNING_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Planning_Agent.txt")
+ACTION_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Action_Agent.txt")
+EVALUATION_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Evaluation_Agent.txt")

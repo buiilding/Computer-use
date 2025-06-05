@@ -14,7 +14,7 @@ class PlanningAgent(BaseAgent):
     def __init__(self, som_model, caption_model_processor):
         super().__init__(
             model_name=settings.PLANNING_MODEL_NAME,
-            system_prompt_path="test_prompts/Planning_Agent.txt"
+            system_prompt_path=settings.PLANNING_PROMPT_PATH
         )
         self.som_model = som_model
         self.caption_model_processor = caption_model_processor
