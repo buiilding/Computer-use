@@ -54,7 +54,7 @@ class PlanningAgent(BaseAgent):
             plan_prompt_context["original_request"] = state.get("original_request")
             plan_prompt_context["original_expected_output"] = state.get("original_expected_output")
   
-        prompt_text = f"Task context:\n{json.dumps(plan_prompt_context, indent=2)}\n\nPlease generate a list of subtasks to achieve the original_request, or respond with the word \"continue\" only, if you believe the previous plan (if any, implied by history and last_action_done) is sufficient or the goal is met based on the current image_agent_output."
+        prompt_text = f"{json.dumps(plan_prompt_context, indent=2)}\n"
 
         gemini_response_text = None
         current_user_message_content = {} # Initialize to handle cases where gemini_model might not run
@@ -111,7 +111,7 @@ class PlanningAgent(BaseAgent):
                         f.write("No tasks generated or invalid response.\n")
                     f.write("--- End Plan ---\n\n")
             except Exception as e:
-                print(f"Error writing to planning_agent_log.txt: {e}")
+                print(f"Error writing to {self.log_file_name}: {e}")
         else:
             print("PlanningAgent: Failed to get a valid task list string from Gemini.")
             try:
@@ -120,6 +120,74 @@ class PlanningAgent(BaseAgent):
                     f.write("Failed to generate tasks from Gemini response.\n")
                     f.write("--- End Plan ---\n\n")
             except Exception as e:
-                print(f"Error writing to planning_agent_log.txt: {e}")
+                print(f"Error writing to {self.log_file_name}: {e}")
 
-        return output_payload 
+        return output_payload
+
+if __name__ == '__main__':
+    print("--- Testing PlanningAgent Independently ---")
+
+    if not settings.GEMINI_API_KEY or settings.GEMINI_API_KEY == "<GEMINI_API_KEY>":
+        print("GEMINI_API_KEY not set. PlanningAgent test cannot proceed with actual model call.")
+    else:
+        # Test Case 1: Initial Planning
+        print("\n--- Test Case 1: Initial Planning ---")
+        mock_state_initial_plan = State(
+            original_request="Open calculator and calculate 2+2",
+            original_expected_output="The calculator shows 4.",
+            search_agent_guide="1. Find and open calculator app. 2. Click button '2'. 3. Click button '+'. 4. Click button '2'. 5. Click button '='.",
+            image_agent_output="The screen shows a desktop with a calculator icon.",
+            plan_mode="initial",
+            # Other fields that might be checked or used by the agent, fill with defaults
+            current_screenshot=None, # Planning agent doesn't use direct screenshot
+            current_elements=None,
+            last_action_done=None,
+            step=None,
+            task_list=[],
+            current_task_index=None,
+            newly_planned_tasks=None,
+            action_result=None,
+            error_message=None
+        )
+
+        print(f"Initializing PlanningAgent with model: {settings.PLANNING_MODEL_NAME}")
+        try:
+            planning_agent_test = PlanningAgent()
+            if planning_agent_test.gemini_model:
+                print("PlanningAgent initialized successfully for testing.")
+                print("Calling PlanningAgent (Initial Plan)...")
+                result_initial = planning_agent_test(mock_state_initial_plan)
+                print("\nPlanningAgent Test Result (Initial Plan):")
+                print(json.dumps(result_initial, indent=2))
+
+                # Test Case 2: Replanning (Continue)
+                print("\n--- Test Case 2: Replanning (Continue) ---")
+                # Simulate a state where an action was done from a previous plan
+                planning_agent_test.history = [
+                    {"role": "user", "parts": [{"text": "Original plan context..."}]},
+                    {"role": "model", "parts": [{"text": '[{"step": 1, "request": "Click calculator icon", "expected_output": "Calculator opens"}, {"step": 2, "request": "Click button 2", "expected_output": "2 is displayed"}]'}]}
+                ]
+                mock_state_replan_continue = State(
+                    original_request="Open calculator and calculate 2+2",
+                    original_expected_output="The calculator shows 4.",
+                    image_agent_output="Calculator is open, '2' is displayed on the calculator screen.",
+                    plan_mode="replan",
+                    last_action_done="Click calculator icon",
+                    step=1,
+                    search_agent_guide=None, 
+                    current_screenshot=None,
+                    current_elements=None,
+                    task_list=planning_agent_test.history[1]["parts"][0]["text"], # Mocking task list from history
+                    current_task_index=1, # Implies first task was done
+                    newly_planned_tasks=None,
+                    action_result=None,
+                    error_message=None
+                )
+                print("Calling PlanningAgent (Replan - expecting continue)...")
+                result_replan_continue = planning_agent_test(mock_state_replan_continue)
+                print("\nPlanningAgent Test Result (Replan - Continue):")
+                print(json.dumps(result_replan_continue, indent=2))
+            else:
+                print("PlanningAgent's Gemini model not initialized. Check API key and model setup.")
+        except Exception as e:
+            print(f"An error occurred during PlanningAgent test: {e}") 

@@ -9,6 +9,8 @@ from core.state import State
 from utils import input_functions
 from utils.function_definitions import function_declarations
 from config import settings
+from utils.screenshot import take_screenshot
+from utils.Omni_loader import initialize_omni_models
 
 class ActionAgent(BaseAgent):
     def __init__(self):
@@ -148,4 +150,94 @@ class ActionAgent(BaseAgent):
             error_msg = f"Error in ActionAgent: {str(e)}"
             print(error_msg)
             output_updates["action_result"] = error_msg
-            return output_updates 
+            return output_updates
+
+if __name__ == '__main__':
+    print("--- Testing ActionAgent Independently with Real Screenshot ---")
+
+    # Imports for testing screenshot functionality
+    from utils.screenshot import take_screenshot
+    from utils.Omni_loader import initialize_omni_models
+    # settings, State, Image, json are already imported or handled by ActionAgent itself.
+
+    real_screenshot_action_pil = None
+    real_elements_action = []
+
+    print("Initializing Omni models for screenshot...")
+    som_model, caption_model_processor = initialize_omni_models(
+        settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH
+    )
+    omni_enabled_for_test_action = True
+    if som_model is None or caption_model_processor is None:
+        print("Warning: Omni models (SOM, Caption) failed to initialize. Screenshot will be basic.")
+        omni_enabled_for_test_action = False
+    else:
+        print("Omni models initialized successfully for ActionAgent screenshot test.")
+
+    print("Attempting to take a real screenshot for ActionAgent test...")
+    try:
+        screenshot_bytes_io, elements = take_screenshot(
+            som_model, caption_model_processor, omni_enabled=omni_enabled_for_test_action
+        )
+        
+        if screenshot_bytes_io:
+            screenshot_bytes_io.seek(0)
+            real_screenshot_action_pil = Image.open(screenshot_bytes_io)
+            print(f"Real screenshot captured for ActionAgent: {real_screenshot_action_pil.size}")
+        else:
+            print("take_screenshot returned no image data for ActionAgent.")
+            
+        real_elements_action = elements if elements else []
+        print(f"{len(real_elements_action)} elements identified by screenshot function for ActionAgent.")
+        
+    except Exception as e_screenshot:
+        print(f"Could not take real screenshot for ActionAgent: {e_screenshot}")
+        real_screenshot_action_pil = None
+        real_elements_action = []
+
+
+    if not settings.GEMINI_API_KEY or settings.GEMINI_API_KEY == "<GEMINI_API_KEY>":
+        print("GEMINI_API_KEY not set. ActionAgent test cannot proceed with actual model call.")
+    elif real_screenshot_action_pil:
+        # Mock State for ActionAgent, now using real screenshot data
+        mock_current_task = {
+            "request": "Click the most prominent button visible on the screen.",
+            "expected_output": "The button should be clicked.",
+            "step": 1 
+        }
+        
+        # current_elements will come from the real screenshot
+        mock_state_action_real_ss = State(
+            task_list=[mock_current_task],
+            current_task_index=0,
+            image_agent_output="The screen shows several UI elements. Please refer to the screenshot and element list.", # Generic image agent output
+            current_elements=real_elements_action, # Using elements from take_screenshot
+            current_screenshot=real_screenshot_action_pil, # Using image from take_screenshot
+            original_request="Perform a test action based on real screen content.",
+            original_expected_output="Action performed.",
+            search_agent_guide=None,
+            last_action_done=None,
+            step=None, 
+            plan_mode="replan",
+            newly_planned_tasks=None,
+            action_result=None,
+            error_message=None
+        )
+
+        print(f"Initializing ActionAgent with model: {settings.ACTION_MODEL_NAME}")
+        try:
+            action_agent_test = ActionAgent()
+            if action_agent_test.gemini_model:
+                print("ActionAgent initialized successfully for testing with real screenshot.")
+                print("Calling ActionAgent with real screenshot data...")
+                result_action = action_agent_test(mock_state_action_real_ss)
+                print("\nActionAgent Test Result (with real screenshot):")
+                print(json.dumps(result_action, indent=2))
+            else:
+                print("ActionAgent's Gemini model not initialized. Check API key and model setup.")
+        except Exception as e:
+            print(f"An error occurred during ActionAgent test with real screenshot: {e}")
+    elif not real_screenshot_action_pil:
+        print("Real screenshot was not captured. Cannot run ActionAgent test that requires an image.")
+    else:
+        print("Some other prerequisite for ActionAgent test (with real screenshot) failed.") 
