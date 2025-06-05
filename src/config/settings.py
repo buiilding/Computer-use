@@ -19,7 +19,7 @@ MAX_DECOMPOSITION_ATTEMPTS_PER_TASK = 3
 MAX_FULL_REPLAN_ATTEMPTS = 2
 
 # Log files
-LOG_FILES = ["planning_agent_log.txt", "action_agent_log.txt", "evaluation_agent_log.txt"]
+LOG_FILES = ["planning_agent_log.txt", "action_agent_log.txt", "search_agent_log.txt", "image_agent_log.txt"]
 
 # Gemini API Key
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
@@ -29,9 +29,11 @@ if not GEMINI_API_KEY:
 # Model Names
 PLANNING_MODEL_NAME = "gemini-2.0-flash"
 ACTION_MODEL_NAME = "gemini-2.0-flash"
-EVALUATION_MODEL_NAME = "gemini-2.0-flash" 
+SEARCH_MODEL_NAME = "gemini-2.0-flash"
+IMAGE_AGENT_MODEL_NAME = "gemini-2.0-flash"
 
 # Prompt Paths
 PLANNING_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Planning_Agent.txt")
 ACTION_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Action_Agent.txt")
-EVALUATION_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Evaluation_Agent.txt")
+SEARCH_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Search_Agent.txt")
+IMAGE_AGENT_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Image_Agent.txt")

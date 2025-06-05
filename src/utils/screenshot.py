@@ -146,7 +146,7 @@ def take_screenshot(som_model, caption_model_processor, omni_enabled: bool = Tru
                             global_y = center_y_pixel + screen_y
 
                             new_item = {
-                                "content": item['content'], "coordinates": (global_x, global_y), "index": idx,
+                                "content": item['content'], "coordinates": (global_x, global_y),
                                 "type": item['type'], "interactivity": item['interactivity']
                             }
                             transformed_list_final.append(new_item)

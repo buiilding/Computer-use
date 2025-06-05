@@ -1,15 +1,14 @@
 click_declaration = {
     "name": "click",
-    "description": "Simulates a mouse click using EITHER an element index OR explicit x,y coordinates.",
+    "description": "Simulates a mouse click using explicit x,y coordinates.",
     "parameters": {
         "type": "object",
         "properties": {
-            "index": {"type": "integer", "description": "The index of the element in the screenshot to click. Use this OR x and y."},
-            "x": {"type": "integer", "description": "The x-coordinate of the click position. Use this OR index."},
-            "y": {"type": "integer", "description": "The y-coordinate of the click position. Use this OR index."},
+            "x": {"type": "integer", "description": "The x-coordinate of the click position."},
+            "y": {"type": "integer", "description": "The y-coordinate of the click position."},
             "wait_time": {"type": "integer", "description": "Time in seconds to wait after performing the action. Defaults to 1."}
         },
-        "required": ["wait_time"]
+        "required": ["x", "y", "wait_time"]
     }
 }
 
@@ -53,9 +52,20 @@ scroll_declaration = {
     }
 }
 
+wait_declaration = {
+    "name": "wait",
+    "description": "Waits for the specified amount of time.",
+    "parameters": {
+        "type": "object",
+        "properties": {"wait_time": {"type": "integer", "description": "Time in seconds to wait."}},
+        "required": ["wait_time"]
+    }
+}
+
 function_declarations = [
     press_key_declaration,
     scroll_declaration,
     click_declaration,
     type_declaration,
+    wait_declaration,
 ] 

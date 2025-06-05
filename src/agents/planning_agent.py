@@ -1,8 +1,5 @@
 import ast
-import io
 import json
-import base64
-import PIL.Image as Image
 
 from .base_agent import BaseAgent
 from utils import screenshot
@@ -11,16 +8,20 @@ from config import settings
 from core.state import State
 
 class PlanningAgent(BaseAgent):
-    def __init__(self, som_model, caption_model_processor):
+    def __init__(self):
         super().__init__(
             model_name=settings.PLANNING_MODEL_NAME,
             system_prompt_path=settings.PLANNING_PROMPT_PATH
         )
-        self.som_model = som_model
-        self.caption_model_processor = caption_model_processor
+        self.history = []
+        self.log_file_name = "planning_agent_log.txt"
 
-    def convert_to_list(self, task_list_str: str) -> list:
-        """Find the first "[" and the last "]" and convert the text between them to a list"""
+    def convert_to_list(self, task_list_str: str) -> list | str:
+        """Find the first "[" and the last "]" and convert the text between them to a list.
+        If the string is "continue", return "continue".
+        """
+        if task_list_str.strip().lower() == "continue":
+            return "continue"
         start = task_list_str.find("[")
         end = task_list_str.rfind("]")
         if start == -1 or end == -1 or end < start:
@@ -32,76 +33,54 @@ class PlanningAgent(BaseAgent):
             return []
 
     def __call__(self, state: State) -> dict:
-        output_payload = {"new_tasklist": None}
-        effective_screenshot_for_gemini = state.get("cur_screenshot")
-        elements_for_prompt = state.get("cur_elements")
+        output_payload = {"newly_planned_tasks": None}
 
-        if state["plan_mode"] == "initial" or state["plan_mode"] == "replan_full":
-            try:
-                new_screenshot_bytes_io, new_elements = screenshot.take_screenshot(
-                    self.som_model, self.caption_model_processor
-                )
-                
-                output_payload["cur_screenshot_from_planner"] = new_screenshot_bytes_io
-                output_payload["cur_elements_from_planner"] = new_elements
-                effective_screenshot_for_gemini = new_screenshot_bytes_io 
-                elements_for_prompt = new_elements
-            except Exception as e:
-                print(f"Error taking screenshot in PlanningAgent ({state['plan_mode']}): {e}")
-                pass 
-        
-        plan_prompt_context = {"request": state["request"], "expected_output": state["expected_output"]}
-        
-        if elements_for_prompt is not None:
-            input_functions.update_global_transformed_list(elements_for_prompt)
+        plan_prompt_context = {}
+        current_plan_mode = state.get("plan_mode", "replan") # Default to replan if not set
 
-        if state["plan_mode"] != "initial" and state.get("prev_failed_reason"):
-            plan_prompt_context["prev_failed_reason"] = state["prev_failed_reason"]
-            if state.get("prev_action"):
-                plan_prompt_context["prev_action"] = state["prev_action"]
-            if state.get("prev_action_output"):
-                plan_prompt_context["prev_action_output"] = state["prev_action_output"]
-        
-        prompt_text = f"Task context:\n{json.dumps(plan_prompt_context, indent=2)}\n\nPlease generate a list of tasks to complete the request."
-        
+        if current_plan_mode == "initial":
+            plan_prompt_context["search_agent_guide"] = state.get("search_agent_guide")
+            plan_prompt_context["image_agent_output"] = state.get("image_agent_output")
+            # For initial planning, original_request and original_expected_output provide overall goal.
+            # The prompt should guide the model to use search_agent_guide and image_agent_output to make the first plan.
+            plan_prompt_context["original_request"] = state.get("original_request")
+            plan_prompt_context["original_expected_output"] = state.get("original_expected_output")
+        else: # "replan" mode
+            plan_prompt_context["image_agent_output"] = state.get("image_agent_output")
+            plan_prompt_context["last_action_done"] = state.get("last_action_done")
+            plan_prompt_context["step"] = state.get("step")
+            # The history (self.history) will contain the previous task list implicitly.
+            # We also include original request/output for context during replanning if needed.
+            plan_prompt_context["original_request"] = state.get("original_request")
+            plan_prompt_context["original_expected_output"] = state.get("original_expected_output")
+  
+        prompt_text = f"Task context:\n{json.dumps(plan_prompt_context, indent=2)}\n\nPlease generate a list of subtasks to achieve the original_request, or respond with the word \"continue\" only, if you believe the previous plan (if any, implied by history and last_action_done) is sufficient or the goal is met based on the current image_agent_output."
+
         gemini_response_text = None
+        current_user_message_content = {} # Initialize to handle cases where gemini_model might not run
+
         if self.gemini_model:
             try:
-                message_parts = []
-                if effective_screenshot_for_gemini:
-                    pil_image_to_send = effective_screenshot_for_gemini
-                    if isinstance(effective_screenshot_for_gemini, io.BytesIO):
-                        effective_screenshot_for_gemini.seek(0)
-                        pil_image_to_send = Image.open(effective_screenshot_for_gemini)
-                    
-                    if isinstance(pil_image_to_send, Image.Image):
-                        img_byte_arr = io.BytesIO()
-                        pil_image_to_send.save(img_byte_arr, format='PNG')
-                        base64_image = base64.b64encode(img_byte_arr.getvalue()).decode('utf-8')
-                        
-                        image_part = {
-                            "inline_data": {
-                                "mime_type": "image/png",
-                                "data": base64_image
-                            }
-                        }
-                        message_parts.append(image_part)
-                        message_parts.append({"text": "The image is the current screenshot."})
+                current_user_message_content = {"role": "user", "parts": [{"text": prompt_text}]}
+                api_contents = self.history + [current_user_message_content]
                 
-                print(f"PlanningAgent Input (Text):\n---\n{prompt_text}\n---")
-                if effective_screenshot_for_gemini:
-                    print("PlanningAgent Input: Includes screenshot.")
-                else:
-                    print("PlanningAgent Input: No screenshot.")
-                message_parts.append({"text": prompt_text})
+                print(f"PlanningAgent Input (Text to add to history):\n---\n{prompt_text}\n---")
+                if self.history:
+                    print(f"PlanningAgent: Sending {len(self.history)} previous turns in history.")
+                print("PlanningAgent Input: No screenshot.")
                                 
-                task_list_response = self.gemini_model.generate_content(contents=message_parts)
-                if task_list_response.candidates and task_list_response.text: # Added check for candidates
+                task_list_response = self.gemini_model.generate_content(contents=api_contents)
+                
+                if hasattr(task_list_response, 'text') and task_list_response.text:
                     gemini_response_text = task_list_response.text
+                elif hasattr(task_list_response, 'candidates') and task_list_response.candidates and hasattr(task_list_response.candidates[0], 'content') and hasattr(task_list_response.candidates[0].content, 'parts') and task_list_response.candidates[0].content.parts and hasattr(task_list_response.candidates[0].content.parts[0], 'text'):
+                    # Fallback for different response structures if .text is not directly available
+                    gemini_response_text = task_list_response.candidates[0].content.parts[0].text
                 else:
-                    print("PlanningAgent: No text in Gemini response.")
-                    if task_list_response.prompt_feedback:
+                    print("PlanningAgent: No text in Gemini response or unexpected response structure.")
+                    if hasattr(task_list_response, 'prompt_feedback') and task_list_response.prompt_feedback:
                         print(f"PlanningAgent: Prompt Feedback: {task_list_response.prompt_feedback}")
+                    # print(f"DEBUG: Full Gemini Response: {task_list_response}") # Optional: for deeper debugging
 
             except Exception as e:
                 print(f"Error sending message to Gemini in PlanningAgent: {e}")
@@ -110,24 +89,34 @@ class PlanningAgent(BaseAgent):
 
         if gemini_response_text:
             print(f"PlanningAgent: Raw Gemini response text:\n```\n{gemini_response_text}\n```")
-            task_list = self.convert_to_list(gemini_response_text)
-            output_payload["new_tasklist"] = task_list
+            # Add successful interaction to history only if current_user_message_content was populated
+            if current_user_message_content: 
+                self.history.append(current_user_message_content)
+                self.history.append({"role": "model", "parts": [{"text": gemini_response_text}]})
+
+            task_list_or_continue = self.convert_to_list(gemini_response_text)
+            output_payload["newly_planned_tasks"] = task_list_or_continue
             try:
-                with open("planning_agent_log.txt", "a", encoding='utf-8') as f:
-                    f.write(f"--- New Plan ({state['plan_mode']}) ---\n")
-                    if task_list:
-                        for i, task_item in enumerate(task_list): # Renamed task to task_item
-                            f.write(f"Task {i+1}: {task_item.get('request', 'No request')} (Expected: {task_item.get('expected_output', 'N/A')})\n")
+                with open(self.log_file_name, "a", encoding='utf-8') as f:
+                    f.write(f"--- New Plan ({current_plan_mode}) ---\n")
+                    if isinstance(task_list_or_continue, list):
+                        if task_list_or_continue:
+                            for i, task_item in enumerate(task_list_or_continue):
+                                f.write(f"Task {i+1}: {task_item.get('request', 'No request')} (Expected: {task_item.get('expected_output', 'N/A')})\n")
+                        else:
+                            f.write("No tasks generated.\n")
+                    elif task_list_or_continue == "continue":
+                        f.write("Plan deemed good. Responding with 'continue'.\n")
                     else:
-                        f.write("No tasks generated.\n")
+                        f.write("No tasks generated or invalid response.\n")
                     f.write("--- End Plan ---\n\n")
             except Exception as e:
                 print(f"Error writing to planning_agent_log.txt: {e}")
         else:
             print("PlanningAgent: Failed to get a valid task list string from Gemini.")
             try:
-                with open("planning_agent_log.txt", "a", encoding='utf-8') as f:
-                    f.write(f"--- New Plan ({state['plan_mode']}) ---\n")
+                with open(self.log_file_name, "a", encoding='utf-8') as f:
+                    f.write(f"--- New Plan ({current_plan_mode}) ---\n")
                     f.write("Failed to generate tasks from Gemini response.\n")
                     f.write("--- End Plan ---\n\n")
             except Exception as e:

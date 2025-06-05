@@ -5,21 +5,19 @@ import inspect
 import PIL.Image as Image
 
 from .base_agent import BaseAgent
-from core.state import State, pick
-from utils import screenshot
+from core.state import State
 from utils import input_functions
 from utils.function_definitions import function_declarations
 from config import settings
 
 class ActionAgent(BaseAgent):
-    def __init__(self, som_model, caption_model_processor):
+    def __init__(self):
         super().__init__(
             model_name=settings.ACTION_MODEL_NAME,
             system_prompt_path=settings.ACTION_PROMPT_PATH,
             tools=[{"function_declarations" : function_declarations}]
         )
-        self.som_model = som_model
-        self.caption_model_processor = caption_model_processor
+        self.log_file_name = "action_agent_log.txt"
 
     def call_function(self, function_call_name: str, function_call_args: dict) -> any:
         """Call the function with the given name and arguments, filtering for valid parameters."""
@@ -47,97 +45,107 @@ class ActionAgent(BaseAgent):
             return f"Function {function_call_name} not found in input_functions module."
 
     def __call__(self, state: State) -> dict:
+        output_updates = {"action_agent_tool_call_name": None, "action_result": None}
         try:
-            if state["cur_task"] is not None and state["task_list"] is not None:
-                action_prompt_parts = ["expected_output", "cur_elements", "cur_task"]
-                if state.get("prev_failed_reason") is not None: # Check .get for safety
-                    action_prompt_parts.extend(["prev_failed_reason", "prev_action", "prev_action_output"])
-                
-                action_prompt = pick(state, *action_prompt_parts)
-                prompt_text = f"Task context:\n{json.dumps(action_prompt, indent=2)}\n\nPlease determine the next action based on the task context."
-                
-                current_image_from_state = state.get("cur_screenshot")
+            task_list = state.get("task_list")
+            current_task_idx = state.get("current_task_index")
 
-                if current_image_from_state is None: 
-                    print("Warning: No screenshot available for action")
-                    return {"cur_action": None, "cur_action_output": "No screenshot available"}
-                
-                pil_image_to_send_action = current_image_from_state
-                if isinstance(current_image_from_state, io.BytesIO):
-                    current_image_from_state.seek(0)
-                    pil_image_to_send_action = Image.open(current_image_from_state)
+            if not task_list or current_task_idx is None or not (0 <= current_task_idx < len(task_list)):
+                msg = "ActionAgent: Task list or current task index is invalid or missing."
+                print(msg)
+                output_updates["action_result"] = msg
+                return output_updates
+            
+            current_task = task_list[current_task_idx]
+            if not current_task or not isinstance(current_task, dict):
+                msg = f"ActionAgent: Current task at index {current_task_idx} is invalid."
+                print(msg)
+                output_updates["action_result"] = msg
+                return output_updates
 
-                if not isinstance(pil_image_to_send_action, Image.Image):
-                    print("ActionAgent: Screenshot is not a valid PIL Image after conversion.")
-                    return {"cur_action": None, "cur_action_output": "Failed to process screenshot for action."}
+            action_prompt_context = {
+                "subtask_request": current_task.get("request"),
+                "subtask_expected_output": current_task.get("expected_output"),
+                "image_agent_output": state.get("image_agent_output"),
+                "current_elements": state.get("current_elements")
+            }
+            
+            prompt_text = f"Task context:\n{json.dumps(action_prompt_context, indent=2)}\n\nPlease analyze the provided current screenshot, the image agent's output, the list of current elements, and the subtask details to determine the function call to execute the subtask using available tools."
+            
+            current_screenshot_pil = state.get("current_screenshot")
 
-                if self.gemini_model:
-                    message_parts_action = []
-                    img_byte_arr_action = io.BytesIO()
-                    pil_image_to_send_action.save(img_byte_arr_action, format='PNG')
-                    base64_image_action = base64.b64encode(img_byte_arr_action.getvalue()).decode('utf-8')
+            if not isinstance(current_screenshot_pil, Image.Image):
+                msg = "ActionAgent: Screenshot is not a valid PIL Image or not found in state."
+                print(msg)
+                output_updates["action_result"] = msg
+                # Log error if needed here
+                return output_updates
+
+            if self.gemini_model:
+                message_parts_action = []
+                try:
+                    img_byte_arr = io.BytesIO()
+                    current_screenshot_pil.save(img_byte_arr, format='PNG')
+                    base64_image = base64.b64encode(img_byte_arr.getvalue()).decode('utf-8')
                     
-                    image_part_action = {
+                    image_part = {
                         "inline_data": {
                             "mime_type": "image/png",
-                            "data": base64_image_action
+                            "data": base64_image
                         }
                     }
-                    message_parts_action.append(image_part_action)
-                    message_parts_action.append({"text": "The image is the current screenshot."})
-                    message_parts_action.append({"text": prompt_text})
-                    
-                    print(f"ActionAgent Input (Text):\n---\n{prompt_text}\n---")
-                    if pil_image_to_send_action:
-                        print("ActionAgent Input: Includes screenshot.")
-                    else:
-                        print("ActionAgent Input: No screenshot.")
-                    
-                    action_response = self.gemini_model.generate_content(contents=message_parts_action)
-                    function_call = None
-                    if action_response.candidates and action_response.candidates[0].content and action_response.candidates[0].content.parts:
-                        for part in action_response.candidates[0].content.parts:
-                            if part.function_call:
-                                function_call = part.function_call
-                                break
-                    
-                    print(f"ActionAgent: Function call:\n```\n{function_call}\n```")
-                    if function_call is not None:
-                        function_call_name = function_call.name
-                        function_call_args = dict(function_call.args) if function_call.args else {}
-                        
-                        action_output = self.call_function(function_call_name, function_call_args)
-                        print(f"ActionAgent Output (Function Result): {action_output}")
-                        
-                        try:
-                            with open("action_agent_log.txt", "a", encoding='utf-8') as f:
-                                f.write(f"Action Called: {function_call_name}\n")
-                                f.write(f"Arguments: {json.dumps(function_call_args, indent=2)}\n")
-                                f.write(f"Output: {str(action_output)}\n---\n")
-                        except Exception as e:
-                            print(f"Error writing to action_agent_log.txt: {e}")
+                    message_parts_action.append(image_part)
+                    message_parts_action.append({"text": "The image is the current screenshot. Use it along with the textual context to decide the action."})
+                except Exception as e_img:
+                    print(f"ActionAgent: Error processing screenshot for Gemini: {e_img}")
+                    # Potentially skip sending image if processing fails, or return error
+                    # For now, we'll let it proceed without image if this part fails, but log it.
+                    pass # Or handle more gracefully
 
-                        # Take screenshot AFTER action
-                        screenshot_bytes_io_action, elements_action = screenshot.take_screenshot(
-                            self.som_model, self.caption_model_processor, omni_enabled=True
-                        )
-                        if elements_action is not None:
-                            input_functions.update_global_transformed_list(elements_action)
-                        
-                        return {
-                            "cur_action": function_call_name, 
-                            "cur_action_output": action_output, 
-                            "cur_screenshot": screenshot_bytes_io_action, 
-                            "cur_elements": elements_action, 
-                        }
-                    else:
-                        return {"cur_action": None, "cur_action_output": "No function call found in response."}
+                message_parts_action.append({"text": prompt_text})
+                
+                print(f"ActionAgent Input (Text):\n---\n{prompt_text}\n---")
+                if any(part.get("inline_data") for part in message_parts_action):
+                    print("ActionAgent Input: Includes screenshot.")
                 else:
-                    return {"cur_action": None, "cur_action_output": f"{self.__class__.__name__}: Gemini model not available."}
-            
-            return {"cur_action": None, "cur_action_output": "Current task or task list is missing, or other prerequisite failed."}
+                    print("ActionAgent Input: No screenshot included (or failed to process). It will rely on image_agent_output and current_elements.")
+                
+                action_response = self.gemini_model.generate_content(contents=message_parts_action)
+                function_call = None
+                if action_response.candidates and action_response.candidates[0].content and action_response.candidates[0].content.parts:
+                    for part in action_response.candidates[0].content.parts:
+                        if part.function_call:
+                            function_call = part.function_call
+                            break
+                
+                print(f"ActionAgent: Function call:\n```\n{function_call}\n```")
+                if function_call is not None:
+                    function_call_name = function_call.name
+                    function_call_args = dict(function_call.args) if function_call.args else {}
+                    
+                    action_output = self.call_function(function_call_name, function_call_args)
+                    print(f"ActionAgent Output (Function Result): {action_output}")
+                    
+                    try:
+                        with open(self.log_file_name, "a", encoding='utf-8') as f:
+                            f.write(f"Action Called: {function_call_name}\n")
+                            f.write(f"Arguments: {json.dumps(function_call_args, indent=2)}\n")
+                            f.write(f"Output: {str(action_output)}\n---\n")
+                    except Exception as e:
+                        print(f"Error writing to {self.log_file_name}: {e}")
+
+                    output_updates["action_agent_tool_call_name"] = function_call_name
+                    output_updates["action_result"] = str(action_output)
+                    return output_updates
+                else:
+                    output_updates["action_result"] = "No function call found in response."
+                    return output_updates
+            else:
+                output_updates["action_result"] = f"{self.__class__.__name__}: Gemini model not available."
+                return output_updates
         
         except Exception as e:
-            print(f"Error in ActionAgent: {str(e)}")
-            # (logging handled as in original)
-            return {"cur_action": None, "cur_action_output": f"Failed to process action due to an unexpected error: {str(e)}"} 
+            error_msg = f"Error in ActionAgent: {str(e)}"
+            print(error_msg)
+            output_updates["action_result"] = error_msg
+            return output_updates 

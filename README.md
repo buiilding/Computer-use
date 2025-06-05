@@ -4,93 +4,104 @@ This document outlines the internal architecture and operational flow of the Omn
 
 ## Core Philosophy
 
-The agent operates on a graph-based workflow, managing state and transitioning between specialized AI agents to understand user requests, perceive UI elements, plan actions, execute them, and evaluate outcomes.
+The agent operates on a graph-based workflow, managing state and transitioning between specialized AI agents to understand user requests, perceive UI elements, plan actions, and execute them in a continuous loop.
 
 ## Key Components
 
 ### 1. State Management (`src/core/state.py`)
-At the heart of the system is a comprehensive **State** object. This object tracks all relevant information throughout the lifecycle of a user request, including:
+At the heart of the system is a **State** object. This object tracks all relevant information throughout the lifecycle of a user request, including:
 - The original user request and expected outcome.
-- The current plan (list of tasks).
-- The current task being executed.
-- Screenshots and detected UI elements.
-- History of actions, outcomes, and errors.
-- Retry counts and operational modes (e.g., initial planning, replanning, task decomposition).
+- The current plan (list of tasks) and the index of the current task.
+- Outputs from various agents (Search Agent guide, Image Agent description, Planning Agent's new tasks, Action Agent's result).
+- The current screenshot, detected UI elements, and last action performed.
+- Agent histories (for Image and Planning agents).
+- Error messages.
 
-All agents and a central controller read from and write to this state, ensuring a consistent view of the ongoing process.
+All agents and graph nodes read from and write to this state, ensuring a consistent view of the ongoing process.
 
 ### 2. Workflow Orchestration (`src/core/main.py`)
-The **Workflow** component is responsible for setting up and running the main operational loop. It initializes the agents and compiles a state graph (likely using a library like LangGraph) that defines the possible transitions between different processing nodes (agents and controller logic). It streams the initial state into this graph to kick off the process.
+`main.py` is responsible for setting up and running the main operational loop defined using a state graph (e.g., LangGraph). It initializes agents and defines the sequence of operations:
 
-### 3. Central Controller (`src/core/controller.py`)
-The **Controller** acts as the central decision-making node in the graph. After each agent performs its function, the controller evaluates the current state and decides the next step. Its responsibilities include:
-- Determining if a task was successful or failed based on the EvaluationAgent's output.
-- Advancing to the next task in the plan if the current one is successful.
-- Triggering retries for the current task if it failed and retry limits haven't been met.
-- Initiating replanning (either decomposing the current failed task or generating a new plan from scratch) if a task repeatedly fails.
-- Ending the workflow if all tasks are complete or if maximum retry/replan limits are exceeded.
+1.  **Search (Once)**: A `SearchAgent` first processes the initial request to generate a high-level guide.
+2.  **Main Loop**: The workflow then enters a continuous loop:
+    a.  **Screenshot**: Captures the current screen and identifies UI elements.
+    b.  **Image Analysis**: An `ImageAgent` analyzes the screenshot to provide a textual description and identify interactable elements, maintaining a history to note changes.
+    c.  **Planning**: A `PlanningAgent` uses the search guide (initially), the image analysis, and its own conversational history (of previous plans and actions) to decide on the next steps. It either generates a new list of sub-tasks or outputs "continue" if the previous plan is still valid and has pending steps.
+    d.  **Action**: If there's a sub-task to perform, an `ActionAgent` takes the sub-task details, the image analysis, detected UI elements, and the direct screenshot to execute a specific UI interaction (e.g., click, type) using low-level input functions.
+    e.  The loop then repeats from the Screenshot step.
 
-### 4. Specialized Agents (`src/agents/`)
+### 3. Specialized Agents (`src/agents/`)
 
-The system employs three primary AI-driven agents:
+The system employs several AI-driven agents:
 
-#### a. Planning Agent (`src/agents/planning_agent.py`)
-- **Responsibility**: To understand the overall user request and break it down into a sequence of smaller, actionable sub-tasks.
-- **Inputs**: The user's request, expected output, the current screenshot (if applicable, especially for replanning), and any previous failure reasons.
-- **Process**: It uses a generative AI model (e.g., Gemini) to analyze the inputs and generate a structured list of tasks. Each task typically includes a specific instruction and an expected outcome. It can operate in different modes: initial planning, full replanning, or decomposing a single complex task.
-- **Outputs**: A new task list, and potentially an updated screenshot and element list if it captured one for planning.
+#### a. Search Agent (`src/agents/search_agent.py`)
+- **Responsibility**: To perform an initial web search based on the user's request and expected output.
+- **Inputs**: `original_request`, `original_expected_output`.
+- **Process**: Uses a generative AI model with search capabilities.
+- **Outputs**: `search_agent_guide` (a brief textual guide for completing the task).
 
-#### b. Action Agent (`src/agents/action_agent.py`)
-- **Responsibility**: To execute the current task identified by the Controller. This involves interacting with the UI.
-- **Inputs**: The current task, the current screenshot, detected UI elements, and history of previous (failed) actions for context.
+#### b. Image Agent (`src/agents/image_agent.py`)
+- **Responsibility**: To analyze the current screenshot of the UI.
+- **Inputs**: The current screenshot image.
+- **Process**: Uses a generative AI model to: 
+    1. Provide a concise description of the GUI shown.
+    2. List visible, interactable UI elements.
+    It maintains a history to notice changes from previous screenshots.
+- **Outputs**: `image_agent_output` (textual description and element list).
+
+#### c. Planning Agent (`src/agents/planning_agent.py`)
+- **Responsibility**: To devise a sequence of actionable sub-tasks or decide to continue with an existing plan.
+- **Inputs** (varies by `plan_mode`):
+    - Initial: `original_request`, `original_expected_output`, `search_agent_guide`, `image_agent_output`.
+    - Replan: `original_request`, `original_expected_output`, `image_agent_output`, `last_action_done`, `step`.
+    - Crucially, it uses its own **conversational history** to recall the previously generated plan.
+- **Process**: Uses a generative AI model. Based on the inputs and its history, it either:
+    - Generates a new list of sub-tasks (each with a request and expected output).
+    - Outputs the string "continue" if it deems the prior plan (from its history) is still viable and has pending steps.
+- **Outputs**: `newly_planned_tasks` (either the list of sub-tasks or the string "continue").
+
+#### d. Action Agent (`src/agents/action_agent.py`)
+- **Responsibility**: To execute the current sub-task identified from the `task_list`.
+- **Inputs**: The current sub-task's request and expected output, `image_agent_output`, `current_elements` (from screenshot node), and the **current screenshot image** directly.
 - **Process**:
-    - It uses a generative AI model (e.g., Gemini with function calling capabilities) to determine the specific UI interaction needed (e.g., click, type).
-    - The model's decision is informed by the task description and the visual context from the screenshot and detected UI elements.
-    - It calls low-level functions (from `src/utils/input_functions.py`) to perform the actual mouse clicks, keyboard typing, etc.
-    - After performing an action, it captures a new screenshot.
-- **Outputs**: The name of the action performed, the output/result of that action, and the new screenshot and detected UI elements post-action.
+    - Uses a generative AI model (with function calling) to determine the specific UI interaction needed (e.g., click, type).
+    - The model's decision is informed by the sub-task, the textual UI description, the structured list of UI elements, and the direct visual context from the screenshot.
+    - Calls low-level functions (from `src/utils/input_functions.py`) for actual UI interaction.
+- **Outputs**: `action_agent_tool_call_name` and `action_result` (the outcome of the function call).
 
-#### c. Evaluation Agent (`src/agents/evaluation_agent.py`)
-- **Responsibility**: To assess whether the action performed by the ActionAgent successfully completed the current task.
-- **Inputs**: The expected outcome of the task, the current task description, the action that was taken, the output of that action, and the latest screenshot.
-- **Process**: It uses a generative AI model to compare the actual outcome (inferred from the action output and the new screenshot) against the expected outcome of the task.
-- **Outputs**: A status (e.g., True for success, False for failure) and a reason for the evaluation.
+### 4. Graph Nodes in `main.py` (beyond agents)
+- **`screenshot_node`**: Takes the screenshot, performs Omni processing (if models available) to identify elements, and updates the state with `current_screenshot` and `current_elements`.
+- **`process_planning_output_node`**: Handles the `PlanningAgent`'s output. If new tasks are provided, it updates the main `task_list`. If "continue" is received and the current `task_list` is exhausted, it triggers a history refresh for the `PlanningAgent` and `ImageAgent` and resets `plan_mode` to "initial".
+- **`update_after_action_node`**: Updates state with `last_action_done` and `step` after an action is completed and advances `current_task_index`.
+- **`should_action_or_loop` (Conditional Edge Logic)**: Directs flow to `action_agent_node` if there's an actionable task, or back to `loop_entry` (effectively to `screenshot_node`) if no task is pending (e.g., after "continue" on an exhausted list or an empty plan from planner).
 
 ### 5. Utilities (`src/utils/`)
 
-A collection of helper modules support the core components and agents:
-
--   **`Omni_loader.py`**: Responsible for loading and initializing the AI models used for screen understanding (e.g., SOM/YOLO for object detection, Florence2/BLIP for captioning). These models are loaded once and passed to the agents that need them.
--   **`screenshot.py`**:
-    -   Handles capturing screenshots of the current screen.
-    -   Orchestrates "Omni processing" on the screenshot if models are available. This involves:
-        -   Performing OCR (`detect_text_and_draw_boxes`) to find text elements.
-        -   Using a Scene Object Model (SOM) or YOLO model (`get_som_labeled_img` via `model_helpers.py`) to detect UI icons and elements.
-        -   Generating captions for detected elements.
-    -   Returns the screenshot image and a list of detected UI elements with their properties (content, coordinates, type).
--   **`model_helpers.py`**: Contains functions for running the object detection (YOLO/SOM) and image captioning models, processing their outputs, and removing overlapping detections.
--   **`input_functions.py`**: Provides the low-level functions that the ActionAgent calls to perform actual UI interactions like `click(x, y)`, `type(text, coordinates)`, etc.
--   **`config/settings.py`**: Stores configuration values such as API keys, model paths, and workflow constants (e.g., max retry attempts).
+-   **`Omni_loader.py`**: Loads AI models for screen understanding (SOM for object detection, captioning models).
+-   **`screenshot.py`**: Captures screenshots and uses Omni models (via `model_helpers.py`) to detect UI elements, their content, coordinates, and types.
+-   **`model_helpers.py`**: (Assumed to contain functions for running object detection and image captioning models – not directly modified in this refactor but used by `screenshot.py`).
+-   **`input_functions.py`**: Provides low-level UI interaction functions like `click(x, y)`, `type(text)`, etc., callable by the `ActionAgent`.
+-   **`function_definitions.py`**: Contains JSON schemas for the functions available to the `ActionAgent`'s model.
+-   **`config/settings.py`**: Stores configurations like API keys, model paths, and prompt paths.
 
 ## Operational Flow Summary
 
-1.  **Initialization**: The `workflow.py` script sets up the environment (e.g., `sys.path` modifications for imports), loads settings, and initializes the `StateGraph`.
-2.  **Request Input**: A user request (e.g., "Go to Amazon.com and search for 'laptop'") and the expected output (e.g., "The cheapest laptop is displayed on the screen") are provided as the initial input to the workflow.
-3.  **Planning**:
-    -   The `PlanningAgent` receives the request.
-    -   It takes an initial screenshot (via `screenshot.py` which uses `Omni_loader.py` and `model_helpers.py`).
-    -   It generates a list of tasks.
-4.  **Task Execution Loop (managed by `Controller`)**:
-    a.  The `Controller` selects the current task.
-    b.  **Action**: The `ActionAgent` takes the current task and the latest screenshot (which includes elements detected by `screenshot.py`). It decides on a UI action (e.g., click button X, type 'laptop' into search bar Y) and executes it using `input_functions.py`. After the action, it captures a new screenshot.
-    c.  **Evaluation**: The `EvaluationAgent` examines the result of the action (and the new screenshot) to determine if the task's expected outcome was achieved.
-    d.  **Control Logic**: The `Controller` checks the evaluation:
-        -   **Success**: If the task is complete, it moves to the next task in the list. If all tasks are done, the workflow ends.
-        -   **Failure**:
-            -   If action attempts are below a threshold, it retries the `ActionAgent` on the same task.
-            -   If action attempts are exhausted, it may trigger the `PlanningAgent` to "decompose" the failed task into simpler sub-tasks.
-            -   If decomposition also fails or isn't applicable, it might trigger a full "replan" by the `PlanningAgent` for the original request.
-            -   If all retry and replan limits are exhausted, the workflow ends with an error.
-5.  **Logging**: Throughout the process, agents log their inputs, outputs, and significant decisions to respective log files (e.g., `planning_agent_log.txt`).
+1.  **Initialization**: `main.py` loads settings and initializes all agents and the LangGraph structure.
+2.  **Search (Once)**: The `SearchAgent` processes the `original_request` and `original_expected_output` to produce a `search_agent_guide`.
+3.  **Main Interaction Loop**: The graph transitions to a loop starting with `loop_entry`:
+    a.  **Screenshot (`screenshot_node`)**: Captures the screen, processes it (potentially with Omni models) to get `current_screenshot` (image) and `current_elements` (list of UI element data like coordinates, content, type).
+    b.  **Image Analysis (`image_agent_node`)**: The `ImageAgent` receives `current_screenshot`, analyzes it using its history, and produces `image_agent_output` (textual description of the UI and interactable elements).
+    c.  **Planning (`planning_agent_node`)**: The `PlanningAgent` takes current context (`image_agent_output`, `search_agent_guide` if initial, `last_action_done` etc. if replan) and its conversational history to produce `newly_planned_tasks` (a list of sub-tasks or the string "continue").
+    d.  **Process Planning Output (`process_planning_output_node`)**: 
+        - If new tasks: `task_list` in state is updated, `current_task_index` reset.
+        - If "continue" and `task_list` is complete/empty: Histories of `ImageAgent` and `PlanningAgent` are cleared, `plan_mode` becomes "initial".
+    e.  **Decision (`should_action_or_loop`)**: 
+        - If `task_list` has a pending task at `current_task_index`: Proceed to Action.
+        - Else (no task, or error): Loop back to `loop_entry` (for a new screenshot and cycle).
+    f.  **Action (`action_agent_node`)**: If a task is pending, the `ActionAgent` receives the sub-task details, `image_agent_output`, `current_elements`, and the `current_screenshot`. It determines and executes a UI function call. Produces `action_result`.
+    g.  **Update After Action (`update_after_action_node`)**: `last_action_done` and `step` are updated in the state. `current_task_index` is incremented.
+    h.  The flow returns to `loop_entry`.
+4.  **Workflow End**: The loop can be ended by an error condition in `should_action_or_loop` or if a maximum iteration count (safety break) is hit.
+5.  **Logging**: Agents log their inputs, outputs, and significant decisions to respective log files.
 
-This cycle of planning, acting, evaluating, and controlling allows the agent to attempt complex multi-step tasks, with mechanisms for error handling and replanning. It is super slow though.
+This revised flow emphasizes continuous perception and adaptation, with planning decisions closely tied to the latest visual and textual understanding of the UI. It is acknowledged that this iterative process can be slow.
