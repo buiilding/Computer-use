@@ -3,13 +3,13 @@ import os
 import sys
 import time
 
-def click(x: int, y: int, wait_time: int = 1):
+def click(x: int, y: int, wait_time: int = 0):
     """Simulate a mouse click at the specified x and y coordinates.
     
     Args:
         x (int): The x-coordinate for the click.
         y (int): The y-coordinate for the click.
-        wait_time (int): Time to wait after the action in seconds. Defaults to 1.
+        wait_time (int): Time to wait after the action in seconds. Defaults to 0.
     """
     click_status = {}
     target_x, target_y = x, y # Directly use provided x, y
@@ -37,8 +37,8 @@ def click(x: int, y: int, wait_time: int = 1):
         msg = "Invalid parameters for click. Both 'x' and 'y' coordinates are required and must be provided."
         print(f"🔴 Error: {msg}")
         click_status = {"status": "error", "message": msg}
-    
-    time.sleep(wait_time if wait_time > 0 else 1) # Ensure wait_time is positive for sleep
+    if wait_time > 0:
+        time.sleep(wait_time) # Ensure wait_time is positive for sleep
     return click_status
     
 def type(text: str, wait_time: int = 0):
@@ -57,7 +57,8 @@ def type(text: str, wait_time: int = 0):
         print(f"🔴 Error typing text: {e}")
         type_status = {"status": "error", "message": str(e)}
     
-    time.sleep(wait_time)
+    if wait_time > 0:
+        time.sleep(wait_time)
     return type_status
 
 def press_key(key: str, wait_time: int = 0):
@@ -108,7 +109,8 @@ def press_key(key: str, wait_time: int = 0):
             print(f"🔴 Error pressing key with pyautogui: {e}")
             press_status = {"status": "error", "message": str(e)}
             
-    time.sleep(wait_time)
+    if wait_time > 0:
+        time.sleep(wait_time)
     return press_status
 
 def scroll(direction: str, amount: int, wait_time: int = 0):
@@ -129,5 +131,6 @@ def scroll(direction: str, amount: int, wait_time: int = 0):
         print(f"🔴 Error scrolling: {e}")
         scroll_status = {"status": "error", "message": str(e)}
     
-    time.sleep(wait_time)
+    if wait_time > 0:
+        time.sleep(wait_time)
     return scroll_status 

@@ -1,7 +1,15 @@
 import ast
 import json
 
-from .base_agent import BaseAgent
+#START DEBUG
+import os
+import sys
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+#END DEBUG
+
+from agents.base_agent import BaseAgent
 from utils import screenshot
 from utils import input_functions
 from config import settings

@@ -22,21 +22,21 @@ from utils import screenshot as screenshot_util
 from utils import input_functions
 
 
-global_som_model, global_caption_model_processor = None, None
+global_som_model, global_caption_model_processor, global_rapid_ocr_engine = None, None, None
 planning_agent_instance: PlanningAgent
 action_agent_instance: ActionAgent
 search_agent_instance: SearchAgent
 image_agent_instance: ImageAgent
 
 def initialize_agents():
-    global global_som_model, global_caption_model_processor
+    global global_som_model, global_caption_model_processor, global_rapid_ocr_engine
     global planning_agent_instance, action_agent_instance, search_agent_instance, image_agent_instance
 
-    global_som_model, global_caption_model_processor = initialize_omni_models(
-        settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH
+    global_som_model, global_caption_model_processor, global_rapid_ocr_engine = initialize_omni_models(
+        settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH, settings.RAPID_OCR_ENABLED
     )
-    if global_som_model is None or global_caption_model_processor is None:
-        print("Warning: Omni models (SOM, Caption) failed to initialize. AI-assisted screenshot analysis will be impacted.")
+    if global_som_model is None or global_caption_model_processor is None or global_rapid_ocr_engine is None:
+        print("Warning: Omni models (SOM, Caption) or RAPID_OCR failed to initialize. AI-assisted screenshot analysis will be impacted.")
     else:
         print("Omni (SOM/Caption) models initialized successfully.")
 
@@ -57,7 +57,7 @@ def screenshot_node(state: State) -> dict:
         return {"current_screenshot": None, "current_elements": None, "error_message": "Omni models unavailable for screenshot."}
 
     screenshot_bytes_io, elements = screenshot_util.take_screenshot(
-        global_som_model, global_caption_model_processor, omni_enabled=True
+        global_som_model, global_caption_model_processor, global_rapid_ocr_engine, omni_enabled=True
     )
     
     pil_image = None
@@ -234,7 +234,7 @@ def run_workflow(initial_request: str, initial_expected_output: str):
             else:
                 print(f"  {node_output_dict}")
         print("--- End Event ---")
-        if event_idx > 50:
+        if event_idx > 500:
             print("Stopping due to event limit (safety break).")
             break
             
@@ -244,6 +244,6 @@ if __name__ == "__main__":
     print("Running workflow directly via __main__")
     print(f"Current Working Directory: {os.getcwd()}")
     run_workflow(
-        initial_request="Go to google.com and search for 'LangGraph'.",
-        initial_expected_output="Search results for LangGraph are displayed."
+        initial_request="Go to amazon.com and search for the cheapest laptop.",
+        initial_expected_output="Search results for the cheapest laptop are displayed."
     ) 

@@ -1,16 +1,17 @@
+# from ultralytics import YOLO
 import io
-import base64
-import time
 import cv2
-import numpy as np
-import base64
+import time
 import torch
-from typing import List, Union
-from torchvision.ops import box_convert
-from torchvision.transforms import ToPILImage
-import supervision as sv
-from utils.box_annotator import BoxAnnotator 
+import base64
+import numpy as np
 from PIL import Image
+from typing import List
+import supervision as sv
+from torchvision.ops import box_convert
+from utils.box_annotator import BoxAnnotator 
+from torchvision.transforms import ToPILImage
+
 
 
 def get_caption_model_processor(model_name, model_name_or_path="Salesforce/blip2-opt-2.7b", device=None):
@@ -43,9 +44,18 @@ def get_yolo_model(model_path):
     model = YOLO(model_path)
     return model
 
+def get_rapid_ocr_engine(device: str = "cuda"):
+    params = {
+        "EngineConfig.onnxruntime.use_cuda": device == "cuda",
+    }
+    from rapidocr import RapidOCR
+    engine = RapidOCR(params=params)
+    return engine
+
 
 @torch.inference_mode()
 def get_parsed_content_icon(filtered_boxes, starting_idx, image_source, caption_model_processor, prompt=None, batch_size=128):
+    # Number of samples per batch, --> 128 roughly takes 4 GB of GPU memory for florence v2 model
     to_pil = ToPILImage()
     if starting_idx:
         non_ocr_boxes = filtered_boxes[starting_idx:]
@@ -90,59 +100,6 @@ def get_parsed_content_icon(filtered_boxes, starting_idx, image_source, caption_
     return generated_texts
 
 
-
-def get_parsed_content_icon_phi3v(filtered_boxes, ocr_bbox, image_source, caption_model_processor):
-    to_pil = ToPILImage()
-    if ocr_bbox:
-        non_ocr_boxes = filtered_boxes[len(ocr_bbox):]
-    else:
-        non_ocr_boxes = filtered_boxes
-    croped_pil_image = []
-    for i, coord in enumerate(non_ocr_boxes):
-        xmin, xmax = int(coord[0]*image_source.shape[1]), int(coord[2]*image_source.shape[1])
-        ymin, ymax = int(coord[1]*image_source.shape[0]), int(coord[3]*image_source.shape[0])
-        cropped_image = image_source[ymin:ymax, xmin:xmax, :]
-        croped_pil_image.append(to_pil(cropped_image))
-
-    model, processor = caption_model_processor['model'], caption_model_processor['processor']
-    device = model.device
-    messages = [{"role": "user", "content": "<|image_1|>\ndescribe the icon in one sentence"}] 
-    prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-
-    batch_size = 5  # Number of samples per batch
-    generated_texts = []
-
-    for i in range(0, len(croped_pil_image), batch_size):
-        images = croped_pil_image[i:i+batch_size]
-        image_inputs = [processor.image_processor(x, return_tensors="pt") for x in images]
-        inputs ={'input_ids': [], 'attention_mask': [], 'pixel_values': [], 'image_sizes': []}
-        texts = [prompt] * len(images)
-        for i, txt in enumerate(texts):
-            input = processor._convert_images_texts_to_inputs(image_inputs[i], txt, return_tensors="pt")
-            inputs['input_ids'].append(input['input_ids'])
-            inputs['attention_mask'].append(input['attention_mask'])
-            inputs['pixel_values'].append(input['pixel_values'])
-            inputs['image_sizes'].append(input['image_sizes'])
-        max_len = max([x.shape[1] for x in inputs['input_ids']])
-        for i, v in enumerate(inputs['input_ids']):
-            inputs['input_ids'][i] = torch.cat([processor.tokenizer.pad_token_id * torch.ones(1, max_len - v.shape[1], dtype=torch.long), v], dim=1)
-            inputs['attention_mask'][i] = torch.cat([torch.zeros(1, max_len - v.shape[1], dtype=torch.long), inputs['attention_mask'][i]], dim=1)
-        inputs_cat = {k: torch.concatenate(v).to(device) for k, v in inputs.items()}
-
-        generation_args = { 
-            "max_new_tokens": 25, 
-            "temperature": 0.01, 
-            "do_sample": False, 
-        } 
-        generate_ids = model.generate(**inputs_cat, eos_token_id=processor.tokenizer.eos_token_id, **generation_args) 
-        # # remove input tokens 
-        generate_ids = generate_ids[:, inputs_cat['input_ids'].shape[1]:]
-        response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
-        response = [res.strip('\n').strip() for res in response]
-        generated_texts.extend(response)
-
-    return generated_texts
-
 def remove_overlap_new(boxes, iou_threshold, ocr_bbox=None):
     '''
     ocr_bbox format: [{'type': 'text', 'bbox':[x,y], 'interactivity':False, 'content':str }, ...]
@@ -172,6 +129,7 @@ def remove_overlap_new(boxes, iou_threshold, ocr_bbox=None):
         return max(intersection / union, ratio1, ratio2)
 
     def is_inside(box1, box2):
+        # return box1[0] >= box2[0] and box1[1] >= box2[1] and box1[2] <= box2[2] and box1[3] <= box2[3]
         intersection = intersection_area(box1, box2)
         ratio1 = intersection / box_area(box1)
         return ratio1 > 0.80
@@ -254,27 +212,6 @@ def annotate(image_source: np.ndarray, boxes: torch.Tensor, logits: torch.Tensor
     return annotated_frame, label_coordinates
 
 
-def predict(model, image, caption, box_threshold, text_threshold):
-    """ Use huggingface model to replace the original model
-    """
-    model, processor = model['model'], model['processor']
-    device = model.device
-
-    inputs = processor(images=image, text=caption, return_tensors="pt").to(device)
-    with torch.no_grad():
-        outputs = model(**inputs)
-
-    results = processor.post_process_grounded_object_detection(
-        outputs,
-        inputs.input_ids,
-        box_threshold=box_threshold, # 0.4,
-        text_threshold=text_threshold, # 0.3,
-        target_sizes=[image.size[::-1]]
-    )[0]
-    boxes, logits, phrases = results["boxes"], results["scores"], results["labels"]
-    return boxes, logits, phrases
-
-
 def predict_yolo(model, image, box_threshold, imgsz, scale_img, iou_threshold=0.7):
     """ Use huggingface model to replace the original model
     """
@@ -304,16 +241,13 @@ def int_box_area(box, w, h):
     area = (int_box[2] - int_box[0]) * (int_box[3] - int_box[1])
     return area
 
-def get_som_labeled_img(image_source: Union[str, Image.Image], model=None, BOX_TRESHOLD=0.01, output_coord_in_ratio=False, ocr_bbox=None, text_scale=0.4, text_padding=5, draw_bbox_config=None, caption_model_processor=None, ocr_text=[], use_local_semantics=True, iou_threshold=0.9,prompt=None, scale_img=False, imgsz=None, batch_size=128):
+def get_som_labeled_img(image_source: Image.Image, model=None, BOX_TRESHOLD=0.01, output_coord_in_ratio=False, ocr_bbox=None, text_scale=0.4, text_padding=5, draw_bbox_config=None, caption_model_processor=None, ocr_text=[], use_local_semantics=True, iou_threshold=0.9,prompt=None, scale_img=False, imgsz=None, batch_size=128):
     """Process either an image path or Image object
     
     Args:
         image_source: Either a file path (str) or PIL Image object
         ...
     """
-    if isinstance(image_source, str):
-        image_source = Image.open(image_source)
-    image_source = image_source.convert("RGB") # for CLIP
     w, h = image_source.size
     if not imgsz:
         imgsz = (h, w)
@@ -345,11 +279,7 @@ def get_som_labeled_img(image_source: Union[str, Image.Image], model=None, BOX_T
     # get parsed icon local semantics
     time1 = time.time()
     if use_local_semantics:
-        caption_model = caption_model_processor['model']
-        if 'phi3_v' in caption_model.config.model_type: 
-            parsed_content_icon = get_parsed_content_icon_phi3v(filtered_boxes, ocr_bbox, image_source, caption_model_processor)
-        else:
-            parsed_content_icon = get_parsed_content_icon(filtered_boxes, starting_idx, image_source, caption_model_processor, prompt=prompt,batch_size=batch_size)
+        parsed_content_icon = get_parsed_content_icon(filtered_boxes, starting_idx, image_source, caption_model_processor, prompt=prompt,batch_size=batch_size)
         ocr_text = [f"Text Box ID {i}: {txt}" for i, txt in enumerate(ocr_text)]
         icon_start = len(ocr_text)
         parsed_content_icon_ls = []
@@ -359,10 +289,10 @@ def get_som_labeled_img(image_source: Union[str, Image.Image], model=None, BOX_T
                 box['content'] = parsed_content_icon.pop(0)
         for i, txt in enumerate(parsed_content_icon):
             parsed_content_icon_ls.append(f"Icon Box ID {str(i+icon_start)}: {txt}")
-        parsed_content_merged = ocr_text + parsed_content_icon_ls
+        # parsed_content_merged = ocr_text + parsed_content_icon_ls
     else:
         ocr_text = [f"Text Box ID {i}: {txt}" for i, txt in enumerate(ocr_text)]
-        parsed_content_merged = ocr_text
+        # parsed_content_merged = ocr_text
     print('time to get parsed content:', time.time()-time1)
 
     filtered_boxes = box_convert(boxes=filtered_boxes, in_fmt="xyxy", out_fmt="cxcywh")
@@ -384,3 +314,43 @@ def get_som_labeled_img(image_source: Union[str, Image.Image], model=None, BOX_T
         assert w == annotated_frame.shape[1] and h == annotated_frame.shape[0]
 
     return encoded_image, label_coordinates, filtered_boxes_elem
+
+def check_ocr_result(result, text_threshold=0.9):
+    if result is None:
+        text = []
+        bb = []
+    else:
+
+        text = []
+        bb = []
+
+        if hasattr(result, 'txts') and result.txts is not None:
+            for txt, score, box in zip(result.txts, result.scores, result.boxes):
+                if score > text_threshold:
+                    text.append(txt)
+
+                    x_coords = [p[0] for p in box]
+                    y_coords = [p[1] for p in box]
+                    x1 = int(min(x_coords))
+                    y1 = int(min(y_coords))
+                    x2 = int(max(x_coords))
+                    y2 = int(max(y_coords))
+
+                    bb.append((x1, y1, x2, y2))
+    return text, bb
+
+
+def get_xywh(input):
+    x, y, w, h = input[0][0], input[0][1], input[2][0] - input[0][0], input[2][1] - input[0][1]
+    x, y, w, h = int(x), int(y), int(w), int(h)
+    return x, y, w, h
+
+def get_xyxy(input):
+    x, y, xp, yp = input[0][0], input[0][1], input[2][0], input[2][1]
+    x, y, xp, yp = int(x), int(y), int(xp), int(yp)
+    return x, y, xp, yp
+
+def get_xywh_yolo(input):
+    x, y, w, h = input[0], input[1], input[2] - input[0], input[3] - input[1]
+    x, y, w, h = int(x), int(y), int(w), int(h)
+    return x, y, w, h

@@ -4,7 +4,15 @@ import base64
 import inspect
 import PIL.Image as Image
 
-from .base_agent import BaseAgent
+#START DEBUG
+import os
+import sys
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+#END DEBUG
+
+from agents.base_agent import BaseAgent
 from core.state import State
 from utils import input_functions
 from utils.function_definitions import function_declarations
@@ -72,7 +80,7 @@ class ActionAgent(BaseAgent):
                 "current_elements": state.get("current_elements")
             }
             
-            prompt_text = f"Task context:\n{json.dumps(action_prompt_context, indent=2)}\n\nPlease analyze the provided current screenshot, the image agent's output, the list of current elements, and the subtask details to determine the function call to execute the subtask using available tools."
+            prompt_text = f"Task context:\n{json.dumps(action_prompt_context, indent=2)}\n"
             
             current_screenshot_pil = state.get("current_screenshot")
 
@@ -97,7 +105,6 @@ class ActionAgent(BaseAgent):
                         }
                     }
                     message_parts_action.append(image_part)
-                    message_parts_action.append({"text": "The image is the current screenshot. Use it along with the textual context to decide the action."})
                 except Exception as e_img:
                     print(f"ActionAgent: Error processing screenshot for Gemini: {e_img}")
                     # Potentially skip sending image if processing fails, or return error
@@ -164,8 +171,8 @@ if __name__ == '__main__':
     real_elements_action = []
 
     print("Initializing Omni models for screenshot...")
-    som_model, caption_model_processor = initialize_omni_models(
-        settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH
+    som_model, caption_model_processor, rapid_ocr_engine = initialize_omni_models(
+        settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH, settings.RAPID_OCR_ENABLED
     )
     omni_enabled_for_test_action = True
     if som_model is None or caption_model_processor is None:
@@ -177,7 +184,7 @@ if __name__ == '__main__':
     print("Attempting to take a real screenshot for ActionAgent test...")
     try:
         screenshot_bytes_io, elements = take_screenshot(
-            som_model, caption_model_processor, omni_enabled=omni_enabled_for_test_action
+            som_model, caption_model_processor, rapid_ocr_engine, omni_enabled=omni_enabled_for_test_action
         )
         
         if screenshot_bytes_io:
@@ -201,8 +208,8 @@ if __name__ == '__main__':
     elif real_screenshot_action_pil:
         # Mock State for ActionAgent, now using real screenshot data
         mock_current_task = {
-            "request": "Click the most prominent button visible on the screen.",
-            "expected_output": "The button should be clicked.",
+            "request": "type 'watch -n 1 nvidia-smi' in the terminal",
+            "expected_output": "The terminal should show the output of the nvidia-smi command.",
             "step": 1 
         }
         

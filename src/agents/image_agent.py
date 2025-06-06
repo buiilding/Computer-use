@@ -3,7 +3,15 @@ import base64
 import PIL.Image as Image
 import json
 
-from .base_agent import BaseAgent
+#START DEBUG
+import os
+import sys
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+#END DEBUG
+
+from agents.base_agent import BaseAgent
 from core.state import State
 from config import settings
 
@@ -50,7 +58,29 @@ class ImageAgent(BaseAgent):
                 }
             }
             
-            current_turn_content = [{"role": "user", "parts": [image_part]}]
+            parts = [image_part]
+            current_elements = state.get("current_elements")
+
+            if current_elements and isinstance(current_elements, list):
+                try:
+                    # Extract only 'content' and 'type' from each element for a cleaner prompt
+                    filtered_elements = [
+                        {"content": el.get("content")}
+                        for el in current_elements
+                    ]
+                    
+                    # Convert the filtered list to a JSON string for the prompt
+                    elements_json_str = json.dumps(filtered_elements, indent=2)
+                    elements_prompt_text = (
+                        "Here is a JSON list of detected UI elements. It is a guide, but may be incomplete. "
+                        "Rely on your own visual analysis of the screenshot to create the final, complete description.\n"
+                        f"{elements_json_str}"
+                    )
+                    parts.append({"text": elements_prompt_text})
+                except (TypeError, ValueError) as e:
+                    print(f"ImageAgent: Could not serialize 'current_elements' to JSON: {e}")
+            
+            current_turn_content = [{"role": "user", "parts": parts}]
             api_contents = self.history + current_turn_content
             
             print(f"ImageAgent: Sending image to Gemini. History length: {len(self.history)}")
@@ -115,8 +145,8 @@ if __name__ == '__main__':
     real_elements = []
     
     print("Initializing Omni models for screenshot...")
-    som_model, caption_model_processor = initialize_omni_models(
-        settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH
+    som_model, caption_model_processor, rapid_ocr_engine = initialize_omni_models(
+        settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH, settings.RAPID_OCR_ENABLED
     )
     omni_enabled_for_test = True
     if som_model is None or caption_model_processor is None:
@@ -129,7 +159,7 @@ if __name__ == '__main__':
     try:
         # Pass the initialized models to take_screenshot
         screenshot_bytes_io, elements = take_screenshot(
-            som_model, caption_model_processor, omni_enabled=omni_enabled_for_test
+            som_model, caption_model_processor, rapid_ocr_engine, omni_enabled=omni_enabled_for_test
         )
         
         if screenshot_bytes_io:

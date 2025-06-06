@@ -13,7 +13,7 @@ sys.path.insert(0, parent_dir)
 
 from core.state import State
 from typing import Dict, Any
-from config.settings import GEMINI_API_KEY
+from config.settings import GEMINI_API_KEY, SEARCH_PROMPT_PATH
 
 
 class SearchAgent:
@@ -34,7 +34,21 @@ class SearchAgent:
         self.client = genai.Client(api_key=api_key)
         self.model_id = model_name
         self.google_search_tool = Tool(google_search=GoogleSearch())
+        self.system_prompt = self.load_system_prompt()
         self.log_file_name = "search_agent_log.txt"
+
+    def load_system_prompt(self):
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+        full_prompt_path = os.path.join(project_root, SEARCH_PROMPT_PATH)
+        try:
+            with open(full_prompt_path, "r", encoding='utf-8') as f:
+                return f.read()
+        except FileNotFoundError:
+            print(f"Error: System prompt file not found at {full_prompt_path}.")
+            return ""
+        except Exception as e:
+            print(f"Error loading system prompt for SearchAgent: {str(e)}")
+            return ""
 
     def __call__(self, state: State) -> Dict[str, Any]:
         """
@@ -54,15 +68,16 @@ class SearchAgent:
             print("SearchAgent: 'original_request' is missing from state.")
             return {"error": "'original_request' is missing from state."}
 
-        query = f"Request: {request}"
+        user_query = f"Request: {request}"
         if expected_output_context:
-            query += f"\nConsidering expected output context: {expected_output_context}"
+            user_query += f"\nConsidering expected output context: {expected_output_context}"
         
+        prompt_parts = [self.system_prompt, user_query]
 
         try:
             response = self.client.models.generate_content(
                 model=self.model_id,
-                contents=query,
+                contents=prompt_parts,
                 config=GenerateContentConfig(
                     tools=[self.google_search_tool],
                     response_modalities=["TEXT"],
@@ -85,7 +100,7 @@ class SearchAgent:
             try:
                 with open(self.log_file_name, "a", encoding='utf-8') as f:
                     f.write(f"--- Search Entry ---\n")
-                    f.write(f"Query: {query}\n")
+                    f.write(f"Query: {user_query}\n")
                     f.write(f"Model ID: {self.model_id}\n")
                     f.write(f"Response Text: {search_result_text}\n")
                     f.write(f"--- End Search ---\n\n")
@@ -100,7 +115,7 @@ class SearchAgent:
             try:
                 with open(self.log_file_name, "a", encoding='utf-8') as f:
                     f.write(f"--- Search Error ---\n")
-                    f.write(f"Query: {query}\n")
+                    f.write(f"Query: {user_query}\n")
                     f.write(f"Model ID: {self.model_id}\n")
                     f.write(f"Error: {e}\n")
                     f.write(f"--- End Search Error ---\n\n")

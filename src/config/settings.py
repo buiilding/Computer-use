@@ -12,6 +12,7 @@ load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 OMNI_DEVICE = "cuda"  # Or "cpu"
 SOM_MODEL_PATH = os.path.join(PROJECT_ROOT, "weights", "icon_detect", "model.pt")
 CAPTION_MODEL_PATH = os.path.join(PROJECT_ROOT, "weights", "icon_caption")
+RAPID_OCR_ENABLED = True
 
 # Workflow Constants
 MAX_ACTION_ATTEMPTS_PER_TASK = 1
