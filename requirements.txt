@@ -35,6 +35,7 @@ google-genai
 langgraph
 dotenv
 google-cloud-vision
+proto-plus
 flash_attn
 ninja
 easyocr

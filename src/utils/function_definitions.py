@@ -12,8 +12,22 @@ click_declaration = {
     }
 }
 
+right_click_declaration = {
+    "name": "right_click",
+    "description": "Simulates a right mouse click using explicit x,y coordinates.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "x": {"type": "integer", "description": "The x-coordinate of the right-click position."},
+            "y": {"type": "integer", "description": "The y-coordinate of the right-click position."},
+            "wait_time": {"type": "integer", "description": "Time in seconds to wait after performing the action. Defaults to 0."}
+        },
+        "required": ["x", "y"]
+    }
+}
+
 type_declaration = {
-    "name": "type",
+    "name": "type_text",
     "description": "Simulates typing the specified text.",
     "parameters": {
         "type": "object",
@@ -35,6 +49,23 @@ press_key_declaration = {
             "wait_time": {"type": "integer", "description": "Time in seconds to wait after performing the action. Defaults to 0."}
         },
         "required": ["key"]
+    }
+}
+
+hotkey_declaration = {
+    "name": "hotkey",
+    "description": "Presses a combination of keys simultaneously (e.g., Ctrl+C, Alt+F4).",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "keys": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "A list of keys to press together. For example: ['ctrl', 'c']"
+            },
+            "wait_time": {"type": "integer", "description": "Time in seconds to wait after the action. Defaults to 0."}
+        },
+        "required": ["keys"]
     }
 }
 
@@ -62,10 +93,25 @@ wait_declaration = {
     }
 }
 
+task_done_declaration = {
+    "name": "task_done",
+    "description": "Call this function when the user's original request has been successfully completed.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "reason": {"type": "string", "description": "A brief explanation of why the task is considered complete."}
+        },
+        "required": ["reason"]
+    }
+}
+
 function_declarations = [
     press_key_declaration,
+    hotkey_declaration,
     scroll_declaration,
     click_declaration,
+    right_click_declaration,
     type_declaration,
     wait_declaration,
+    task_done_declaration,
 ] 

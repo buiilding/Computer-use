@@ -145,12 +145,13 @@ def take_screenshot(som_model, caption_model_processor, rapid_ocr_engine, omni_e
                             center_y_ratio = (bbox[1] + bbox[3]) / 2
                             center_x_pixel = int(center_x_ratio * screen_width)
                             center_y_pixel = int(center_y_ratio * screen_height)
-                            global_x = center_x_pixel + screen_x
-                            global_y = center_y_pixel + screen_y
-
+                            
                             new_item = {
-                                "content": item['content'], "coordinates": (global_x, global_y),
-                                "type": item['type'], "interactivity": item['interactivity']
+                                "content": item['content'],
+                                "type": item['type'],
+                                "interactivity": item['interactivity'],
+                                "x": center_x_pixel + screen_x,
+                                "y": center_y_pixel + screen_y
                             }
                             transformed_list_final.append(new_item)
                             

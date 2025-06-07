@@ -5,15 +5,10 @@ from google.genai.types import (
     GoogleSearch,
     Tool,
 )
-import sys
-
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-sys.path.insert(0, parent_dir)
 
 from core.state import State
 from typing import Dict, Any
-from config.settings import GEMINI_API_KEY, SEARCH_PROMPT_PATH
+from config.settings import GEMINI_API_KEY, SEARCH_PROMPT_PATH, PROJECT_ROOT
 
 
 class SearchAgent:
@@ -35,7 +30,7 @@ class SearchAgent:
         self.model_id = model_name
         self.google_search_tool = Tool(google_search=GoogleSearch())
         self.system_prompt = self.load_system_prompt()
-        self.log_file_name = "search_agent_log.txt"
+        self.log_file_name = os.path.join(PROJECT_ROOT, "search_agent_log.txt")
 
     def load_system_prompt(self):
         project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))

@@ -40,8 +40,45 @@ def click(x: int, y: int, wait_time: int = 0):
     if wait_time > 0:
         time.sleep(wait_time) # Ensure wait_time is positive for sleep
     return click_status
+
+def right_click(x: int, y: int, wait_time: int = 0):
+    """Simulate a right mouse click at the specified x and y coordinates.
     
-def type(text: str, wait_time: int = 0):
+    Args:
+        x (int): The x-coordinate for the click.
+        y (int): The y-coordinate for the click.
+        wait_time (int): Time to wait after the action in seconds. Defaults to 0.
+    """
+    click_status = {}
+    target_x, target_y = x, y
+
+    print(f"Attempting right-click by coordinates: ({target_x}, {target_y})")
+
+    if target_x is not None and target_y is not None:
+        try:
+            target_x = int(target_x)
+            target_y = int(target_y)
+            pyautogui.moveTo(target_x, target_y)
+            pyautogui.rightClick(x=target_x, y=target_y)
+            print(f"🖱️ Right-clicked at coordinates: ({target_x}, {target_y})")
+            click_status = {"status": "success", "message": f"Right-clicked at ({target_x}, {target_y})"}
+        except ValueError:
+            msg = f"Invalid coordinate type: x ({x}) or y ({y}) must be integers."
+            print(f"🔴 Error: {msg}")
+            click_status = {"status": "error", "message": msg}
+        except Exception as e:
+            print(f"🔴 Error right-clicking at ({target_x}, {target_y}): {e}")
+            click_status = {"status": "error", "message": str(e)}
+    else:
+        msg = "Invalid parameters for right_click. Both 'x' and 'y' coordinates are required."
+        print(f"🔴 Error: {msg}")
+        click_status = {"status": "error", "message": msg}
+    
+    if wait_time > 0:
+        time.sleep(wait_time)
+    return click_status
+
+def type_text(text: str, wait_time: int = 0):
     """Simulate typing the specified text.
     
     Args:
@@ -113,6 +150,36 @@ def press_key(key: str, wait_time: int = 0):
         time.sleep(wait_time)
     return press_status
 
+def hotkey(keys: list, wait_time: int = 0):
+    """Simulate pressing a combination of keys simultaneously (hotkey).
+    
+    Args:
+        keys (list or str): A list of strings (e.g., ['ctrl', 'c']) or a single string (e.g., "ctrl+alt+t") representing the keys.
+        wait_time (int): Time to wait after the action in seconds. Defaults to 0.
+    """
+    hotkey_status = {}
+    
+    # If keys is a string, attempt to parse it into a list
+    if isinstance(keys, str):
+        keys = [key.strip() for key in keys.replace(' ', '').split('+')]
+
+    if not isinstance(keys, list) or not all(isinstance(k, str) for k in keys):
+        msg = f"Invalid 'keys' parameter: must be a list of strings, but received {type(keys)}."
+        print(f"🔴 Error: {msg}")
+        return {"status": "error", "message": msg}
+
+    try:
+        pyautogui.hotkey(*keys)
+        print(f"⌨️ Pressed hotkey combination: {' + '.join(keys)}")
+        hotkey_status = {"status": "success", "message": f"Successfully pressed hotkey: {' + '.join(keys)}"}
+    except Exception as e:
+        print(f"🔴 Error pressing hotkey: {e}")
+        hotkey_status = {"status": "error", "message": str(e)}
+
+    if wait_time > 0:
+        time.sleep(wait_time)
+    return hotkey_status
+
 def scroll(direction: str, amount: int, wait_time: int = 0):
     """Simulate scrolling in a specified direction.
     
@@ -133,4 +200,26 @@ def scroll(direction: str, amount: int, wait_time: int = 0):
     
     if wait_time > 0:
         time.sleep(wait_time)
-    return scroll_status 
+    return scroll_status
+
+def task_done(reason: str):
+    """A special function to be called when the task is complete.
+    
+    Args:
+        reason (str): A brief explanation of why the task is considered finished.
+        
+    Returns:
+        dict: A dictionary indicating the task is done.
+    """
+    print(f"✅ Task considered complete. Reason: {reason}")
+    return {"status": "done", "message": reason} 
+
+def wait(wait_time: int):
+    """Wait for a specified amount of time."""
+    time.sleep(wait_time)
+    return {"status": "success", "message": f"Successfully waited for {wait_time} seconds"}
+
+
+if __name__ == "__main__":
+    print(hotkey("ctrl+alt+t"))
+    print(hotkey(['ctrl', 'alt', 't']))

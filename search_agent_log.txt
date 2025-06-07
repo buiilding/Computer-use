@@ -1,0 +1,14 @@
+--- Search Entry ---
+Query: Request: go to amazon, search for a laptop, and display the cheapest one
+Considering expected output context: Successfully displayed the cheapest laptop
+Model ID: gemini-2.5-pro-preview-06-05
+Response Text: ### Step-by-step guide
+
+1. Navigate to "www.amazon.com".
+2. Locate the search bar at the top of the page.
+3. Type "laptop" into the search bar and press Enter.
+4. On the search results page, find the "Sort by" dropdown menu.
+5. From the "Sort by" menu, select the "Price: Low to High" option.
+6. Click on the first laptop that appears in the sorted search results to view its details.
+--- End Search ---
+

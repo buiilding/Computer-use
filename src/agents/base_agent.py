@@ -3,11 +3,13 @@ import google.generativeai as generativeai
 from config.settings import GEMINI_API_KEY
 
 class BaseAgent:
-    def __init__(self, model_name: str, system_prompt_path: str, tools: list = None):
+    def __init__(self, model_name: str, system_prompt_path: str, tools: list = None, temperature: float = 0.7):
         self.gemini_model = None
         self.model_name = model_name
         self.system_prompt_path = system_prompt_path
         self.tools = tools
+        self.temperature = temperature # ADDED: Store temperature
+        
         if GEMINI_API_KEY:
             self.setup_google_gemini(GEMINI_API_KEY)
         else:
@@ -17,16 +19,24 @@ class BaseAgent:
         generativeai.configure(api_key=gemini_api)
         system_instruction = self.load_system_prompt()
         
+        # ADDED: Create the generation configuration for temperature
+        generation_config = {
+            "temperature": self.temperature,
+        }
+
         model_kwargs = {
             "model_name": self.model_name,
-            "system_instruction": system_instruction
+            "system_instruction": system_instruction,
+            "generation_config": generation_config 
         }
+
         if self.tools:
             model_kwargs["tools"] = self.tools
             
         try:
             self.gemini_model = generativeai.GenerativeModel(**model_kwargs)
-            print(f"{self.__class__.__name__} ({self.model_name}): Gemini model initialized successfully.")
+            # Added temperature to the success message for clarity
+            print(f"{self.__class__.__name__} ({self.model_name}): Gemini model initialized successfully with temperature={self.temperature}.")
         except Exception as e:
             print(f"Error initializing Gemini model for {self.__class__.__name__} ({self.model_name}): {e}")
             self.gemini_model = None
@@ -48,4 +58,4 @@ class BaseAgent:
             return ""
 
     def __call__(self, state: dict) -> dict:
-        raise NotImplementedError("Each agent must implement its own __call__ method.") 
+        raise NotImplementedError("Each agent must implement its own __call__ method.")
