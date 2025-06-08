@@ -645,13 +645,6 @@
           "y": 126
         },
         {
-          "content": "SSD ",
-          "type": "icon",
-          "interactivity": true,
-          "x": 35,
-          "y": 405
-        },
-        {
           "content": "Clipboard",
           "type": "icon",
           "interactivity": true,
