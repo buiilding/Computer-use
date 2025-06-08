@@ -1,0 +1,722 @@
+[
+    {
+      "id": 0,
+      "content": "Activities",
+      "type": "text",
+      "interactivity": false,
+      "x": 14,
+      "y": 3,
+      "width": 71,
+      "height": 21
+    },
+    {
+      "id": 1,
+      "content": "Google Chrome",
+      "type": "text",
+      "interactivity": false,
+      "x": 115,
+      "y": 3,
+      "width": 131,
+      "height": 21
+    },
+    {
+      "id": 2,
+      "content": "Jun 8 17:15",
+      "type": "icon",
+      "interactivity": false,
+      "x": 955,
+      "y": 3,
+      "width": 84,
+      "height": 20
+    },
+    {
+      "id": 3,
+      "content": " Continuous Th...",
+      "type": "icon",
+      "interactivity": true,
+      "x": 151,
+      "y": 118,
+      "width": 112,
+      "height": 17
+    },
+    {
+      "id": 4,
+      "content": "Gmail",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1662,
+      "y": 172,
+      "width": 39,
+      "height": 16
+    },
+    {
+      "id": 5,
+      "content": "Images",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1710,
+      "y": 173,
+      "width": 47,
+      "height": 16
+    },
+    {
+      "id": 6,
+      "content": "Google",
+      "type": "text",
+      "interactivity": false,
+      "x": 855,
+      "y": 275,
+      "width": 280,
+      "height": 99
+    },
+    {
+      "id": 7,
+      "content": "Search Google or type a URL",
+      "type": "text",
+      "interactivity": false,
+      "x": 671,
+      "y": 424,
+      "width": 204,
+      "height": 20
+    },
+    {
+      "id": 8,
+      "content": "100.121116.7",
+      "type": "text",
+      "interactivity": false,
+      "x": 1327,
+      "y": 555,
+      "width": 114,
+      "height": 16
+    },
+    {
+      "id": 9,
+      "content": "Add shortcut",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1460,
+      "y": 557,
+      "width": 79,
+      "height": 13
+    },
+    {
+      "id": 10,
+      "content": "Continue with these tabs",
+      "type": "text",
+      "interactivity": false,
+      "x": 648,
+      "y": 644,
+      "width": 148,
+      "height": 15
+    },
+    {
+      "id": 11,
+      "content": "Home - Netflix",
+      "type": "text",
+      "interactivity": false,
+      "x": 701,
+      "y": 694,
+      "width": 89,
+      "height": 17
+    },
+    {
+      "id": 12,
+      "content": "netflix.com \u2022 peter-bui \u2022 You visit often",
+      "type": "text",
+      "interactivity": false,
+      "x": 700,
+      "y": 712,
+      "width": 191,
+      "height": 17
+    },
+    {
+      "id": 13,
+      "content": "netflix - Google Search",
+      "type": "text",
+      "interactivity": false,
+      "x": 701,
+      "y": 749,
+      "width": 135,
+      "height": 17
+    },
+    {
+      "id": 14,
+      "content": " google.com * peter-bui You visited 5 hours ago ",
+      "type": "text",
+      "interactivity": false,
+      "x": 698,
+      "y": 766,
+      "width": 242,
+      "height": 19
+    },
+    {
+      "id": 15,
+      "content": "Netflix",
+      "type": "text",
+      "interactivity": false,
+      "x": 701,
+      "y": 805,
+      "width": 44,
+      "height": 17
+    },
+    {
+      "id": 16,
+      "content": "netflix.com \u2022 peter-bui \u2022 You visited 5 hours ago",
+      "type": "text",
+      "interactivity": false,
+      "x": 700,
+      "y": 823,
+      "width": 236,
+      "height": 17
+    },
+    {
+      "id": 17,
+      "content": "INTEGRITY | Dinh nghia trong Tir dien tieng Anh Cambridge",
+      "type": "text",
+      "interactivity": false,
+      "x": 700,
+      "y": 860,
+      "width": 345,
+      "height": 19
+    },
+    {
+      "id": 18,
+      "content": "dictionary.cambridge.org iPhone12,1 You visited 8 hours ago",
+      "type": "text",
+      "interactivity": false,
+      "x": 698,
+      "y": 877,
+      "width": 316,
+      "height": 20
+    },
+    {
+      "id": 19,
+      "content": "integrity -Google Search",
+      "type": "text",
+      "interactivity": false,
+      "x": 700,
+      "y": 916,
+      "width": 148,
+      "height": 20
+    },
+    {
+      "id": 20,
+      "content": "google.com * iPhone12,1 \u00b7 You visited 8 hours ago",
+      "type": "text",
+      "interactivity": false,
+      "x": 701,
+      "y": 936,
+      "width": 251,
+      "height": 17
+    },
+    {
+      "id": 21,
+      "content": "See more",
+      "type": "icon",
+      "interactivity": true,
+      "x": 652,
+      "y": 971,
+      "width": 63,
+      "height": 17
+    },
+    {
+      "id": 22,
+      "content": "AlzaSyB5bF8. ",
+      "type": "icon",
+      "interactivity": true,
+      "x": 785,
+      "y": 488,
+      "width": 87,
+      "height": 89
+    },
+    {
+      "id": 23,
+      "content": "139,117,84 ",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1023,
+      "y": 489,
+      "width": 86,
+      "height": 90
+    },
+    {
+      "id": 24,
+      "content": "SSD ",
+      "type": "icon",
+      "interactivity": true,
+      "x": 0,
+      "y": 374,
+      "width": 68,
+      "height": 62
+    },
+    {
+      "id": 25,
+      "content": "Search icon",
+      "type": "icon",
+      "interactivity": true,
+      "x": 633,
+      "y": 416,
+      "width": 31,
+      "height": 36
+    },
+    {
+      "id": 26,
+      "content": "New Tab ",
+      "type": "icon",
+      "interactivity": true,
+      "x": 109,
+      "y": 26,
+      "width": 236,
+      "height": 38
+    },
+    {
+      "id": 27,
+      "content": "ghp_x6pIAjaY...",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1106,
+      "y": 490,
+      "width": 110,
+      "height": 95
+    },
+    {
+      "id": 28,
+      "content": "sk-ant-api03 ",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1227,
+      "y": 491,
+      "width": 78,
+      "height": 96
+    },
+    {
+      "id": 29,
+      "content": "en ",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1776,
+      "y": 0,
+      "width": 28,
+      "height": 25
+    },
+    {
+      "id": 30,
+      "content": "Photo by Jakkree Thampitakkul ",
+      "type": "icon",
+      "interactivity": true,
+      "x": 92,
+      "y": 1035,
+      "width": 225,
+      "height": 19
+    },
+    {
+      "id": 31,
+      "content": "Google Chrome app",
+      "type": "icon",
+      "interactivity": true,
+      "x": 0,
+      "y": 100,
+      "width": 70,
+      "height": 69
+    },
+    {
+      "id": 32,
+      "content": "Files",
+      "type": "icon",
+      "interactivity": true,
+      "x": 2,
+      "y": 33,
+      "width": 62,
+      "height": 60
+    },
+    {
+      "id": 33,
+      "content": "External drive",
+      "type": "icon",
+      "interactivity": true,
+      "x": 3,
+      "y": 307,
+      "width": 60,
+      "height": 63
+    },
+    {
+      "id": 34,
+      "content": "skjqgsd..",
+      "type": "icon",
+      "interactivity": true,
+      "x": 682,
+      "y": 473,
+      "width": 69,
+      "height": 103
+    },
+    {
+      "id": 35,
+      "content": "Google.",
+      "type": "icon",
+      "interactivity": true,
+      "x": 645,
+      "y": 909,
+      "width": 51,
+      "height": 50
+    },
+    {
+      "id": 36,
+      "content": "Image input",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1322,
+      "y": 417,
+      "width": 35,
+      "height": 34
+    },
+    {
+      "id": 37,
+      "content": "Expand",
+      "type": "icon",
+      "interactivity": true,
+      "x": 71,
+      "y": 27,
+      "width": 38,
+      "height": 39
+    },
+    {
+      "id": 38,
+      "content": "Reload",
+      "type": "icon",
+      "interactivity": true,
+      "x": 145,
+      "y": 70,
+      "width": 35,
+      "height": 36
+    },
+    {
+      "id": 39,
+      "content": "h_idkEDp..",
+      "type": "icon",
+      "interactivity": true,
+      "x": 903,
+      "y": 488,
+      "width": 70,
+      "height": 90
+    },
+    {
+      "id": 40,
+      "content": "Dictate",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1288,
+      "y": 418,
+      "width": 30,
+      "height": 33
+    },
+    {
+      "id": 41,
+      "content": "Back",
+      "type": "icon",
+      "interactivity": true,
+      "x": 75,
+      "y": 71,
+      "width": 34,
+      "height": 34
+    },
+    {
+      "id": 42,
+      "content": "Cambridge dictionary",
+      "type": "icon",
+      "interactivity": true,
+      "x": 644,
+      "y": 852,
+      "width": 51,
+      "height": 50
+    },
+    {
+      "id": 44,
+      "content": "Cursor IDE",
+      "type": "icon",
+      "interactivity": true,
+      "x": 4,
+      "y": 239,
+      "width": 61,
+      "height": 67
+    },
+    {
+      "id": 45,
+      "content": "Forward",
+      "type": "icon",
+      "interactivity": true,
+      "x": 110,
+      "y": 70,
+      "width": 33,
+      "height": 35
+    },
+    {
+      "id": 46,
+      "content": "Google profile",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1860,
+      "y": 154,
+      "width": 49,
+      "height": 50
+    },
+    {
+      "id": 47,
+      "content": "Google.",
+      "type": "icon",
+      "interactivity": true,
+      "x": 644,
+      "y": 740,
+      "width": 51,
+      "height": 50
+    },
+    {
+      "id": 48,
+      "content": "Netflix.",
+      "type": "icon",
+      "interactivity": true,
+      "x": 643,
+      "y": 684,
+      "width": 53,
+      "height": 51
+    },
+    {
+      "id": 49,
+      "content": "Star",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1709,
+      "y": 75,
+      "width": 31,
+      "height": 31
+    },
+    {
+      "id": 50,
+      "content": "Netflix.",
+      "type": "icon",
+      "interactivity": true,
+      "x": 644,
+      "y": 796,
+      "width": 52,
+      "height": 51
+    },
+    {
+      "id": 51,
+      "content": "terminal",
+      "type": "icon",
+      "interactivity": true,
+      "x": 0,
+      "y": 171,
+      "width": 68,
+      "height": 59
+    },
+    {
+      "id": 52,
+      "content": "App launcher",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1815,
+      "y": 156,
+      "width": 42,
+      "height": 48
+    },
+    {
+      "id": 53,
+      "content": "Recycle Bin",
+      "type": "icon",
+      "interactivity": true,
+      "x": 11,
+      "y": 446,
+      "width": 51,
+      "height": 56
+    },
+    {
+      "id": 54,
+      "content": "More options",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1882,
+      "y": 66,
+      "width": 34,
+      "height": 43
+    },
+    {
+      "id": 55,
+      "content": "Extension",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1751,
+      "y": 66,
+      "width": 42,
+      "height": 41
+    },
+    {
+      "id": 56,
+      "content": "Music box",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1808,
+      "y": 66,
+      "width": 34,
+      "height": 38
+    },
+    {
+      "id": 58,
+      "content": "Profile selection card",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1843,
+      "y": 66,
+      "width": 38,
+      "height": 40
+    },
+    {
+      "id": 59,
+      "content": "Beaker",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1770,
+      "y": 157,
+      "width": 38,
+      "height": 45
+    },
+    {
+      "id": 60,
+      "content": "More options",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1313,
+      "y": 636,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": 61,
+      "content": "tab group",
+      "type": "icon",
+      "interactivity": true,
+      "x": 79,
+      "y": 108,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": 62,
+      "content": "More apps",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1882,
+      "y": 0,
+      "width": 26,
+      "height": 25
+    },
+    {
+      "id": 64,
+      "content": "Tab Editor",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1865,
+      "y": 1029,
+      "width": 42,
+      "height": 39
+    },
+    {
+      "id": 65,
+      "content": "Minimize",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1821,
+      "y": 30,
+      "width": 30,
+      "height": 35
+    },
+    {
+      "id": 67,
+      "content": "App launcher",
+      "type": "icon",
+      "interactivity": true,
+      "x": 6,
+      "y": 1019,
+      "width": 57,
+      "height": 49
+    },
+    {
+      "id": 68,
+      "content": "0;s",
+      "type": "icon",
+      "interactivity": true,
+      "x": 579,
+      "y": 473,
+      "width": 47,
+      "height": 104
+    },
+    {
+      "id": 69,
+      "content": "Volume",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1855,
+      "y": 0,
+      "width": 24,
+      "height": 26
+    },
+    {
+      "id": 70,
+      "content": "Close",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1886,
+      "y": 28,
+      "width": 30,
+      "height": 36
+    },
+    {
+      "id": 71,
+      "content": "Wifi",
+      "type": "icon",
+      "x": 1825,
+      "interactivity": true,
+      "y": 0,
+      "width": 26,
+      "height": 26
+    },
+    {
+      "id": 72,
+      "content": "Restore",
+      "type": "icon",
+      "interactivity": true,
+      "x": 1852,
+      "y": 28,
+      "width": 32,
+      "height": 36
+    },
+    {
+      "id": 73,
+      "content": "A video-related application or feature.",
+      "type": "icon",
+      "interactivity": true,
+      "x": 457,
+      "y": 481,
+      "width": 71,
+      "height": 97
+    },
+    {
+      "id": 75,
+      "content": "Add tab",
+      "type": "icon",
+      "interactivity": true,
+      "x": 349,
+      "y": 33,
+      "width": 25,
+      "height": 28
+    },
+    {
+        "id": 77,
+        "content": "Google Chrome",
+        "type": "icon",
+        "interactivity": true,
+        "x": 113,
+        "y": 3,
+        "width": 131,
+        "height": 21
+      }
+  ]

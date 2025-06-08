@@ -1,0 +1,782 @@
+[
+  {
+    "id": 0,
+    "content": "Search Amazon",
+    "type": "text",
+    "interactivity": false,
+    "x": 2315,
+    "y": 105,
+    "width": 111,
+    "height": 22
+  },
+  {
+    "id": 1,
+    "content": "BooksBest Sellers",
+    "type": "text",
+    "interactivity": false,
+    "x": 2463,
+    "y": 158,
+    "width": 141,
+    "height": 16
+  },
+  {
+    "id": 2,
+    "content": "Gift Cards \u2192Subscribe & Save",
+    "type": "text",
+    "interactivity": false,
+    "x": 3459,
+    "y": 158,
+    "width": 210,
+    "height": 16
+  },
+  {
+    "id": 3,
+    "content": "Pet Supplles",
+    "type": "text",
+    "interactivity": false,
+    "x": 3679,
+    "y": 157,
+    "width": 85,
+    "height": 20
+  },
+  {
+    "id": 4,
+    "content": "JON",
+    "type": "text",
+    "interactivity": false,
+    "x": 2934,
+    "y": 206,
+    "width": 20,
+    "height": 15
+  },
+  {
+    "id": 5,
+    "content": "AFFLECK",
+    "type": "text",
+    "interactivity": false,
+    "x": 2783,
+    "y": 219,
+    "width": 53,
+    "height": 17
+  },
+  {
+    "id": 6,
+    "content": "BERNTHAL",
+    "type": "text",
+    "interactivity": false,
+    "x": 2910,
+    "y": 218,
+    "width": 65,
+    "height": 20
+  },
+  {
+    "id": 7,
+    "content": "THEACCOUNTANT",
+    "type": "text",
+    "interactivity": false,
+    "x": 2745,
+    "y": 255,
+    "width": 256,
+    "height": 37
+  },
+  {
+    "id": 8,
+    "content": "New original movie",
+    "type": "text",
+    "interactivity": false,
+    "x": 2777,
+    "y": 330,
+    "width": 191,
+    "height": 25
+  },
+  {
+    "id": 9,
+    "content": "prime",
+    "type": "text",
+    "interactivity": false,
+    "x": 2837,
+    "y": 364,
+    "width": 74,
+    "height": 28
+  },
+  {
+    "id": 10,
+    "content": "Buy again",
+    "type": "text",
+    "interactivity": false,
+    "x": 2531,
+    "y": 460,
+    "width": 101,
+    "height": 22
+  },
+  {
+    "id": 11,
+    "content": "Continueshoppingdeals",
+    "type": "text",
+    "interactivity": false,
+    "x": 2902,
+    "y": 460,
+    "width": 246,
+    "height": 21
+  },
+  {
+    "id": 12,
+    "content": "Dell Chromebook 11 3...HP Chromebook 15 15...",
+    "type": "text",
+    "interactivity": false,
+    "x": 2161,
+    "y": 779,
+    "width": 310,
+    "height": 17
+  },
+  {
+    "id": 13,
+    "content": "See more",
+    "type": "text",
+    "interactivity": false,
+    "x": 2159,
+    "y": 818,
+    "width": 62,
+    "height": 19
+  },
+  {
+    "id": 14,
+    "content": " More in Buy Again",
+    "type": "text",
+    "interactivity": false,
+    "x": 2528,
+    "y": 816,
+    "width": 115,
+    "height": 21
+  },
+  {
+    "id": 15,
+    "content": "Sponsored ",
+    "type": "text",
+    "interactivity": false,
+    "x": 3502,
+    "y": 855,
+    "width": 75,
+    "height": 22
+  },
+  {
+    "id": 16,
+    "content": "Shop450+giftcardbrands",
+    "type": "text",
+    "interactivity": false,
+    "x": 3271,
+    "y": 899,
+    "width": 270,
+    "height": 22
+  },
+  {
+    "id": 17,
+    "content": "Dell 14 Plus Laptop DB14250-14-inch... $1,12848 $1,192.40 \u221aprime  1 sustainability feature ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3269,
+    "y": 603,
+    "width": 311,
+    "height": 259
+  },
+  {
+    "id": 18,
+    "content": "ShopToday'sDeals See all deals ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3247,
+    "y": 437,
+    "width": 358,
+    "height": 155
+  },
+  {
+    "id": 19,
+    "content": "Hello, Bui Account &Lists ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3503,
+    "y": 86,
+    "width": 135,
+    "height": 58
+  },
+  {
+    "id": 20,
+    "content": "PanOxy ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2689,
+    "y": 494,
+    "width": 155,
+    "height": 152
+  },
+  {
+    "id": 21,
+    "content": "CREMO THICKENING PASTE ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2529,
+    "y": 493,
+    "width": 156,
+    "height": 153
+  },
+  {
+    "id": 22,
+    "content": "&Orders ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3638,
+    "y": 86,
+    "width": 82,
+    "height": 59
+  },
+  {
+    "id": 23,
+    "content": "Cart ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3726,
+    "y": 85,
+    "width": 89,
+    "height": 59
+  },
+  {
+    "id": 24,
+    "content": " Pickup and returns at.. ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2074,
+    "y": 87,
+    "width": 164,
+    "height": 59
+  },
+  {
+    "id": 25,
+    "content": "amazon prime ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 1927,
+    "y": 86,
+    "width": 140,
+    "height": 61
+  },
+  {
+    "id": 26,
+    "content": "Amazon.com.Spend less ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 1958,
+    "y": 0,
+    "width": 235,
+    "height": 39
+  },
+  {
+    "id": 27,
+    "content": "Amazon Business  ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2789,
+    "y": 146,
+    "width": 138,
+    "height": 35
+  },
+  {
+    "id": 28,
+    "content": "Shop By Interest ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2929,
+    "y": 146,
+    "width": 122,
+    "height": 35
+  },
+  {
+    "id": 29,
+    "content": "Kindle Books ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3351,
+    "y": 146,
+    "width": 102,
+    "height": 35
+  },
+  {
+    "id": 30,
+    "content": "Amazon Basics ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2342,
+    "y": 147,
+    "width": 115,
+    "height": 33
+  },
+  {
+    "id": 31,
+    "content": "Pharmacy ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3050,
+    "y": 147,
+    "width": 86,
+    "height": 34
+  },
+  {
+    "id": 32,
+    "content": "Medical Care  ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2185,
+    "y": 146,
+    "width": 110,
+    "height": 34
+  },
+  {
+    "id": 33,
+    "content": "Amazon Haul ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2081,
+    "y": 147,
+    "width": 105,
+    "height": 34
+  },
+  {
+    "id": 34,
+    "content": "Pickupwhereyouleftoff HP 15.6\" HD Anti-Glare... ASUS 14\" FHD Laptop,.. ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2142,
+    "y": 434,
+    "width": 346,
+    "height": 216
+  },
+  {
+    "id": 35,
+    "content": "Browsing History ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3132,
+    "y": 147,
+    "width": 131,
+    "height": 34
+  },
+  {
+    "id": 36,
+    "content": "Rufus ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 1999,
+    "y": 152,
+    "width": 77,
+    "height": 27
+  },
+  {
+    "id": 37,
+    "content": "Saks ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2297,
+    "y": 147,
+    "width": 46,
+    "height": 33
+  },
+  {
+    "id": 38,
+    "content": "Buy Again ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2705,
+    "y": 147,
+    "width": 84,
+    "height": 34
+  },
+  {
+    "id": 39,
+    "content": "HP Chromebook15 8GBLPDDR5RAM 192GBStorage ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2317,
+    "y": 658,
+    "width": 155,
+    "height": 143
+  },
+  {
+    "id": 40,
+    "content": "Handmade ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3260,
+    "y": 147,
+    "width": 93,
+    "height": 34
+  },
+  {
+    "id": 41,
+    "content": "Watch\"overcompensating\" M ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2888,
+    "y": 875,
+    "width": 345,
+    "height": 204
+  },
+  {
+    "id": 42,
+    "content": "Prime Video ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2606,
+    "y": 147,
+    "width": 99,
+    "height": 34
+  },
+  {
+    "id": 43,
+    "content": "PrimeVideo:Recommended forYou ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2141,
+    "y": 876,
+    "width": 725,
+    "height": 203
+  },
+  {
+    "id": 44,
+    "content": "See all deals ",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2900,
+    "y": 818,
+    "width": 77,
+    "height": 18
+  },
+  {
+    "id": 45,
+    "content": "All",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2258,
+    "y": 95,
+    "width": 53,
+    "height": 42
+  },
+  {
+    "id": 46,
+    "content": "search functionality.",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3358,
+    "y": 94,
+    "width": 47,
+    "height": 43
+  },
+  {
+    "id": 47,
+    "content": "Port adapter",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2529,
+    "y": 649,
+    "width": 157,
+    "height": 153
+  },
+  {
+    "id": 48,
+    "content": "Extension",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3674,
+    "y": 39,
+    "width": 36,
+    "height": 42
+  },
+  {
+    "id": 49,
+    "content": "Colorful Apple tab",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3269,
+    "y": 932,
+    "width": 316,
+    "height": 147
+  },
+  {
+    "id": 50,
+    "content": "Account manager",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3765,
+    "y": 39,
+    "width": 36,
+    "height": 41
+  },
+  {
+    "id": 51,
+    "content": "Phone holder for bike",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2689,
+    "y": 649,
+    "width": 156,
+    "height": 152
+  },
+  {
+    "id": 52,
+    "content": "Language settings",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3425,
+    "y": 88,
+    "width": 75,
+    "height": 55
+  },
+  {
+    "id": 53,
+    "content": "black Laptop",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2155,
+    "y": 658,
+    "width": 166,
+    "height": 142
+  },
+  {
+    "id": 54,
+    "content": "Reload",
+    "type": "icon",
+    "interactivity": true,
+    "x": 1995,
+    "y": 41,
+    "width": 35,
+    "height": 39
+  },
+  {
+    "id": 55,
+    "content": "Music box",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3728,
+    "y": 39,
+    "width": 35,
+    "height": 41
+  },
+  {
+    "id": 56,
+    "content": "Expand",
+    "type": "icon",
+    "interactivity": true,
+    "x": 1921,
+    "y": 1,
+    "width": 36,
+    "height": 38
+  },
+  {
+    "id": 57,
+    "content": "More options",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3804,
+    "y": 41,
+    "width": 27,
+    "height": 40
+  },
+  {
+    "id": 58,
+    "content": "Forward",
+    "type": "icon",
+    "interactivity": true,
+    "x": 1959,
+    "y": 42,
+    "width": 33,
+    "height": 38
+  },
+  {
+    "id": 59,
+    "content": "Star",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3625,
+    "y": 43,
+    "width": 40,
+    "height": 38
+  },
+  {
+    "id": 60,
+    "content": "Back",
+    "type": "icon",
+    "interactivity": true,
+    "x": 1926,
+    "y": 42,
+    "width": 33,
+    "height": 37
+  },
+  {
+    "id": 61,
+    "content": "Close",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3806,
+    "y": 0,
+    "width": 30,
+    "height": 35
+  },
+  {
+    "id": 62,
+    "content": "Blue Laptop facing the camera",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2901,
+    "y": 500,
+    "width": 159,
+    "height": 134
+  },
+  {
+    "id": 63,
+    "content": "Gift Cards",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3453,
+    "y": 146,
+    "width": 91,
+    "height": 35
+  },
+  {
+    "id": 64,
+    "content": "All",
+    "type": "icon",
+    "interactivity": true,
+    "x": 1934,
+    "y": 147,
+    "width": 58,
+    "height": 37
+  },
+  {
+    "id": 65,
+    "content": "Restore",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3772,
+    "y": 0,
+    "width": 32,
+    "height": 35
+  },
+  {
+    "id": 66,
+    "content": "A silver laptop with the sunflower on the screen",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3056,
+    "y": 651,
+    "width": 162,
+    "height": 140
+  },
+  {
+    "id": 67,
+    "content": "Minimize",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3743,
+    "y": 0,
+    "width": 26,
+    "height": 34
+  },
+  {
+    "id": 68,
+    "content": "Next Page",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3562,
+    "y": 288,
+    "width": 39,
+    "height": 48
+  },
+  {
+    "id": 69,
+    "content": "Previous Page",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2137,
+    "y": 278,
+    "width": 52,
+    "height": 68
+  },
+  {
+    "id": 70,
+    "content": "Move up",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3823,
+    "y": 85,
+    "width": 16,
+    "height": 50
+  },
+  {
+    "id": 71,
+    "content": "an i3 core silver laptop",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2896,
+    "y": 658,
+    "width": 162,
+    "height": 132
+  },
+  {
+    "id": 72,
+    "content": "Books",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2456,
+    "y": 147,
+    "width": 60,
+    "height": 33
+  },
+  {
+    "id": 73,
+    "content": "Amazon.com",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2037,
+    "y": 41,
+    "width": 128,
+    "height": 39
+  },
+  {
+    "id": 74,
+    "content": "Best Sellers",
+    "type": "icon",
+    "interactivity": true,
+    "x": 2514,
+    "y": 147,
+    "width": 97,
+    "height": 34
+  },
+  {
+    "id": 75,
+    "content": "Gallery",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3054,
+    "y": 501,
+    "width": 163,
+    "height": 135
+  },
+  {
+    "id": 76,
+    "content": "Subscriptive & Save",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3546,
+    "y": 146,
+    "width": 129,
+    "height": 37
+  },
+  {
+    "id": 77,
+    "content": "Move down",
+    "type": "icon",
+    "interactivity": true,
+    "x": 3824,
+    "y": 1061,
+    "width": 15,
+    "height": 18
+  }
+]

@@ -1,28 +1,26 @@
 click_declaration = {
     "name": "click",
-    "description": "Simulates a mouse click using explicit x,y coordinates.",
+    "description": "Simulates a mouse click on a specific UI element using its ID.",
     "parameters": {
         "type": "object",
         "properties": {
-            "x": {"type": "integer", "description": "The x-coordinate of the click position."},
-            "y": {"type": "integer", "description": "The y-coordinate of the click position."},
+            "element_id": {"type": "integer", "description": "The ID of the element to click, corresponding to its index in the `current_elements` list."},
             "wait_time": {"type": "integer", "description": "Time in seconds to wait after performing the action. Defaults to 1."}
         },
-        "required": ["x", "y", "wait_time"]
+        "required": ["element_id", "wait_time"]
     }
 }
 
 right_click_declaration = {
     "name": "right_click",
-    "description": "Simulates a right mouse click using explicit x,y coordinates.",
+    "description": "Simulates a right mouse click on a specific UI element using its ID.",
     "parameters": {
         "type": "object",
         "properties": {
-            "x": {"type": "integer", "description": "The x-coordinate of the right-click position."},
-            "y": {"type": "integer", "description": "The y-coordinate of the right-click position."},
+            "element_id": {"type": "integer", "description": "The ID of the element to right-click, corresponding to its index in the `current_elements` list."},
             "wait_time": {"type": "integer", "description": "Time in seconds to wait after performing the action. Defaults to 0."}
         },
-        "required": ["x", "y"]
+        "required": ["element_id"]
     }
 }
 

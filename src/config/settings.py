@@ -24,11 +24,11 @@ if not GEMINI_API_KEY:
 
 # Model Names
 SEARCH_MODEL_NAME = "gemini-2.5-pro-preview-06-05"
-MAIN_MODEL_NAME = "gemini-2.5-pro-preview-06-05"
+MAIN_MODEL_NAME = "gemini-1.5-flash"
 
 # Prompt Paths
 SEARCH_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Search_Agent.txt")
 MAIN_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Main_Agent.txt")
 
-REQUEST = "go to amazon, search for a laptop, and display the cheapest one"
-EXPECTED_OUTPUT = "Successfully displayed the cheapest laptop"
+REQUEST = "go to amazon, search for a laptop, and display the price of the cheapest one"
+EXPECTED_OUTPUT = "Successfully displayed the cheapest laptop's price"

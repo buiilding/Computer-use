@@ -3,76 +3,87 @@ import os
 import sys
 import time
 
-def click(x: int, y: int, wait_time: int = 0):
-    """Simulate a mouse click at the specified x and y coordinates.
+def click(element_id: int, elements: list, wait_time: int = 0):
+    """Simulate a mouse click on a specific UI element.
     
     Args:
-        x (int): The x-coordinate for the click.
-        y (int): The y-coordinate for the click.
+        element_id (int): The index of the element to click in the elements list.
+        elements (list): The list of current UI elements on the screen.
         wait_time (int): Time to wait after the action in seconds. Defaults to 0.
     """
     click_status = {}
-    target_x, target_y = x, y # Directly use provided x, y
+    
+    try:
+        element_id = int(element_id)
+        if not elements:
+            raise ValueError("The 'elements' list is empty.")
+        if not 0 <= element_id < len(elements):
+            raise IndexError(f"Element ID {element_id} is out of bounds for elements list of size {len(elements)}.")
+            
+        element = elements[element_id]
+        target_x = element.get('x')
+        target_y = element.get('y')
 
-    print(f"Attempting click by coordinates: ({target_x}, {target_y})")
+        if target_x is None or target_y is None:
+            raise ValueError(f"Element with ID {element_id} does not have 'x' or 'y' coordinates.")
 
-    if target_x is not None and target_y is not None: # Check if x and y are provided (though they are mandatory by signature now)
-        try:
-            # Ensure x and y are integers before passing to pyautogui
-            target_x = int(target_x)
-            target_y = int(target_y)
-            pyautogui.moveTo(target_x, target_y)
-            pyautogui.click(target_x, target_y)
-            print(f"🖱️ Clicked at coordinates: ({target_x}, {target_y})")
-            click_status = {"status": "success", "message": f"Clicked at ({target_x}, {target_y})"}
-        except ValueError:
-            msg = f"Invalid coordinate type: x ({x}) or y ({y}) must be integers."
-            print(f"🔴 Error: {msg}")
-            click_status = {"status": "error", "message": msg}
-        except Exception as e:
-            print(f"🔴 Error clicking at ({target_x}, {target_y}): {e}")
-            click_status = {"status": "error", "message": str(e)}
-    else:
-        # This case should ideally not be reached if x and y are enforced by type hints and function signature.
-        msg = "Invalid parameters for click. Both 'x' and 'y' coordinates are required and must be provided."
-        print(f"🔴 Error: {msg}")
-        click_status = {"status": "error", "message": msg}
+        print(f"Attempting click on element {element_id}: {element.get('content', 'N/A')}")
+        target_x = int(target_x)
+        target_y = int(target_y)
+        pyautogui.moveTo(target_x, target_y)
+        pyautogui.click(target_x, target_y)
+        print(f"🖱️ Clicked element {element_id} at coordinates: ({target_x}, {target_y})")
+        click_status = {"status": "success", "message": f"Clicked element {element_id} at ({target_x}, {target_y})"}
+
+    except (ValueError, IndexError) as e:
+        print(f"🔴 Error: {e}")
+        click_status = {"status": "error", "message": str(e)}
+    except Exception as e:
+        print(f"🔴 Error clicking element {element_id}: {e}")
+        click_status = {"status": "error", "message": str(e)}
+
     if wait_time > 0:
-        time.sleep(wait_time) # Ensure wait_time is positive for sleep
+        time.sleep(wait_time)
     return click_status
 
-def right_click(x: int, y: int, wait_time: int = 0):
-    """Simulate a right mouse click at the specified x and y coordinates.
+def right_click(element_id: int, elements: list, wait_time: int = 0):
+    """Simulate a right mouse click on a specific UI element.
     
     Args:
-        x (int): The x-coordinate for the click.
-        y (int): The y-coordinate for the click.
+        element_id (int): The index of the element to click in the elements list.
+        elements (list): The list of current UI elements on the screen.
         wait_time (int): Time to wait after the action in seconds. Defaults to 0.
     """
     click_status = {}
-    target_x, target_y = x, y
+    
+    try:
+        element_id = int(element_id)
+        if not elements:
+            raise ValueError("The 'elements' list is empty.")
+        if not 0 <= element_id < len(elements):
+            raise IndexError(f"Element ID {element_id} is out of bounds for elements list of size {len(elements)}.")
+            
+        element = elements[element_id]
+        target_x = element.get('x')
+        target_y = element.get('y')
 
-    print(f"Attempting right-click by coordinates: ({target_x}, {target_y})")
+        if target_x is None or target_y is None:
+            raise ValueError(f"Element with ID {element_id} does not have 'x' or 'y' coordinates.")
 
-    if target_x is not None and target_y is not None:
-        try:
-            target_x = int(target_x)
-            target_y = int(target_y)
-            pyautogui.moveTo(target_x, target_y)
-            pyautogui.rightClick(x=target_x, y=target_y)
-            print(f"🖱️ Right-clicked at coordinates: ({target_x}, {target_y})")
-            click_status = {"status": "success", "message": f"Right-clicked at ({target_x}, {target_y})"}
-        except ValueError:
-            msg = f"Invalid coordinate type: x ({x}) or y ({y}) must be integers."
-            print(f"🔴 Error: {msg}")
-            click_status = {"status": "error", "message": msg}
-        except Exception as e:
-            print(f"🔴 Error right-clicking at ({target_x}, {target_y}): {e}")
-            click_status = {"status": "error", "message": str(e)}
-    else:
-        msg = "Invalid parameters for right_click. Both 'x' and 'y' coordinates are required."
-        print(f"🔴 Error: {msg}")
-        click_status = {"status": "error", "message": msg}
+        print(f"Attempting right-click on element {element_id}: {element.get('content', 'N/A')}")
+        target_x = int(target_x)
+        target_y = int(target_y)
+        pyautogui.moveTo(target_x, target_y)
+        pyautogui.rightClick(x=target_x, y=target_y)
+        print(f"🖱️ Right-clicked element {element_id} at coordinates: ({target_x}, {target_y})")
+        click_status = {"status": "success", "message": f"Right-clicked element {element_id} at ({target_x}, {target_y})"}
+
+    except (ValueError, IndexError) as e:
+        print(f"🔴 Error: {e}")
+        click_status = {"status": "error", "message": str(e)}
+    except Exception as e:
+        print(f"🔴 Error right-clicking element {element_id}: {e}")
+        click_status = {"status": "error", "message": str(e)}
     
     if wait_time > 0:
         time.sleep(wait_time)

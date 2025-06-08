@@ -1,9 +1,17 @@
+import os
+import sys
+
+# Add the project root to the Python path
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SRC_DIR = os.path.dirname(SCRIPT_DIR)
+if SRC_DIR not in sys.path:
+    sys.path.insert(0, SRC_DIR)
+
 import io
 import json
 import base64
 import inspect
 import PIL.Image as Image
-import os
 
 from proto.marshal.collections.repeated import RepeatedComposite
 from proto.marshal.collections.maps import MapComposite
@@ -42,7 +50,7 @@ class MainAgent(BaseAgent):
         except Exception as e:
             print(f"Error initializing history log: {e}")
 
-    def call_function(self, function_call_name: str, function_call_args: dict) -> any:
+    def call_function(self, function_call_name: str, function_call_args: dict, elements: list = None) -> any:
         if hasattr(input_functions, function_call_name):
             function_to_call = getattr(input_functions, function_call_name)
             
@@ -51,6 +59,10 @@ class MainAgent(BaseAgent):
             
             filtered_args = {k: v for k, v in function_call_args.items() if k in valid_params}
             
+            # If the function requires the elements list, pass it in.
+            if "elements" in sig.parameters:
+                filtered_args['elements'] = elements
+
             missing_required_params = []
             for param_name, param_obj in sig.parameters.items():
                 if param_obj.default == inspect.Parameter.empty and param_name not in filtered_args:
@@ -82,6 +94,7 @@ class MainAgent(BaseAgent):
         prompt_text = f"Analyze the following context and decide the next action.\n{json.dumps(prompt_context, indent=2)}"
 
         current_screenshot_pil = state.get("current_screenshot")
+        current_elements = state.get("current_elements", [])
         
         # Prepare Parts for Gemini
         message_parts = []
@@ -112,38 +125,52 @@ class MainAgent(BaseAgent):
             )
             print(response)
             # Extract the first valid function call and any thoughts
-            function_call = None
+            function_calls = []
             thoughts = ""
             if response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
                 for part in response.candidates[0].content.parts:
                     if hasattr(part, 'text') and part.text:
                         thoughts += part.text + "\n"
                     if part.function_call:
-                        function_call = part.function_call
-                        break 
+                        function_calls.append(part.function_call)
             
-            if function_call:
-                function_call_name = function_call.name
-                function_call_args = _convert_proto_to_py(function_call.args) if function_call.args else {}
-                
-                # Execute the function
-                print(function_call_name)
-                print(function_call_args)
-                action_output = self.call_function(function_call_name, function_call_args)
+            if function_calls:
+                action_outputs = []
+                for function_call in function_calls:
+                    function_call_name = function_call.name
+                    function_call_args = _convert_proto_to_py(function_call.args) if function_call.args else {}
+                    
+                    # Execute the function
+                    print(f"Executing: {function_call_name} with args {function_call_args}")
+                    action_output = self.call_function(function_call_name, function_call_args, elements=current_elements)
+                    action_outputs.append({
+                        "function_name": function_call_name,
+                        "function_args": function_call_args,
+                        "output": action_output
+                    })
                 
                 # Log the action
                 try:
                     with open(self.log_file_name, "a", encoding='utf-8') as f:
-                        f.write(f"Action Called: {function_call_name}\n")
-                        f.write(f"Arguments: {json.dumps(function_call_args, indent=2)}\n")
-                        f.write(f"Output: {str(action_output)}\n---\n")
-                    self._log_turn_to_history(prompt_context, response.candidates[0].content, action_output)
+                        f.write(f"Actions Called: {[o['function_name'] for o in action_outputs]}\n")
+                        f.write(f"Arguments: {json.dumps([o['function_args'] for o in action_outputs], indent=2)}\n")
+                        f.write(f"Outputs: {json.dumps([o['output'] for o in action_outputs], indent=2)}\n---\n")
+                    self._log_turn_to_history(prompt_context, response.candidates[0].content, action_outputs)
                 except Exception as e:
                     print(f"Error writing to {self.log_file_name}: {e}")
 
+                # Check if the last function call was task_done
+                final_function_name = action_outputs[-1]["function_name"] if action_outputs else None
+                if final_function_name == "task_done":
+                    return {
+                        "function_call": "task_done",
+                        "action_result": action_outputs[-1]['output'],
+                        "thoughts": thoughts.strip()
+                    }
+
                 return {
-                    "function_call": function_call_name, 
-                    "action_result": action_output,
+                    "function_call": [o['function_name'] for o in action_outputs], 
+                    "action_result": action_outputs,
                     "thoughts": thoughts.strip()
                 }
             else:
@@ -197,3 +224,42 @@ class MainAgent(BaseAgent):
                 json.dump([log_entry], f, indent=2)
         except Exception as e:
             print(f"Error updating history log: {e}")
+
+def test_batch_function_calling():
+    """A test function to verify how the model handles batch function calls."""
+    print("--- Testing Batch Function Calling ---")
+    
+    # 1. Initialize the agent
+    agent = MainAgent()
+    if not agent.gemini_model:
+        print("Agent could not be initialized. Check API keys.")
+        return
+
+    # 2. Load the simulated UI elements
+    json_file_path = os.path.join(settings.PROJECT_ROOT, "src", "core", "test_json_elements", "newtab_elements.json")
+    try:
+        with open(json_file_path, "r", encoding='utf-8') as f:
+            elements = json.load(f)
+        print(f"Successfully loaded {len(elements)} elements from {os.path.basename(json_file_path)}")
+    except Exception as e:
+        print(f"Failed to load simulation file: {e}")
+        return
+        
+    # 3. Create a mock state with a specific request for batch execution
+    mock_state = State(
+        original_request="Click the address bar, type amazon.com, and press enter.",
+        current_elements=elements,
+        current_screenshot=None, # No image needed for this test
+        search_agent_guide="1. Click Address Bar. 2. Type amazon.com. 3. Press Enter."
+    )
+
+    # 4. Call the agent. The raw API response will be printed from within the __call__ method.
+    print("\n--- Calling Main Agent with test prompt ---")
+    agent_output = agent(mock_state)
+
+    # 5. Print the final processed output for inspection
+    print("\n--- Agent Processed Output ---")
+    print(json.dumps(agent_output, indent=2, default=str))
+
+if __name__ == "__main__":
+    test_batch_function_calling()
