@@ -4,11 +4,10 @@ import base64
 import pyautogui
 import screeninfo
 import numpy as np
-from google.cloud import vision
 from PIL import Image
 
 try:
-    from .model_helpers import get_som_labeled_img
+    from .model_helpers import get_som_labeled_img, check_ocr_result
 except ImportError:
     print("Warning: model_helpers.py not found or functions not available. Screenshot AI features will be limited.")
     def get_yolo_model(*args, **kwargs):
@@ -22,7 +21,7 @@ except ImportError:
         return "", [], [] # It used to return three items
 
 
-def take_screenshot(som_model, caption_model_processor, omni_enabled: bool = True) -> tuple[io.BytesIO | None, list]:
+def take_screenshot(som_model, caption_model_processor, rapid_ocr_engine, omni_enabled: bool = True) -> tuple[io.BytesIO | None, list]:
     """Take a screenshot of the specified monitor and return the screenshot along with the coordinates of the elements in the screenshot.
     
     Args:
@@ -97,7 +96,11 @@ def take_screenshot(som_model, caption_model_processor, omni_enabled: bool = Tru
                     image_rgb.save(buffer, format='PNG')
                     image_rgb_bytes = buffer.getvalue()
                     try:
-                        text, ocr_bbox = detect_text_and_draw_boxes(image_rgb_bytes)
+                        if rapid_ocr_engine:
+                            result = rapid_ocr_engine(image_rgb_bytes)
+                            text, ocr_bbox = check_ocr_result(result)
+                        else:
+                            text, ocr_bbox = [], []
                         box_overlay_ratio = max(screenshot_with_cursor.size) / 3200
                         draw_bbox_config = {
                             'text_scale': 0.8 * box_overlay_ratio,
@@ -108,17 +111,17 @@ def take_screenshot(som_model, caption_model_processor, omni_enabled: bool = Tru
                         BOX_TRESHOLD = 0.05
                         (dino_labled_img,
                         label_coordinates,
-                        parsed_content_list) = get_som_labeled_img(image_rgb, 
-                                                                som_model, 
-                                                                BOX_TRESHOLD=BOX_TRESHOLD, 
-                                                                output_coord_in_ratio=False, 
-                                                                ocr_bbox=ocr_bbox,
-                                                                draw_bbox_config=draw_bbox_config, 
-                                                                caption_model_processor=caption_model_processor, 
-                                                                ocr_text=text,
-                                                                use_local_semantics=True, 
-                                                                iou_threshold=0.7, 
-                                                                batch_size=128)
+                        parsed_content_list) = get_som_labeled_img(image_source=image_rgb, 
+                                                                    model=som_model, 
+                                                                    BOX_TRESHOLD=BOX_TRESHOLD, 
+                                                                    output_coord_in_ratio=False, 
+                                                                    ocr_bbox=ocr_bbox,
+                                                                    draw_bbox_config=draw_bbox_config, 
+                                                                    caption_model_processor=caption_model_processor, 
+                                                                    ocr_text=text,
+                                                                    use_local_semantics=True, 
+                                                                    iou_threshold=0.7, 
+                                                                    batch_size=128)
                         
 
                         try:
@@ -146,7 +149,7 @@ def take_screenshot(som_model, caption_model_processor, omni_enabled: bool = Tru
                             global_y = center_y_pixel + screen_y
 
                             new_item = {
-                                "content": item['content'], "coordinates": (global_x, global_y), "index": idx,
+                                "content": item['content'], "coordinates": (global_x, global_y),
                                 "type": item['type'], "interactivity": item['interactivity']
                             }
                             transformed_list_final.append(new_item)
@@ -184,39 +187,3 @@ def take_screenshot(som_model, caption_model_processor, omni_enabled: bool = Tru
         # Returning a tuple consistent with the success path but with None and empty list
         return None, []
 
-
-def detect_text_and_draw_boxes(image_file):
-    # Initialize Vision client
-    client = vision.ImageAnnotatorClient()
-
-    image = vision.Image(content=image_file)
-
-    # Detect text
-    response = client.text_detection(image=image)
-    if response.error.message:
-        raise Exception(
-            f"{response.error.message}\nFor more info on error messages, check: "
-            "https://cloud.google.com/apis/design/errors"
-        )
-
-    texts = response.text_annotations
-
-    # Output lists
-    texts_list = []
-    bboxes_list = []
-
-    # Skip the first annotation (it's the full text)
-    for text in texts[1:]:
-        if len(text.description.strip()) <= 2:
-            continue  # Skip short text
-
-        vertices = [(v.x, v.y) for v in text.bounding_poly.vertices]
-        
-        xs = [v[0] for v in vertices]
-        ys = [v[1] for v in vertices]
-        x1, y1, x2, y2 = min(xs), min(ys), max(xs), max(ys)
-        
-        texts_list.append(text.description)
-        bboxes_list.append((x1, y1, x2, y2))
-    return texts_list, bboxes_list
- 

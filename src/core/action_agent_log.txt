@@ -1,0 +1,130 @@
+Action Called: click
+Arguments: {
+  "y": 135.0,
+  "wait_time": 1.0,
+  "x": 35.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (35, 135)'}
+---
+Action Called: click
+Arguments: {
+  "y": 144.0,
+  "wait_time": 1.0,
+  "x": 521.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (521, 144)'}
+---
+Action Called: scroll
+Arguments: {
+  "wait_time": 1.0,
+  "amount": 500.0,
+  "direction": "down"
+}
+Output: {'status': 'success', 'message': 'Successfully scrolled down by 500.0 units'}
+---
+Action Called: scroll
+Arguments: {
+  "amount": 10.0,
+  "wait_time": 1.0,
+  "direction": "up"
+}
+Output: {'status': 'success', 'message': 'Successfully scrolled up by 10.0 units'}
+---
+Action Called: type
+Arguments: {
+  "text": "laptop",
+  "wait_time": 1.0
+}
+Output: {'status': 'success', 'message': 'Successfully typed: laptop'}
+---
+Action Called: press_key
+Arguments: {
+  "key": "enter",
+  "wait_time": 1.0
+}
+Output: {'status': 'success', 'message': 'Successfully pressed (xdotool): Return'}
+---
+Action Called: scroll
+Arguments: {
+  "amount": 1.0,
+  "wait_time": 1.0,
+  "direction": "down"
+}
+Output: {'status': 'success', 'message': 'Successfully scrolled down by 1.0 units'}
+---
+Action Called: scroll
+Arguments: {
+  "wait_time": 1.0,
+  "amount": 500.0,
+  "direction": "down"
+}
+Output: {'status': 'success', 'message': 'Successfully scrolled down by 500.0 units'}
+---
+Action Called: scroll
+Arguments: {
+  "amount": 500.0,
+  "wait_time": 1.0,
+  "direction": "up"
+}
+Output: {'status': 'success', 'message': 'Successfully scrolled up by 500.0 units'}
+---
+Action Called: click
+Arguments: {
+  "y": 776.0,
+  "wait_time": 1.0,
+  "x": 1052.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (1052, 776)'}
+---
+Action Called: click
+Arguments: {
+  "y": 87.0,
+  "wait_time": 1.0,
+  "x": 163.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (163, 87)'}
+---
+Action Called: wait
+Arguments: {
+  "wait_time": 3.0
+}
+Output: Function wait not found in input_functions module.
+---
+Action Called: click
+Arguments: {
+  "y": 233.0,
+  "wait_time": 1.0,
+  "x": 1700.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (1700, 233)'}
+---
+Action Called: click
+Arguments: {
+  "y": 266.0,
+  "wait_time": 1.0,
+  "x": 1721.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (1721, 266)'}
+---
+Action Called: click
+Arguments: {
+  "y": 751.0,
+  "wait_time": 1.0,
+  "x": 1050.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (1050, 751)'}
+---
+Action Called: wait
+Arguments: {
+  "wait_time": 3.0
+}
+Output: Function wait not found in input_functions module.
+---
+Action Called: click
+Arguments: {
+  "y": 88.0,
+  "wait_time": 1.0,
+  "x": 127.0
+}
+Output: {'status': 'success', 'message': 'Clicked at (127, 88)'}
+---

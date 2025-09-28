@@ -37,4 +37,9 @@ dotenv
 google-cloud-vision
 flash_attn
 ninja
+easyocr
+paddlepaddle
+paddleocr
+onnxruntime # testing
+rapidocr # testing
 
