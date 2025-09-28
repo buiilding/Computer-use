@@ -1,0 +1,1322 @@
+[
+    {
+        "id": 0,
+        "content": "Laptop",
+        "type": "text",
+        "interactivity": false,
+        "x": 395,
+        "y": 105,
+        "width": 56,
+        "height": 24
+    },
+    {
+        "id": 1,
+        "content": "Medical Care + Saks",
+        "type": "text",
+        "interactivity": false,
+        "x": 271,
+        "y": 158,
+        "width": 146,
+        "height": 16
+    },
+    {
+        "id": 2,
+        "content": "Gift Cards \u2192Subscribe & Save",
+        "type": "text",
+        "interactivity": false,
+        "x": 1537,
+        "y": 156,
+        "width": 209,
+        "height": 21
+    },
+    {
+        "id": 3,
+        "content": "1-16 of over 100,000 results for\"Laptop\"",
+        "type": "text",
+        "interactivity": false,
+        "x": 6,
+        "y": 198,
+        "width": 269,
+        "height": 19
+    },
+    {
+        "id": 4,
+        "content": "Popular Shopping Ideas",
+        "type": "text",
+        "interactivity": false,
+        "x": 10,
+        "y": 249,
+        "width": 163,
+        "height": 20
+    },
+    {
+        "id": 5,
+        "content": "Portable",
+        "type": "text",
+        "interactivity": false,
+        "x": 9,
+        "y": 272,
+        "width": 61,
+        "height": 19
+    },
+    {
+        "id": 6,
+        "content": "MacBook Pro. Hello, Apple Intelligence.",
+        "type": "text",
+        "interactivity": false,
+        "x": 466,
+        "y": 267,
+        "width": 287,
+        "height": 20
+    },
+    {
+        "id": 7,
+        "content": "Touchscreen",
+        "type": "text",
+        "interactivity": false,
+        "x": 8,
+        "y": 290,
+        "width": 88,
+        "height": 22
+    },
+    {
+        "id": 8,
+        "content": "Shop Apple>",
+        "type": "text",
+        "interactivity": false,
+        "x": 465,
+        "y": 288,
+        "width": 78,
+        "height": 22
+    },
+    {
+        "id": 9,
+        "content": "Work",
+        "type": "text",
+        "interactivity": false,
+        "x": 9,
+        "y": 312,
+        "width": 42,
+        "height": 21
+    },
+    {
+        "id": 10,
+        "content": "VSeemore",
+        "type": "text",
+        "interactivity": false,
+        "x": 9,
+        "y": 351,
+        "width": 82,
+        "height": 22
+    },
+    {
+        "id": 11,
+        "content": "Delivery",
+        "type": "text",
+        "interactivity": false,
+        "x": 9,
+        "y": 398,
+        "width": 61,
+        "height": 23
+    },
+    {
+        "id": 12,
+        "content": " All Prime",
+        "type": "text",
+        "interactivity": false,
+        "x": 9,
+        "y": 422,
+        "width": 87,
+        "height": 22
+    },
+    {
+        "id": 13,
+        "content": "Display Size",
+        "type": "text",
+        "interactivity": false,
+        "x": 10,
+        "y": 457,
+        "width": 85,
+        "height": 18
+    },
+    {
+        "id": 14,
+        "content": "15 to 15.9 Inches",
+        "type": "text",
+        "interactivity": false,
+        "x": 28,
+        "y": 519,
+        "width": 118,
+        "height": 21
+    },
+    {
+        "id": 15,
+        "content": "Apple 2024 MacBook Pro",
+        "type": "text",
+        "interactivity": false,
+        "x": 813,
+        "y": 511,
+        "width": 167,
+        "height": 21
+    },
+    {
+        "id": 16,
+        "content": "Apple 2024 MacBook Pro",
+        "type": "text",
+        "interactivity": false,
+        "x": 995,
+        "y": 514,
+        "width": 164,
+        "height": 17
+    },
+    {
+        "id": 17,
+        "content": "Apple 2024 MacBook Pro",
+        "type": "text",
+        "interactivity": false,
+        "x": 1174,
+        "y": 514,
+        "width": 163,
+        "height": 17
+    },
+    {
+        "id": 18,
+        "content": "14 to 14.9 Inches",
+        "type": "text",
+        "interactivity": false,
+        "x": 28,
+        "y": 538,
+        "width": 119,
+        "height": 22
+    },
+    {
+        "id": 19,
+        "content": "Laptop with M4 chip wi..",
+        "type": "text",
+        "interactivity": false,
+        "x": 813,
+        "y": 533,
+        "width": 163,
+        "height": 20
+    },
+    {
+        "id": 20,
+        "content": "Laptop with M4 chip wi...",
+        "type": "text",
+        "interactivity": false,
+        "x": 992,
+        "y": 533,
+        "width": 164,
+        "height": 20
+    },
+    {
+        "id": 21,
+        "content": "Laptop with M4 chip wi...",
+        "type": "text",
+        "interactivity": false,
+        "x": 1171,
+        "y": 532,
+        "width": 165,
+        "height": 21
+    },
+    {
+        "id": 22,
+        "content": "4.8\u2605\u2605\u2605\u2605\u2605843",
+        "type": "text",
+        "interactivity": false,
+        "x": 813,
+        "y": 557,
+        "width": 112,
+        "height": 17
+    },
+    {
+        "id": 23,
+        "content": "4.8\u2605\u2605\u2605\u2605\u2605843",
+        "type": "text",
+        "interactivity": false,
+        "x": 992,
+        "y": 557,
+        "width": 112,
+        "height": 17
+    },
+    {
+        "id": 24,
+        "content": "4.8\u2605\u2605\u2605\u2605\u2605843",
+        "type": "text",
+        "interactivity": false,
+        "x": 1170,
+        "y": 555,
+        "width": 115,
+        "height": 19
+    },
+    {
+        "id": 25,
+        "content": "11 to 11.9 Inches",
+        "type": "text",
+        "interactivity": false,
+        "x": 28,
+        "y": 598,
+        "width": 119,
+        "height": 22
+    },
+    {
+        "id": 26,
+        "content": "]11Inches&Under",
+        "type": "text",
+        "interactivity": false,
+        "x": 26,
+        "y": 620,
+        "width": 126,
+        "height": 17
+    },
+    {
+        "id": 27,
+        "content": "Sponsored ",
+        "type": "text",
+        "interactivity": false,
+        "x": 1693,
+        "y": 611,
+        "width": 75,
+        "height": 23
+    },
+    {
+        "id": 28,
+        "content": "Price",
+        "type": "text",
+        "interactivity": false,
+        "x": 10,
+        "y": 653,
+        "width": 38,
+        "height": 17
+    },
+    {
+        "id": 29,
+        "content": "Results",
+        "type": "text",
+        "interactivity": false,
+        "x": 303,
+        "y": 648,
+        "width": 73,
+        "height": 26
+    },
+    {
+        "id": 30,
+        "content": "$10-$10,000+",
+        "type": "text",
+        "interactivity": false,
+        "x": 11,
+        "y": 677,
+        "width": 104,
+        "height": 17
+    },
+    {
+        "id": 31,
+        "content": "Check each product page for other buying options.",
+        "type": "text",
+        "interactivity": false,
+        "x": 303,
+        "y": 675,
+        "width": 326,
+        "height": 21
+    },
+    {
+        "id": 32,
+        "content": "Featured from Amazon brands ",
+        "type": "text",
+        "interactivity": false,
+        "x": 600,
+        "y": 709,
+        "width": 160,
+        "height": 22
+    },
+    {
+        "id": 33,
+        "content": "Dell Chromebook 113180D44PV 11.6-InchTraditional Laptop (Black)",
+        "type": "text",
+        "interactivity": false,
+        "x": 602,
+        "y": 709,
+        "width": 575,
+        "height": 23
+    },
+    {
+        "id": 34,
+        "content": "Up to $400",
+        "type": "text",
+        "interactivity": false,
+        "x": 10,
+        "y": 759,
+        "width": 78,
+        "height": 19
+    },
+    {
+        "id": 35,
+        "content": "gaming, 14-hour battery life, optional stylus and keyboard, 64 GB, Gray",
+        "type": "text",
+        "interactivity": false,
+        "x": 602,
+        "y": 757,
+        "width": 588,
+        "height": 26
+    },
+    {
+        "id": 36,
+        "content": "5K+ bought in past month",
+        "type": "text",
+        "interactivity": false,
+        "x": 603,
+        "y": 803,
+        "width": 172,
+        "height": 19
+    },
+    {
+        "id": 37,
+        "content": "$800& above",
+        "type": "text",
+        "interactivity": false,
+        "x": 9,
+        "y": 818,
+        "width": 96,
+        "height": 21
+    },
+    {
+        "id": 38,
+        "content": "Display Size",
+        "type": "text",
+        "interactivity": false,
+        "x": 896,
+        "y": 834,
+        "width": 81,
+        "height": 20
+    },
+    {
+        "id": 39,
+        "content": "Disk Size",
+        "type": "text",
+        "interactivity": false,
+        "x": 1042,
+        "y": 834,
+        "width": 63,
+        "height": 20
+    },
+    {
+        "id": 40,
+        "content": "Connectivity",
+        "type": "text",
+        "interactivity": false,
+        "x": 1189,
+        "y": 833,
+        "width": 85,
+        "height": 21
+    },
+    {
+        "id": 41,
+        "content": "Brand",
+        "type": "text",
+        "interactivity": false,
+        "x": 1335,
+        "y": 834,
+        "width": 45,
+        "height": 18
+    },
+    {
+        "id": 42,
+        "content": "Deals &Discounts",
+        "type": "text",
+        "interactivity": false,
+        "x": 11,
+        "y": 853,
+        "width": 120,
+        "height": 17
+    },
+    {
+        "id": 43,
+        "content": "$17499",
+        "type": "text",
+        "interactivity": false,
+        "x": 600,
+        "y": 857,
+        "width": 81,
+        "height": 30
+    },
+    {
+        "id": 44,
+        "content": "11 inches",
+        "type": "text",
+        "interactivity": false,
+        "x": 896,
+        "y": 855,
+        "width": 69,
+        "height": 19
+    },
+    {
+        "id": 45,
+        "content": "64 GB",
+        "type": "text",
+        "interactivity": false,
+        "x": 1042,
+        "y": 853,
+        "width": 46,
+        "height": 21
+    },
+    {
+        "id": 46,
+        "content": "Wi-Fi, Bluetooth",
+        "type": "text",
+        "interactivity": false,
+        "x": 1191,
+        "y": 855,
+        "width": 112,
+        "height": 17
+    },
+    {
+        "id": 47,
+        "content": "Amazon",
+        "type": "text",
+        "interactivity": false,
+        "x": 1335,
+        "y": 855,
+        "width": 60,
+        "height": 19
+    },
+    {
+        "id": 48,
+        "content": "List:$229.99",
+        "type": "text",
+        "interactivity": false,
+        "x": 672,
+        "y": 866,
+        "width": 90,
+        "height": 23
+    },
+    {
+        "id": 49,
+        "content": "Today's Deals",
+        "type": "text",
+        "interactivity": false,
+        "x": 10,
+        "y": 895,
+        "width": 92,
+        "height": 20
+    },
+    {
+        "id": 50,
+        "content": "Vprime Two-Day",
+        "type": "text",
+        "interactivity": false,
+        "x": 603,
+        "y": 894,
+        "width": 119,
+        "height": 22
+    },
+    {
+        "id": 51,
+        "content": "FREE pickup Tue, Jun 10",
+        "type": "text",
+        "interactivity": false,
+        "x": 603,
+        "y": 918,
+        "width": 159,
+        "height": 16
+    },
+    {
+        "id": 52,
+        "content": "Brands",
+        "type": "text",
+        "interactivity": false,
+        "x": 11,
+        "y": 929,
+        "width": 49,
+        "height": 17
+    },
+    {
+        "id": 53,
+        "content": "HP",
+        "type": "text",
+        "interactivity": false,
+        "x": 26,
+        "y": 951,
+        "width": 29,
+        "height": 19
+    },
+    {
+        "id": 54,
+        "content": "Lenovo",
+        "type": "text",
+        "interactivity": false,
+        "x": 26,
+        "y": 969,
+        "width": 57,
+        "height": 23
+    },
+    {
+        "id": 55,
+        "content": "Dell",
+        "type": "text",
+        "interactivity": false,
+        "x": 28,
+        "y": 992,
+        "width": 33,
+        "height": 18
+    },
+    {
+        "id": 56,
+        "content": "Apple",
+        "type": "text",
+        "interactivity": false,
+        "x": 24,
+        "y": 1010,
+        "width": 50,
+        "height": 24
+    },
+    {
+        "id": 57,
+        "content": "Sponsored ",
+        "type": "text",
+        "interactivity": false,
+        "x": 602,
+        "y": 1001,
+        "width": 72,
+        "height": 19
+    },
+    {
+        "id": 58,
+        "content": "ASUS",
+        "type": "text",
+        "interactivity": false,
+        "x": 26,
+        "y": 1030,
+        "width": 46,
+        "height": 21
+    },
+    {
+        "id": 59,
+        "content": "Dell Chromebook 113180D44PV 11.6-InchTraditional Laptop (Black)",
+        "type": "text",
+        "interactivity": false,
+        "x": 602,
+        "y": 709,
+        "width": 575,
+        "height": 23
+    },
+    {
+        "id": 60,
+        "content": "acer",
+        "type": "text",
+        "interactivity": false,
+        "x": 28,
+        "y": 1053,
+        "width": 33,
+        "height": 18
+    },
+    {
+        "id": 61,
+        "content": "fire max11 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 306,
+        "y": 705,
+        "width": 279,
+        "height": 273
+    },
+    {
+        "id": 62,
+        "content": "$17.99 Vprime Only 4 left in stock - order soon. ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1781,
+        "y": 187,
+        "width": 121,
+        "height": 181
+    },
+    {
+        "id": 63,
+        "content": "Go to Cart ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1778,
+        "y": 140,
+        "width": 124,
+        "height": 29
+    },
+    {
+        "id": 64,
+        "content": "Hello, Bui Account & Lists  ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1452,
+        "y": 88,
+        "width": 133,
+        "height": 55
+    },
+    {
+        "id": 65,
+        "content": "Subtotal $17.99 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1777,
+        "y": 86,
+        "width": 124,
+        "height": 51
+    },
+    {
+        "id": 66,
+        "content": "Returns &Orders ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1588,
+        "y": 87,
+        "width": 83,
+        "height": 54
+    },
+    {
+        "id": 67,
+        "content": "EN ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1376,
+        "y": 93,
+        "width": 74,
+        "height": 47
+    },
+    {
+        "id": 68,
+        "content": "Amazon Business  ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 869,
+        "y": 147,
+        "width": 138,
+        "height": 34
+    },
+    {
+        "id": 69,
+        "content": "Cart ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1674,
+        "y": 86,
+        "width": 86,
+        "height": 56
+    },
+    {
+        "id": 70,
+        "content": "Browsing History ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1213,
+        "y": 146,
+        "width": 129,
+        "height": 35
+    },
+    {
+        "id": 71,
+        "content": "Rufus ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 79,
+        "y": 152,
+        "width": 77,
+        "height": 27
+    },
+    {
+        "id": 72,
+        "content": "a Amazon.com : Laptop ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 38,
+        "y": 0,
+        "width": 238,
+        "height": 39
+    },
+    {
+        "id": 73,
+        "content": "Pickup and returns at... ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 156,
+        "y": 88,
+        "width": 162,
+        "height": 51
+    },
+    {
+        "id": 74,
+        "content": "Amazon Haul ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 161,
+        "y": 147,
+        "width": 104,
+        "height": 34
+    },
+    {
+        "id": 75,
+        "content": "Shop By Interest ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1010,
+        "y": 147,
+        "width": 120,
+        "height": 34
+    },
+    {
+        "id": 76,
+        "content": "Buy Agaln ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 786,
+        "y": 147,
+        "width": 82,
+        "height": 34
+    },
+    {
+        "id": 77,
+        "content": "Prime Video ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 688,
+        "y": 147,
+        "width": 96,
+        "height": 33
+    },
+    {
+        "id": 78,
+        "content": "amazon prime ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 11,
+        "y": 91,
+        "width": 132,
+        "height": 55
+    },
+    {
+        "id": 79,
+        "content": "Sort by: Featured  ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1634,
+        "y": 192,
+        "width": 130,
+        "height": 27
+    },
+    {
+        "id": 80,
+        "content": "Pharmacy ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1132,
+        "y": 147,
+        "width": 81,
+        "height": 34
+    },
+    {
+        "id": 81,
+        "content": "Handmade ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1341,
+        "y": 147,
+        "width": 92,
+        "height": 33
+    },
+    {
+        "id": 82,
+        "content": "Add to cart ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 602,
+        "y": 941,
+        "width": 98,
+        "height": 34
+    },
+    {
+        "id": 83,
+        "content": "13 to 13.9 Inches ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 9,
+        "y": 560,
+        "width": 136,
+        "height": 18
+    },
+    {
+        "id": 84,
+        "content": "Kindle Books ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1430,
+        "y": 147,
+        "width": 104,
+        "height": 33
+    },
+    {
+        "id": 85,
+        "content": "Best Sellers ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 595,
+        "y": 147,
+        "width": 94,
+        "height": 34
+    },
+    {
+        "id": 86,
+        "content": "12 to 12.9 Inches ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 8,
+        "y": 580,
+        "width": 136,
+        "height": 17
+    },
+    {
+        "id": 87,
+        "content": "Amazon Basics ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 422,
+        "y": 147,
+        "width": 114,
+        "height": 33
+    },
+    {
+        "id": 88,
+        "content": "16 to 16.9 Inches ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 9,
+        "y": 500,
+        "width": 138,
+        "height": 18
+    },
+    {
+        "id": 89,
+        "content": "Go ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 249,
+        "y": 713,
+        "width": 27,
+        "height": 20
+    },
+    {
+        "id": 90,
+        "content": "Books ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 538,
+        "y": 149,
+        "width": 57,
+        "height": 30
+    },
+    {
+        "id": 91,
+        "content": "Limited time deal ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 602,
+        "y": 823,
+        "width": 116,
+        "height": 28
+    },
+    {
+        "id": 92,
+        "content": "MacBookPro ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 305,
+        "y": 266,
+        "width": 136,
+        "height": 40
+    },
+    {
+        "id": 93,
+        "content": "17 Inches&Above ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 16,
+        "y": 479,
+        "width": 137,
+        "height": 17
+    },
+    {
+        "id": 94,
+        "content": "All Discounts  ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 10,
+        "y": 876,
+        "width": 87,
+        "height": 16
+    },
+    {
+        "id": 95,
+        "content": "Business ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 10,
+        "y": 333,
+        "width": 281,
+        "height": 20
+    },
+    {
+        "id": 96,
+        "content": "$400 to $600 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 10,
+        "y": 779,
+        "width": 88,
+        "height": 17
+    },
+    {
+        "id": 97,
+        "content": "4.4\u2605\u2605\u2605\u2605\u2606(13.1K) ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 601,
+        "y": 783,
+        "width": 144,
+        "height": 18
+    },
+    {
+        "id": 98,
+        "content": "$600 to $800 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 10,
+        "y": 799,
+        "width": 91,
+        "height": 18
+    },
+    {
+        "id": 99,
+        "content": "amazon.com/s?k=Laptop&crid=2IZFP7Y3PZBP5&sprefix=lapto%2Caps%2C456&ref=nb_sb_noss_2 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 119,
+        "y": 44,
+        "width": 695,
+        "height": 35
+    },
+    {
+        "id": 100,
+        "content": "Macbook Pro",
+        "type": "icon",
+        "interactivity": true,
+        "x": 987,
+        "y": 329,
+        "width": 178,
+        "height": 177
+    },
+    {
+        "id": 101,
+        "content": "Macbook Pro",
+        "type": "icon",
+        "interactivity": true,
+        "x": 807,
+        "y": 329,
+        "width": 179,
+        "height": 178
+    },
+    {
+        "id": 102,
+        "content": "Macbook Pro",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1166,
+        "y": 329,
+        "width": 179,
+        "height": 178
+    },
+    {
+        "id": 103,
+        "content": "All",
+        "type": "icon",
+        "interactivity": true,
+        "x": 338,
+        "y": 95,
+        "width": 53,
+        "height": 41
+    },
+    {
+        "id": 104,
+        "content": "search functionality.",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1308,
+        "y": 95,
+        "width": 47,
+        "height": 42
+    },
+    {
+        "id": 105,
+        "content": "Extension",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1755,
+        "y": 42,
+        "width": 33,
+        "height": 37
+    },
+    {
+        "id": 106,
+        "content": "Music box",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1809,
+        "y": 43,
+        "width": 33,
+        "height": 35
+    },
+    {
+        "id": 107,
+        "content": "Account manager",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1845,
+        "y": 43,
+        "width": 35,
+        "height": 36
+    },
+    {
+        "id": 108,
+        "content": "Expand",
+        "type": "icon",
+        "interactivity": true,
+        "x": 2,
+        "y": 2,
+        "width": 35,
+        "height": 37
+    },
+    {
+        "id": 109,
+        "content": "Reload",
+        "type": "icon",
+        "interactivity": true,
+        "x": 76,
+        "y": 44,
+        "width": 34,
+        "height": 33
+    },
+    {
+        "id": 110,
+        "content": "left slider",
+        "type": "icon",
+        "interactivity": true,
+        "x": 10,
+        "y": 707,
+        "width": 32,
+        "height": 30
+    },
+    {
+        "id": 111,
+        "content": "Forward",
+        "type": "icon",
+        "interactivity": true,
+        "x": 40,
+        "y": 44,
+        "width": 33,
+        "height": 33
+    },
+    {
+        "id": 112,
+        "content": "More options",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1885,
+        "y": 45,
+        "width": 25,
+        "height": 33
+    },
+    {
+        "id": 113,
+        "content": "All",
+        "type": "icon",
+        "interactivity": true,
+        "x": 14,
+        "y": 149,
+        "width": 56,
+        "height": 31
+    },
+    {
+        "id": 114,
+        "content": "Minimize",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1823,
+        "y": 7,
+        "width": 26,
+        "height": 25
+    },
+    {
+        "id": 115,
+        "content": "Restore",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1854,
+        "y": 5,
+        "width": 29,
+        "height": 28
+    },
+    {
+        "id": 116,
+        "content": "Back",
+        "type": "icon",
+        "interactivity": true,
+        "x": 7,
+        "y": 45,
+        "width": 30,
+        "height": 32
+    },
+    {
+        "id": 117,
+        "content": "Close",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1888,
+        "y": 7,
+        "width": 27,
+        "height": 26
+    },
+    {
+        "id": 118,
+        "content": "Subscribe & Save",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1627,
+        "y": 146,
+        "width": 128,
+        "height": 38
+    },
+    {
+        "id": 119,
+        "content": "Medical Care",
+        "type": "icon",
+        "interactivity": true,
+        "x": 265,
+        "y": 146,
+        "width": 111,
+        "height": 34
+    },
+    {
+        "id": 120,
+        "content": "Gift Cards",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1533,
+        "y": 147,
+        "width": 93,
+        "height": 33
+    },
+    {
+        "id": 121,
+        "content": "Saks",
+        "type": "icon",
+        "interactivity": true,
+        "x": 378,
+        "y": 147,
+        "width": 45,
+        "height": 33
+    },
+    {
+        "id": 122,
+        "content": "Add new item",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1864,
+        "y": 390,
+        "width": 30,
+        "height": 30
+    },
+    {
+        "id": 123,
+        "content": "Maximize",
+        "type": "icon",
+        "interactivity": true,
+        "x": 5,
+        "y": 479,
+        "width": 22,
+        "height": 19
+    },
+    {
+        "id": 124,
+        "content": "Delete",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1784,
+        "y": 388,
+        "width": 36,
+        "height": 33
+    },
+    {
+        "id": 125,
+        "content": "Star",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1706,
+        "y": 47,
+        "width": 33,
+        "height": 30
+    },
+    {
+        "id": 127,
+        "content": "Maximize window.",
+        "type": "icon",
+        "interactivity": true,
+        "x": 10,
+        "y": 1030,
+        "width": 19,
+        "height": 18
+    },
+    {
+        "id": 128,
+        "content": "right slider",
+        "type": "icon",
+        "interactivity": true,
+        "x": 201,
+        "y": 707,
+        "width": 36,
+        "height": 31
+    },
+    {
+        "id": 132,
+        "content": "1, September, 2024",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1820,
+        "y": 388,
+        "width": 40,
+        "height": 32
+    },
+    {
+        "id": 134,
+        "content": "move up",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1904,
+        "y": 85,
+        "width": 15,
+        "height": 30
+    },
+    {
+        "id": 137,
+        "content": "Play",
+        "type": "icon",
+        "interactivity": true,
+        "x": 537,
+        "y": 444,
+        "width": 45,
+        "height": 52
+    },
+    {
+        "id": 138,
+        "content": "Add tab",
+        "type": "icon",
+        "interactivity": true,
+        "x": 285,
+        "y": 11,
+        "width": 14,
+        "height": 17
+    }
+]

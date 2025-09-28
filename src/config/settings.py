@@ -11,7 +11,7 @@ load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 # Device and Model Paths
 OMNI_DEVICE = "cuda"  # Or "cpu"
 SOM_MODEL_PATH = os.path.join(PROJECT_ROOT, "weights", "icon_detect", "model.pt")
-CAPTION_MODEL_PATH = os.path.join(PROJECT_ROOT, "weights", "icon_caption")
+CAPTION_MODEL_PATH = os.path.join(PROJECT_ROOT, "weights", "icon_caption_florence")
 RAPID_OCR_ENABLED = True
 
 # Log files
@@ -23,8 +23,8 @@ if not GEMINI_API_KEY:
     print("Warning: GEMINI_API_KEY not set in environment variables. Agents requiring it may not function.")
 
 # Model Names
-SEARCH_MODEL_NAME = "gemini-2.5-pro-preview-06-05"
-MAIN_MODEL_NAME = "gemini-1.5-flash"
+SEARCH_MODEL_NAME = "gemini-2.5-flash"
+MAIN_MODEL_NAME = "gemini-2.5-flash"
 
 # Prompt Paths
 SEARCH_PROMPT_PATH = os.path.join(PROJECT_ROOT, "prompts", "Search_Agent.txt")

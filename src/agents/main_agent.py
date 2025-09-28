@@ -84,7 +84,8 @@ class MainAgent(BaseAgent):
             "original_request": state.get("original_request"),
             "original_expected_output": state.get("original_expected_output"),
             "search_agent_guide": state.get("search_agent_guide"),
-            "current_elements": state.get("current_elements"),
+            "nodes": state.get("nodes"),
+            "edges": state.get("edges"),
             "previous_thinking": state.get("previous_thinking"),
             "previous_action_result": state.get("previous_action_result"),
         }
@@ -94,7 +95,7 @@ class MainAgent(BaseAgent):
         prompt_text = f"Analyze the following context and decide the next action.\n{json.dumps(prompt_context, indent=2)}"
 
         current_screenshot_pil = state.get("current_screenshot")
-        current_elements = state.get("current_elements", [])
+        nodes = state.get("nodes", [])
         
         # Prepare Parts for Gemini
         message_parts = []
@@ -142,7 +143,7 @@ class MainAgent(BaseAgent):
                     
                     # Execute the function
                     print(f"Executing: {function_call_name} with args {function_call_args}")
-                    action_output = self.call_function(function_call_name, function_call_args, elements=current_elements)
+                    action_output = self.call_function(function_call_name, function_call_args, elements=nodes)
                     action_outputs.append({
                         "function_name": function_call_name,
                         "function_args": function_call_args,
@@ -239,17 +240,21 @@ def test_batch_function_calling():
     json_file_path = os.path.join(settings.PROJECT_ROOT, "src", "core", "test_json_elements", "newtab_elements.json")
     try:
         with open(json_file_path, "r", encoding='utf-8') as f:
-            elements = json.load(f)
-        print(f"Successfully loaded {len(elements)} elements from {os.path.basename(json_file_path)}")
+            graph_data = json.load(f)
+        nodes = graph_data.get("nodes", [])
+        edges = graph_data.get("edges", [])
+        print(f"Successfully loaded {len(nodes)} nodes and {len(edges)} edges from {os.path.basename(json_file_path)}")
     except Exception as e:
         print(f"Failed to load simulation file: {e}")
         return
         
     # 3. Create a mock state with a specific request for batch execution
+    blank_image = Image.new('RGB', (1920, 1080), 'white')
     mock_state = State(
         original_request="Click the address bar, type amazon.com, and press enter.",
-        current_elements=elements,
-        current_screenshot=None, # No image needed for this test
+        nodes=nodes,
+        edges=edges,
+        current_screenshot=blank_image, # Pass a blank image
         search_agent_guide="1. Click Address Bar. 2. Type amazon.com. 3. Press Enter."
     )
 

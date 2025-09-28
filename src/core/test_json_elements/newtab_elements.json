@@ -1,4 +1,5 @@
-[
+{
+  "nodes": [
     {
       "id": 0,
       "content": "Activities",
@@ -710,13 +711,142 @@
       "height": 28
     },
     {
-        "id": 77,
-        "content": "Google Chrome",
-        "type": "icon",
-        "interactivity": true,
-        "x": 113,
-        "y": 3,
-        "width": 131,
-        "height": 21
-      }
+      "id": 77,
+      "content": "Google Chrome",
+      "type": "icon",
+      "interactivity": true,
+      "x": 113,
+      "y": 3,
+      "width": 131,
+      "height": 21
+    }
+  ],
+  "edges": [
+    {
+      "source": 1,
+      "target": 77,
+      "label": "is_label_for",
+      "reasoning": "The text 'Google Chrome' (id 1) is a label for the interactive 'Google Chrome' tab/window element (id 77) at the same position. One is a static title, the other is the clickable entity."
+    },
+    {
+      "source": 77,
+      "target": 75,
+      "label": "is_sibling_of",
+      "reasoning": "The 'Google Chrome' tab (id 77) is horizontally aligned with the 'Add tab' button (id 75), forming a tab bar."
+    },
+    {
+      "source": 65,
+      "target": 72,
+      "label": "is_sibling_of",
+      "reasoning": "The 'Minimize' (id 65), 'Restore' (id 72), and 'Close' (id 70) buttons form a standard window control group."
+    },
+    {
+      "source": 72,
+      "target": 70,
+      "label": "is_sibling_of",
+      "reasoning": "Part of the same window control group."
+    },
+    {
+      "source": 2,
+      "target": 71,
+      "label": "is_contained_in_group",
+      "reasoning": "The clock (id 2) is part of the top status bar, which also contains the Wifi (id 71), Volume (id 69), and other system icons. They form a logical group."
+    },
+    {
+      "source": 71,
+      "target": 69,
+      "label": "is_sibling_of",
+      "reasoning": "Wifi and Volume icons are part of the system tray/status bar."
+    },
+    {
+      "source": 6,
+      "target": 25,
+      "label": "is_label_for",
+      "reasoning": "The large 'Google' text (id 6) serves as the primary branding/title for the search area, which includes the search icon (id 25)."
+    },
+    {
+      "source": 25,
+      "target": 7,
+      "label": "is_related_to",
+      "reasoning": "The 'Search icon' (id 25) is functionally related to the text 'Search Google or type a URL' (id 7). This could also be modeled as the text being a 'placeholder_for' an invisible input box that contains both."
+    },
+    {
+      "source": 7,
+      "target": 40,
+      "label": "is_sibling_of",
+      "reasoning": "The search text area (represented by id 7) is horizontally aligned with the 'Dictate' (id 40) and 'Image input' (id 36) icons, forming a search bar with multiple input modalities."
+    },
+    {
+      "source": 40,
+      "target": 36,
+      "label": "is_sibling_of",
+      "reasoning": "Part of the same search input group."
+    },
+    {
+      "source": 34,
+      "target": 22,
+      "label": "is_sibling_of",
+      "reasoning": "This icon (id 34) and its neighbors (ids 22, 39, 23, 27, 28) are arranged in a grid, representing browser shortcuts."
+    },
+    {
+      "source": 22,
+      "target": 39,
+      "label": "is_sibling_of",
+      "reasoning": "Sibling in the shortcut grid."
+    },
+    {
+      "source": 39,
+      "target": 23,
+      "label": "is_sibling_of",
+      "reasoning": "Sibling in the shortcut grid."
+    },
+    {
+      "source": 8,
+      "target": 28,
+      "label": "is_label_for",
+      "reasoning": "The text '100.121116.7' (id 8) is positioned directly below the icon 'sk-ant-api03' (id 28), serving as its label in the shortcut grid."
+    },
+    {
+      "source": 9,
+      "target": 9,
+      "label": "is_self_referential",
+      "reasoning": "The icon 'Add shortcut' (id 9) has its own text. This is a common case. The edge connects a node to itself to signify the content is descriptive of the element's function. No separate label node is needed."
+    },
+    {
+      "source": 10,
+      "target": 48,
+      "label": "is_header_for_group",
+      "reasoning": "The text 'Continue with these tabs' (id 10) acts as a section header for the list of history items below it, starting with the Netflix item (represented by icon id 48)."
+    },
+    {
+      "source": 11,
+      "target": 48,
+      "label": "is_label_for",
+      "reasoning": "The title text 'Home - Netflix' (id 11) is the primary label for the interactive Netflix history item icon (id 48)."
+    },
+    {
+      "source": 12,
+      "target": 11,
+      "label": "is_subtitle_for",
+      "reasoning": "The secondary text 'netflix.com ...' (id 12) provides subtitle/metadata for the primary title (id 11). This creates a hierarchy within the list item."
+    },
+    {
+      "source": 48,
+      "target": 47,
+      "label": "is_sibling_of",
+      "reasoning": "The Netflix list item (id 48) is a sibling of the next item in the list, the 'netflix - Google Search' item (id 47). They form a vertical list."
+    },
+    {
+      "source": 13,
+      "target": 47,
+      "label": "is_label_for",
+      "reasoning": "Labeling the second item in the history list."
+    },
+    {
+      "source": 14,
+      "target": 13,
+      "label": "is_subtitle_for",
+      "reasoning": "Subtitle for the second item."
+    }
   ]
+}

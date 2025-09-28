@@ -10,7 +10,8 @@ class State(TypedDict, total=False):
     original_expected_output: str
     search_agent_guide: Optional[str]
     current_screenshot: Optional[Image.Image]
-    current_elements: Optional[List[dict]]
+    nodes: Optional[List[dict]]
+    edges: Optional[List[dict]]
     previous_thinking: Optional[str]
     previous_action_result: Optional[str]
 

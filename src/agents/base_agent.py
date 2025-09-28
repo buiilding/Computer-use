@@ -32,6 +32,8 @@ class BaseAgent:
 
         if self.tools:
             model_kwargs["tools"] = self.tools
+            # Set the function calling mode to 'any' to enforce valid tool calls
+            model_kwargs["tool_config"] = {"function_calling_config": {"mode": "any"}}
             
         try:
             self.gemini_model = generativeai.GenerativeModel(**model_kwargs)

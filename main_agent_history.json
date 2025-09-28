@@ -1,728 +1,3960 @@
 [
   {
     "prompt_context": {
-      "original_request": "Click the address bar, type amazon.com, and press enter.",
-      "search_agent_guide": "1. Click Address Bar. 2. Type amazon.com. 3. Press Enter.",
-      "current_elements": [
+      "original_request": "go to amazon, search for a laptop, and display the price of the cheapest one",
+      "original_expected_output": "Successfully displayed the cheapest laptop's price",
+      "nodes": [
         {
           "id": 0,
-          "content": "Activities",
+          "content": "SatSep 27 23:38",
           "type": "text",
           "interactivity": false,
-          "x": 14,
-          "y": 3,
-          "width": 71,
-          "height": 21
+          "x": 995,
+          "y": 15,
+          "width": 120,
+          "height": 19
         },
         {
           "id": 1,
-          "content": "Google Chrome",
+          "content": "File Edit  Selection",
           "type": "text",
           "interactivity": false,
-          "x": 115,
-          "y": 3,
-          "width": 131,
-          "height": 21
-        },
-        {
-          "id": 2,
-          "content": "Jun 8 17:15",
-          "type": "icon",
-          "interactivity": false,
-          "x": 955,
-          "y": 3,
-          "width": 84,
+          "x": 183,
+          "y": 49,
+          "width": 140,
           "height": 20
         },
         {
+          "id": 2,
+          "content": "ViewGoRun",
+          "type": "text",
+          "interactivity": false,
+          "x": 318,
+          "y": 48,
+          "width": 123,
+          "height": 17
+        },
+        {
           "id": 3,
-          "content": " Continuous Th...",
-          "type": "icon",
-          "interactivity": true,
-          "x": 151,
-          "y": 118,
-          "width": 112,
+          "content": "Terminal Help",
+          "type": "text",
+          "interactivity": false,
+          "x": 424,
+          "y": 49,
+          "width": 103,
           "height": 17
         },
         {
           "id": 4,
-          "content": "Gmail",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1662,
-          "y": 172,
-          "width": 39,
-          "height": 16
+          "content": "/ COMPUTER-USE",
+          "type": "text",
+          "interactivity": false,
+          "x": 125,
+          "y": 112,
+          "width": 98,
+          "height": 17
         },
         {
           "id": 5,
-          "content": "Images",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1710,
-          "y": 173,
-          "width": 47,
-          "height": 16
-        },
-        {
-          "id": 6,
-          "content": "Google",
+          "content": "src > config >  settings.py > ",
           "type": "text",
           "interactivity": false,
-          "x": 855,
-          "y": 275,
-          "width": 280,
-          "height": 99
-        },
-        {
-          "id": 7,
-          "content": "Search Google or type a URL",
-          "type": "text",
-          "interactivity": false,
-          "x": 671,
-          "y": 424,
-          "width": 204,
+          "x": 429,
+          "y": 118,
+          "width": 196,
           "height": 20
         },
         {
-          "id": 8,
-          "content": "100.121116.7",
+          "id": 6,
+          "content": "@1Tab",
           "type": "text",
           "interactivity": false,
-          "x": 1327,
-          "y": 555,
-          "width": 114,
+          "x": 1554,
+          "y": 123,
+          "width": 80,
+          "height": 23
+        },
+        {
+          "id": 7,
+          "content": "17.1% O",
+          "type": "text",
+          "interactivity": false,
+          "x": 1873,
+          "y": 121,
+          "width": 54,
+          "height": 17
+        },
+        {
+          "id": 8,
+          "content": "GEMINI_API_KEY",
+          "type": "text",
+          "interactivity": false,
+          "x": 1006,
+          "y": 149,
+          "width": 101,
           "height": 16
         },
         {
           "id": 9,
-          "content": "Add shortcut",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1460,
-          "y": 557,
-          "width": 79,
-          "height": 13
+          "content": "import os",
+          "type": "text",
+          "interactivity": false,
+          "x": 427,
+          "y": 176,
+          "width": 82,
+          "height": 21
         },
         {
           "id": 10,
-          "content": "Continue with these tabs",
+          "content": "from dotenv import load_dotenv",
           "type": "text",
           "interactivity": false,
-          "x": 648,
-          "y": 644,
-          "width": 148,
-          "height": 15
+          "x": 515,
+          "y": 195,
+          "width": 258,
+          "height": 21
         },
         {
           "id": 11,
-          "content": "Home - Netflix",
+          "content": "oo Agent Ctrl+l grok-code-fast-1 @",
           "type": "text",
           "interactivity": false,
-          "x": 701,
-          "y": 694,
-          "width": 89,
+          "x": 1628,
+          "y": 190,
+          "width": 217,
           "height": 17
         },
         {
           "id": 12,
-          "content": "netflix.com \u2022 peter-bui \u2022 You visit often",
+          "content": "You've hit your usage limit ",
           "type": "text",
           "interactivity": false,
-          "x": 700,
-          "y": 712,
-          "width": 191,
-          "height": 17
+          "x": 1593,
+          "y": 232,
+          "width": 151,
+          "height": 19
         },
         {
           "id": 13,
-          "content": "netflix - Google Search",
+          "content": "#Define Project Root",
           "type": "text",
           "interactivity": false,
-          "x": 701,
-          "y": 749,
-          "width": 135,
-          "height": 17
+          "x": 477,
+          "y": 252,
+          "width": 180,
+          "height": 16
         },
         {
           "id": 14,
-          "content": " google.com * peter-bui You visited 5 hours ago ",
+          "content": "Set a spend limit to keep going.",
           "type": "text",
           "interactivity": false,
-          "x": 698,
-          "y": 766,
-          "width": 242,
-          "height": 19
+          "x": 1603,
+          "y": 257,
+          "width": 171,
+          "height": 17
         },
         {
           "id": 15,
-          "content": "Netflix",
+          "content": "6",
           "type": "text",
           "interactivity": false,
-          "x": 701,
-          "y": 805,
-          "width": 44,
-          "height": 17
+          "x": 359,
+          "y": 271,
+          "width": 13,
+          "height": 12
         },
         {
           "id": 16,
-          "content": "netflix.com \u2022 peter-bui \u2022 You visited 5 hours ago",
+          "content": "# This goes from src/config/settings.py up two levels to the omni-agent directory.",
           "type": "text",
           "interactivity": false,
-          "x": 700,
-          "y": 823,
-          "width": 236,
-          "height": 17
+          "x": 732,
+          "y": 271,
+          "width": 693,
+          "height": 20
         },
         {
           "id": 17,
-          "content": "INTEGRITY | Dinh nghia trong Tir dien tieng Anh Cambridge",
+          "content": "PROJECT_RooT = os.path.abspath(os.path.join(os.path.dirname(file),",
           "type": "text",
           "interactivity": false,
-          "x": 700,
-          "y": 860,
-          "width": 345,
-          "height": 19
+          "x": 684,
+          "y": 290,
+          "width": 596,
+          "height": 20
         },
         {
           "id": 18,
-          "content": "dictionary.cambridge.org iPhone12,1 You visited 8 hours ago",
+          "content": "8",
           "type": "text",
           "interactivity": false,
-          "x": 698,
-          "y": 877,
-          "width": 316,
-          "height": 20
+          "x": 359,
+          "y": 309,
+          "width": 13,
+          "height": 15
         },
         {
           "id": 19,
-          "content": "integrity -Google Search",
+          "content": "9",
           "type": "text",
           "interactivity": false,
-          "x": 700,
-          "y": 916,
-          "width": 148,
-          "height": 20
+          "x": 359,
+          "y": 328,
+          "width": 13,
+          "height": 15
         },
         {
           "id": 20,
-          "content": "google.com * iPhone12,1 \u00b7 You visited 8 hours ago",
+          "content": "load_dotenv(os.path.join(PRoJECT_RooT,\".env\"))",
           "type": "text",
           "interactivity": false,
-          "x": 701,
-          "y": 936,
-          "width": 251,
-          "height": 17
-        },
-        {
-          "id": 21,
-          "content": "See more",
-          "type": "icon",
-          "interactivity": true,
-          "x": 652,
-          "y": 971,
-          "width": 63,
-          "height": 17
-        },
-        {
-          "id": 22,
-          "content": "AlzaSyB5bF8. ",
-          "type": "icon",
-          "interactivity": true,
-          "x": 785,
-          "y": 488,
-          "width": 87,
-          "height": 89
-        },
-        {
-          "id": 23,
-          "content": "139,117,84 ",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1023,
-          "y": 489,
-          "width": 86,
-          "height": 90
-        },
-        {
-          "id": 24,
-          "content": "SSD ",
-          "type": "icon",
-          "interactivity": true,
-          "x": 0,
-          "y": 374,
-          "width": 68,
-          "height": 62
-        },
-        {
-          "id": 25,
-          "content": "Search icon",
-          "type": "icon",
-          "interactivity": true,
-          "x": 633,
-          "y": 416,
-          "width": 31,
-          "height": 36
-        },
-        {
-          "id": 26,
-          "content": "New Tab ",
-          "type": "icon",
-          "interactivity": true,
-          "x": 109,
-          "y": 26,
-          "width": 236,
-          "height": 38
-        },
-        {
-          "id": 27,
-          "content": "ghp_x6pIAjaY...",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1106,
-          "y": 490,
-          "width": 110,
-          "height": 95
-        },
-        {
-          "id": 28,
-          "content": "sk-ant-api03 ",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1227,
-          "y": 491,
-          "width": 78,
-          "height": 96
-        },
-        {
-          "id": 29,
-          "content": "en ",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1776,
-          "y": 0,
-          "width": 28,
-          "height": 25
-        },
-        {
-          "id": 30,
-          "content": "Photo by Jakkree Thampitakkul ",
-          "type": "icon",
-          "interactivity": true,
-          "x": 92,
-          "y": 1035,
-          "width": 225,
+          "x": 587,
+          "y": 327,
+          "width": 397,
           "height": 19
         },
         {
+          "id": 21,
+          "content": "10",
+          "type": "text",
+          "interactivity": false,
+          "x": 356,
+          "y": 347,
+          "width": 22,
+          "height": 19
+        },
+        {
+          "id": 22,
+          "content": "11",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 365,
+          "width": 20,
+          "height": 17
+        },
+        {
+          "id": 23,
+          "content": "#Device and Model Paths",
+          "type": "text",
+          "interactivity": false,
+          "x": 490,
+          "y": 364,
+          "width": 206,
+          "height": 17
+        },
+        {
+          "id": 24,
+          "content": "12",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 385,
+          "width": 20,
+          "height": 17
+        },
+        {
+          "id": 25,
+          "content": "OMNI_DEVICE =\"cuda\"# Or \"cpu\"",
+          "type": "text",
+          "interactivity": false,
+          "x": 523,
+          "y": 385,
+          "width": 271,
+          "height": 17
+        },
+        {
+          "id": 26,
+          "content": "13",
+          "type": "text",
+          "interactivity": false,
+          "x": 354,
+          "y": 403,
+          "width": 18,
+          "height": 16
+        },
+        {
+          "id": 27,
+          "content": "CAPTION_MODEL_PATH = os.path.join(PROJECT_ROOT, \"weights\", \"icon_caption_florence\")",
+          "type": "text",
+          "interactivity": false,
+          "x": 737,
+          "y": 424,
+          "width": 699,
+          "height": 20
+        },
+        {
+          "id": 28,
+          "content": "15",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 443,
+          "width": 17,
+          "height": 17
+        },
+        {
+          "id": 29,
+          "content": "RAPID_oCR_ENABLED = True",
+          "type": "text",
+          "interactivity": false,
+          "x": 491,
+          "y": 442,
+          "width": 208,
+          "height": 20
+        },
+        {
+          "id": 30,
+          "content": "16",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 462,
+          "width": 23,
+          "height": 20
+        },
+        {
           "id": 31,
-          "content": "Google Chrome app",
-          "type": "icon",
-          "interactivity": true,
-          "x": 0,
-          "y": 100,
-          "width": 70,
-          "height": 69
+          "content": "17",
+          "type": "text",
+          "interactivity": false,
+          "x": 354,
+          "y": 480,
+          "width": 18,
+          "height": 16
         },
         {
           "id": 32,
-          "content": "Files",
-          "type": "icon",
-          "interactivity": true,
-          "x": 2,
-          "y": 33,
-          "width": 62,
-          "height": 60
+          "content": "#Log files",
+          "type": "text",
+          "interactivity": false,
+          "x": 435,
+          "y": 481,
+          "width": 98,
+          "height": 18
         },
         {
           "id": 33,
-          "content": "External drive",
-          "type": "icon",
-          "interactivity": true,
-          "x": 3,
-          "y": 307,
-          "width": 60,
-          "height": 63
+          "content": "18",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 499,
+          "width": 23,
+          "height": 20
         },
         {
           "id": 34,
-          "content": "skjqgsd..",
-          "type": "icon",
-          "interactivity": true,
-          "x": 682,
-          "y": 473,
-          "width": 69,
-          "height": 103
+          "content": "LoG_FILES = [\"main_agent_log.txt\", \"search_agent_log.txt\"]",
+          "type": "text",
+          "interactivity": false,
+          "x": 632,
+          "y": 499,
+          "width": 491,
+          "height": 19
         },
         {
           "id": 35,
-          "content": "Google.",
-          "type": "icon",
-          "interactivity": true,
-          "x": 645,
-          "y": 909,
-          "width": 51,
-          "height": 50
+          "content": "19",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 517,
+          "width": 23,
+          "height": 20
         },
         {
           "id": 36,
-          "content": "Image input",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1322,
-          "y": 417,
-          "width": 35,
-          "height": 34
+          "content": "20",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 537,
+          "width": 23,
+          "height": 21
         },
         {
           "id": 37,
-          "content": "Expand",
-          "type": "icon",
-          "interactivity": true,
-          "x": 71,
-          "y": 27,
-          "width": 38,
-          "height": 39
+          "content": "#Gemini API Key",
+          "type": "text",
+          "interactivity": false,
+          "x": 456,
+          "y": 538,
+          "width": 141,
+          "height": 20
         },
         {
           "id": 38,
-          "content": "Reload",
-          "type": "icon",
-          "interactivity": true,
-          "x": 145,
-          "y": 70,
-          "width": 35,
-          "height": 36
+          "content": "21",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 557,
+          "width": 20,
+          "height": 17
         },
         {
           "id": 39,
-          "content": "h_idkEDp..",
-          "type": "icon",
-          "interactivity": true,
-          "x": 903,
-          "y": 488,
-          "width": 70,
-          "height": 90
+          "content": "GEMINI_API_KEY = os.environ.get(\"GEMINI_API_KEY\")",
+          "type": "text",
+          "interactivity": false,
+          "x": 595,
+          "y": 556,
+          "width": 414,
+          "height": 19
         },
         {
           "id": 40,
-          "content": "Dictate",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1288,
-          "y": 418,
-          "width": 30,
-          "height": 33
+          "content": "22",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 575,
+          "width": 20,
+          "height": 18
         },
         {
           "id": 41,
-          "content": "Back",
-          "type": "icon",
-          "interactivity": true,
-          "x": 75,
-          "y": 71,
-          "width": 34,
-          "height": 34
+          "content": "if not GEMINI_API KEY:",
+          "type": "text",
+          "interactivity": false,
+          "x": 481,
+          "y": 575,
+          "width": 189,
+          "height": 19
         },
         {
           "id": 42,
-          "content": "Cambridge dictionary",
-          "type": "icon",
-          "interactivity": true,
-          "x": 644,
-          "y": 852,
-          "width": 51,
-          "height": 50
+          "content": "23",
+          "type": "text",
+          "interactivity": false,
+          "x": 354,
+          "y": 595,
+          "width": 22,
+          "height": 19
+        },
+        {
+          "id": 43,
+          "content": "print(\"Warning: GEMINI_API _KEY not set in environment variables. Agents requiring it may not function.\")",
+          "type": "text",
+          "interactivity": false,
+          "x": 859,
+          "y": 595,
+          "width": 880,
+          "height": 20
         },
         {
           "id": 44,
-          "content": "Cursor IDE",
-          "type": "icon",
-          "interactivity": true,
-          "x": 4,
-          "y": 239,
-          "width": 61,
-          "height": 67
+          "content": "24",
+          "type": "text",
+          "interactivity": false,
+          "x": 354,
+          "y": 612,
+          "width": 22,
+          "height": 19
         },
         {
           "id": 45,
-          "content": "Forward",
-          "type": "icon",
-          "interactivity": true,
-          "x": 110,
-          "y": 70,
-          "width": 33,
-          "height": 35
+          "content": "25",
+          "type": "text",
+          "interactivity": false,
+          "x": 354,
+          "y": 631,
+          "width": 18,
+          "height": 17
         },
         {
           "id": 46,
-          "content": "Google profile",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1860,
-          "y": 154,
-          "width": 49,
-          "height": 50
+          "content": "#Model Names",
+          "type": "text",
+          "interactivity": false,
+          "x": 444,
+          "y": 632,
+          "width": 114,
+          "height": 16
         },
         {
           "id": 47,
-          "content": "Google.",
-          "type": "icon",
-          "interactivity": true,
-          "x": 644,
-          "y": 740,
-          "width": 51,
-          "height": 50
+          "content": "26",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 651,
+          "width": 20,
+          "height": 16
         },
         {
           "id": 48,
-          "content": "Netflix.",
-          "type": "icon",
-          "interactivity": true,
-          "x": 643,
-          "y": 684,
-          "width": 53,
-          "height": 51
+          "content": "SEARCH MODEL NAME = \"gemini-2.5-flash\"",
+          "type": "text",
+          "interactivity": false,
+          "x": 548,
+          "y": 650,
+          "width": 321,
+          "height": 17
         },
         {
           "id": 49,
-          "content": "Star",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1709,
-          "y": 75,
-          "width": 31,
-          "height": 31
+          "content": "MAIN_MoDEL_NAME = \"gemini-2.5-flash\"",
+          "type": "text",
+          "interactivity": false,
+          "x": 540,
+          "y": 671,
+          "width": 307,
+          "height": 19
         },
         {
           "id": 50,
-          "content": "Netflix.",
-          "type": "icon",
-          "interactivity": true,
-          "x": 644,
-          "y": 796,
-          "width": 52,
-          "height": 51
+          "content": ">weights",
+          "type": "text",
+          "interactivity": false,
+          "x": 116,
+          "y": 685,
+          "width": 67,
+          "height": 20
         },
         {
           "id": 51,
-          "content": "terminal",
-          "type": "icon",
-          "interactivity": true,
-          "x": 0,
-          "y": 171,
-          "width": 68,
-          "height": 59
+          "content": "28",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 689,
+          "width": 20,
+          "height": 17
         },
         {
           "id": 52,
-          "content": "App launcher",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1815,
-          "y": 156,
-          "width": 42,
-          "height": 48
+          "content": "env",
+          "type": "text",
+          "interactivity": false,
+          "x": 104,
+          "y": 707,
+          "width": 49,
+          "height": 17
         },
         {
           "id": 53,
-          "content": "Recycle Bin",
-          "type": "icon",
-          "interactivity": true,
-          "x": 11,
-          "y": 446,
-          "width": 51,
-          "height": 56
+          "content": "29",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 708,
+          "width": 20,
+          "height": 17
         },
         {
           "id": 54,
-          "content": "More options",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1882,
-          "y": 66,
-          "width": 34,
-          "height": 43
+          "content": "#Prompt Paths",
+          "type": "text",
+          "interactivity": false,
+          "x": 448,
+          "y": 708,
+          "width": 123,
+          "height": 19
         },
         {
           "id": 55,
-          "content": "Extension",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1751,
-          "y": 66,
-          "width": 42,
-          "height": 41
+          "content": "30",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 727,
+          "width": 20,
+          "height": 17
         },
         {
           "id": 56,
-          "content": "Music box",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1808,
-          "y": 66,
-          "width": 34,
-          "height": 38
+          "content": "SEARCH_PROMPT_PATH = os.path.join(PROJECT_ROOT, \"prompts\", \"Search_Agent.txt\")",
+          "type": "text",
+          "interactivity": false,
+          "x": 716,
+          "y": 728,
+          "width": 662,
+          "height": 23
+        },
+        {
+          "id": 57,
+          "content": "31",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 746,
+          "width": 20,
+          "height": 17
         },
         {
           "id": 58,
-          "content": "Profile selection card",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1843,
-          "y": 66,
-          "width": 38,
-          "height": 40
+          "content": "MAIN_PROMPT_PATH = os.path.join(PROJECT_ROoT, \"prompts\", \"Main_Agent.txt\")",
+          "type": "text",
+          "interactivity": false,
+          "x": 700,
+          "y": 747,
+          "width": 628,
+          "height": 19
         },
         {
           "id": 59,
-          "content": "Beaker",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1770,
-          "y": 157,
-          "width": 38,
-          "height": 45
+          "content": "REQuEsT = \"go to amazon, search for a laptop, and display the price of the cheapest one\"",
+          "type": "text",
+          "interactivity": false,
+          "x": 759,
+          "y": 784,
+          "width": 744,
+          "height": 19
         },
         {
           "id": 60,
-          "content": "More options",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1313,
-          "y": 636,
-          "width": 32,
-          "height": 32
+          "content": "34",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 802,
+          "width": 20,
+          "height": 16
         },
         {
           "id": 61,
-          "content": "tab group",
+          "content": "EXPECTED_ouTPuT = \"Successfully displayed the cheapest laptop's price\"",
+          "type": "text",
+          "interactivity": false,
+          "x": 683,
+          "y": 803,
+          "width": 594,
+          "height": 21
+        },
+        {
+          "id": 62,
+          "content": "{} main_agent_history.json",
+          "type": "text",
+          "interactivity": false,
+          "x": 162,
+          "y": 861,
+          "width": 165,
+          "height": 19
+        },
+        {
+          "id": 63,
+          "content": "Output Debug ConsoleTerminal",
+          "type": "text",
+          "interactivity": false,
+          "x": 536,
+          "y": 858,
+          "width": 222,
+          "height": 19
+        },
+        {
+          "id": 64,
+          "content": "Ports",
+          "type": "text",
+          "interactivity": false,
+          "x": 674,
+          "y": 857,
+          "width": 38,
+          "height": 21
+        },
+        {
+          "id": 65,
+          "content": "object Value: ('function_declarations', None)",
+          "type": "text",
+          "interactivity": false,
+          "x": 518,
+          "y": 885,
+          "width": 360,
+          "height": 15
+        },
+        {
+          "id": 66,
+          "content": "MainAgent (gemini-2.5-flash): Gemini model initialized successfully with temperature=0.0.",
+          "type": "text",
+          "interactivity": false,
+          "x": 693,
+          "y": 902,
+          "width": 714,
+          "height": 19
+        },
+        {
+          "id": 67,
+          "content": " Running Search Agent ",
+          "type": "text",
+          "interactivity": false,
+          "x": 451,
+          "y": 919,
+          "width": 176,
+          "height": 17
+        },
+        {
+          "id": 68,
+          "content": "Search Agent Guide:",
+          "type": "text",
+          "interactivity": false,
+          "x": 415,
+          "y": 935,
+          "width": 157,
+          "height": 19
+        },
+        {
+          "id": 69,
+          "content": "None",
+          "type": "text",
+          "interactivity": false,
+          "x": 355,
+          "y": 953,
+          "width": 41,
+          "height": 21
+        },
+        {
+          "id": 70,
+          "content": "@1Tab",
+          "type": "text",
+          "interactivity": false,
+          "x": 1554,
+          "y": 962,
+          "width": 76,
+          "height": 22
+        },
+        {
+          "id": 71,
+          "content": "Iteration 1 --",
+          "type": "text",
+          "interactivity": false,
+          "x": 425,
+          "y": 986,
+          "width": 113,
+          "height": 21
+        },
+        {
+          "id": 72,
+          "content": "Plan, @ for context, / for commands",
+          "type": "text",
+          "interactivity": false,
+          "x": 1620,
+          "y": 988,
+          "width": 211,
+          "height": 17
+        },
+        {
+          "id": 73,
+          "content": "Taking Screenshot ",
+          "type": "text",
+          "interactivity": false,
+          "x": 440,
+          "y": 1004,
+          "width": 145,
+          "height": 19
+        },
+        {
+          "id": 74,
+          "content": "0o Agent Ctrl+l ^",
+          "type": "text",
+          "interactivity": false,
+          "x": 1571,
+          "y": 1030,
+          "width": 98,
+          "height": 15
+        },
+        {
+          "id": 75,
+          "content": "grok-code-fast-1 @",
+          "type": "text",
+          "interactivity": false,
+          "x": 1680,
+          "y": 1029,
+          "width": 114,
+          "height": 17
+        },
+        {
+          "id": 76,
+          "content": "Ctrl+K to generate a command",
+          "type": "text",
+          "interactivity": false,
+          "x": 907,
+          "y": 1047,
+          "width": 143,
+          "height": 17
+        },
+        {
+          "id": 77,
+          "content": "Cursor Tab",
+          "type": "text",
+          "interactivity": false,
+          "x": 1483,
+          "y": 1069,
+          "width": 65,
+          "height": 19
+        },
+        {
+          "id": 78,
+          "content": "Ln 27, Col 28",
+          "type": "text",
+          "interactivity": false,
+          "x": 1562,
+          "y": 1069,
+          "width": 75,
+          "height": 13
+        },
+        {
+          "id": 79,
+          "content": "Spaces: 4",
+          "type": "text",
+          "interactivity": false,
+          "x": 1636,
+          "y": 1070,
+          "width": 58,
+          "height": 14
+        },
+        {
+          "id": 80,
+          "content": "UTF-8",
+          "type": "text",
+          "interactivity": false,
+          "x": 1693,
+          "y": 1069,
+          "width": 37,
+          "height": 13
+        },
+        {
+          "id": 81,
+          "content": "LF",
+          "type": "text",
+          "interactivity": false,
+          "x": 1732,
+          "y": 1069,
+          "width": 17,
+          "height": 12
+        },
+        {
+          "id": 82,
+          "content": " Python ",
+          "type": "text",
+          "interactivity": false,
+          "x": 1773,
+          "y": 1069,
+          "width": 47,
+          "height": 17
+        },
+        {
+          "id": 83,
+          "content": "3.12.3 64-bit",
+          "type": "text",
+          "interactivity": false,
+          "x": 1842,
+          "y": 1068,
+          "width": 74,
+          "height": 17
+        },
+        {
+          "id": 84,
+          "content": "Custom ",
           "type": "icon",
           "interactivity": true,
-          "x": 79,
-          "y": 108,
+          "x": 1851,
+          "y": 292,
+          "width": 95,
+          "height": 35
+        },
+        {
+          "id": 85,
+          "content": "$50 ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1564,
+          "y": 292,
+          "width": 94,
+          "height": 35
+        },
+        {
+          "id": 86,
+          "content": "$100 ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1659,
+          "y": 292,
+          "width": 95,
+          "height": 35
+        },
+        {
+          "id": 87,
+          "content": "$200 ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1755,
+          "y": 292,
+          "width": 95,
+          "height": 35
+        },
+        {
+          "id": 88,
+          "content": "Upgrade to Pro+ ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1705,
+          "y": 364,
+          "width": 389,
+          "height": 32
+        },
+        {
+          "id": 89,
+          "content": "Set Spend Limit ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1705,
+          "y": 333,
+          "width": 388,
+          "height": 29
+        },
+        {
+          "id": 90,
+          "content": "= main_agent_log.txt  ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 193,
+          "y": 552,
+          "width": 250,
+          "height": 23
+        },
+        {
+          "id": 91,
+          "content": "Switch Model to Auto ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1706,
+          "y": 397,
+          "width": 389,
+          "height": 30
+        },
+        {
+          "id": 92,
+          "content": " debug_dino_labeled.png  M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 193,
+          "y": 530,
+          "width": 251,
+          "height": 24
+        },
+        {
+          "id": 93,
+          "content": " main_agent_log.txt ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 190,
+          "y": 882,
+          "width": 255,
+          "height": 22
+        },
+        {
+          "id": 94,
+          "content": "main.py M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 193,
+          "y": 574,
+          "width": 251,
+          "height": 23
+        },
+        {
+          "id": 95,
+          "content": "\u2460 README.md ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 189,
+          "y": 903,
+          "width": 259,
+          "height": 24
+        },
+        {
+          "id": 96,
+          "content": " main_agent.py M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 192,
+          "y": 310,
+          "width": 246,
+          "height": 23
+        },
+        {
+          "id": 97,
+          "content": "= main_agent_log.txt  U ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 192,
+          "y": 288,
+          "width": 246,
+          "height": 22
+        },
+        {
+          "id": 98,
+          "content": " state.py M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 193,
+          "y": 597,
+          "width": 252,
+          "height": 23
+        },
+        {
+          "id": 99,
+          "content": "> test_json_elements ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 195,
+          "y": 486,
+          "width": 248,
+          "height": 23
+        },
+        {
+          "id": 100,
+          "content": " base_agent.py M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 195,
+          "y": 266,
+          "width": 251,
+          "height": 26
+        },
+        {
+          "id": 101,
+          "content": "gitignore ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 193,
+          "y": 751,
+          "width": 258,
+          "height": 23
+        },
+        {
+          "id": 102,
+          "content": "\u2193 INSTALL.md ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 191,
+          "y": 795,
+          "width": 256,
+          "height": 26
+        },
+        {
+          "id": 103,
+          "content": "settings.py 1, M X ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 764,
+          "y": 83,
+          "width": 145,
+          "height": 36
+        },
+        {
+          "id": 104,
+          "content": "2 search_agent.py 1, M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 192,
+          "y": 332,
+          "width": 248,
+          "height": 24
+        },
+        {
+          "id": 105,
+          "content": "O Computer-use ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1116,
+          "y": 49,
+          "width": 311,
+          "height": 31
+        },
+        {
+          "id": 106,
+          "content": "CONTRIBUTING.md ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 191,
+          "y": 771,
+          "width": 256,
+          "height": 24
+        },
+        {
+          "id": 107,
+          "content": "What is the OCR engine here ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1592,
+          "y": 83,
+          "width": 175,
+          "height": 26
+        },
+        {
+          "id": 108,
+          "content": " .env_example ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 192,
+          "y": 729,
+          "width": 258,
+          "height": 23
+        },
+        {
+          "id": 109,
+          "content": "INSTALL.md M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 615,
+          "y": 83,
+          "width": 150,
+          "height": 38
+        },
+        {
+          "id": 110,
+          "content": "desktop_elements.json ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1122,
+          "y": 83,
+          "width": 196,
+          "height": 37
+        },
+        {
+          "id": 111,
+          "content": " main.py M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 480,
+          "y": 83,
+          "width": 122,
+          "height": 37
+        },
+        {
+          "id": 112,
+          "content": "_pycache_ ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 195,
+          "y": 376,
+          "width": 243,
+          "height": 23
+        },
+        {
+          "id": 113,
+          "content": "2 search_agent.py 1, M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 932,
+          "y": 83,
+          "width": 184,
+          "height": 37
+        },
+        {
+          "id": 114,
+          "content": "config ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 193,
+          "y": 354,
+          "width": 250,
+          "height": 24
+        },
+        {
+          "id": 115,
+          "content": "Vcore ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 193,
+          "y": 443,
+          "width": 254,
+          "height": 21
+        },
+        {
+          "id": 116,
+          "content": "\u221a agents  ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 198,
+          "y": 201,
+          "width": 247,
+          "height": 22
+        },
+        {
+          "id": 117,
+          "content": " TODO.txt M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 188,
+          "y": 948,
+          "width": 259,
+          "height": 28
+        },
+        {
+          "id": 118,
+          "content": "_init_.py ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 192,
+          "y": 640,
+          "width": 254,
+          "height": 27
+        },
+        {
+          "id": 119,
+          "content": "$ install.sh ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 190,
+          "y": 817,
+          "width": 256,
+          "height": 23
+        },
+        {
+          "id": 120,
+          "content": " LICENSE ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 191,
+          "y": 838,
+          "width": 256,
+          "height": 22
+        },
+        {
+          "id": 121,
+          "content": ">tests ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 192,
+          "y": 668,
+          "width": 254,
+          "height": 31
+        },
+        {
+          "id": 122,
+          "content": "en ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1790,
+          "y": 14,
+          "width": 34,
+          "height": 29
+        },
+        {
+          "id": 123,
+          "content": "__Pycache_ ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 195,
+          "y": 464,
+          "width": 247,
+          "height": 22
+        },
+        {
+          "id": 124,
+          "content": ">OUTLINE ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 189,
+          "y": 1022,
+          "width": 253,
+          "height": 28
+        },
+        {
+          "id": 125,
+          "content": "hi ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1522,
+          "y": 148,
+          "width": 20,
+          "height": 18
+        },
+        {
+          "id": 126,
+          "content": "33 ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 353,
+          "y": 784,
+          "width": 27,
+          "height": 17
+        },
+        {
+          "id": 127,
+          "content": " settings.py ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 194,
+          "y": 420,
+          "width": 245,
+          "height": 23
+        },
+        {
+          "id": 128,
+          "content": "Problems 2 ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 375,
+          "y": 857,
+          "width": 80,
+          "height": 25
+        },
+        {
+          "id": 129,
+          "content": "17.1% O ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1873,
+          "y": 959,
+          "width": 60,
+          "height": 23
+        },
+        {
+          "id": 130,
+          "content": "test* ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 136,
+          "y": 1067,
+          "width": 82,
+          "height": 24
+        },
+        {
+          "id": 131,
+          "content": "32 ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 355,
+          "y": 764,
+          "width": 25,
+          "height": 15
+        },
+        {
+          "id": 132,
+          "content": "14 ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 365,
+          "y": 422,
+          "width": 34,
+          "height": 22
+        },
+        {
+          "id": 133,
+          "content": "27 ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 355,
+          "y": 670,
+          "width": 22,
+          "height": 17
+        },
+        {
+          "id": 134,
+          "content": "SSD ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 32,
+          "y": 454,
+          "width": 61,
+          "height": 60
+        },
+        {
+          "id": 135,
+          "content": "TIMELINE ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 190,
+          "y": 1048,
+          "width": 255,
+          "height": 28
+        },
+        {
+          "id": 136,
+          "content": "= search_agent_log.txt  M ",
+          "type": "icon",
+          "interactivity": true,
+          "x": 192,
+          "y": 926,
+          "width": 256,
+          "height": 23
+        },
+        {
+          "id": 137,
+          "content": "Google Chrome web browser.",
+          "type": "icon",
+          "interactivity": true,
+          "x": 33,
+          "y": 66,
+          "width": 59,
+          "height": 59
+        },
+        {
+          "id": 138,
+          "content": "Mozilla",
+          "type": "icon",
+          "interactivity": true,
+          "x": 34,
+          "y": 133,
+          "width": 65,
+          "height": 65
+        },
+        {
+          "id": 139,
+          "content": "0.0 percent off",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1568,
+          "y": 189,
+          "width": 111,
+          "height": 24
+        },
+        {
+          "id": 140,
+          "content": "A menu or list option.",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1422,
+          "y": 168,
+          "width": 124,
+          "height": 73
+        },
+        {
+          "id": 141,
+          "content": "Copy",
+          "type": "icon",
+          "interactivity": true,
+          "x": 111,
+          "y": 82,
           "width": 32,
           "height": 32
         },
         {
-          "id": 62,
-          "content": "More apps",
+          "id": 142,
+          "content": "ShowShow",
           "type": "icon",
           "interactivity": true,
-          "x": 1882,
-          "y": 0,
-          "width": 26,
-          "height": 25
+          "x": 193,
+          "y": 508,
+          "width": 250,
+          "height": 22
         },
         {
-          "id": 64,
-          "content": "Tab Editor",
+          "id": 143,
+          "content": "Find",
           "type": "icon",
           "interactivity": true,
-          "x": 1865,
-          "y": 1029,
-          "width": 42,
-          "height": 39
+          "x": 144,
+          "y": 82,
+          "width": 28,
+          "height": 32
         },
         {
-          "id": 65,
-          "content": "Minimize",
+          "id": 144,
+          "content": "Maximize",
           "type": "icon",
           "interactivity": true,
-          "x": 1821,
-          "y": 30,
-          "width": 30,
-          "height": 35
-        },
-        {
-          "id": 67,
-          "content": "App launcher",
-          "type": "icon",
-          "interactivity": true,
-          "x": 6,
-          "y": 1019,
-          "width": 57,
-          "height": 49
-        },
-        {
-          "id": 68,
-          "content": "0;s",
-          "type": "icon",
-          "interactivity": true,
-          "x": 579,
-          "y": 473,
-          "width": 47,
-          "height": 104
-        },
-        {
-          "id": 69,
-          "content": "Volume",
-          "type": "icon",
-          "interactivity": true,
-          "x": 1855,
-          "y": 0,
+          "x": 1732,
+          "y": 48,
           "width": 24,
-          "height": 26
+          "height": 21
         },
         {
-          "id": 70,
+          "id": 145,
+          "content": "Podcast",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1695,
+          "y": 15,
+          "width": 43,
+          "height": 30
+        },
+        {
+          "id": 146,
+          "content": "Add New Project",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1317,
+          "y": 856,
+          "width": 33,
+          "height": 29
+        },
+        {
+          "id": 147,
+          "content": "Norton VPN",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1649,
+          "y": 15,
+          "width": 43,
+          "height": 31
+        },
+        {
+          "id": 148,
+          "content": "Up arrow",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1258,
+          "y": 150,
+          "width": 26,
+          "height": 34
+        },
+        {
+          "id": 149,
+          "content": "Center",
+          "type": "icon",
+          "interactivity": true,
+          "x": 192,
+          "y": 619,
+          "width": 252,
+          "height": 23
+        },
+        {
+          "id": 150,
+          "content": "Settings",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1348,
+          "y": 857,
+          "width": 23,
+          "height": 29
+        },
+        {
+          "id": 151,
+          "content": "Toggle",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1759,
+          "y": 48,
+          "width": 22,
+          "height": 21
+        },
+        {
+          "id": 152,
+          "content": "View as full screen",
+          "type": "icon",
+          "interactivity": true,
+          "x": 197,
+          "y": 222,
+          "width": 250,
+          "height": 23
+        },
+        {
+          "id": 153,
+          "content": "3D modeling or 3D modeling software.",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1785,
+          "y": 48,
+          "width": 22,
+          "height": 21
+        },
+        {
+          "id": 154,
           "content": "Close",
           "type": "icon",
           "interactivity": true,
-          "x": 1886,
-          "y": 28,
-          "width": 30,
-          "height": 36
+          "x": 1472,
+          "y": 858,
+          "width": 22,
+          "height": 22
         },
         {
-          "id": 71,
-          "content": "Wifi",
+          "id": 155,
+          "content": "3D modeling",
           "type": "icon",
-          "x": 1825,
           "interactivity": true,
-          "y": 0,
+          "x": 91,
+          "y": 49,
+          "width": 31,
+          "height": 32
+        },
+        {
+          "id": 156,
+          "content": "Show More Options",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1373,
+          "y": 856,
+          "width": 23,
+          "height": 30
+        },
+        {
+          "id": 157,
+          "content": "Branch",
+          "type": "icon",
+          "interactivity": true,
+          "x": 196,
+          "y": 244,
+          "width": 251,
+          "height": 24
+        },
+        {
+          "id": 158,
+          "content": "Microsoft Edge",
+          "type": "icon",
+          "interactivity": true,
+          "x": 32,
+          "y": 197,
+          "width": 63,
+          "height": 58
+        },
+        {
+          "id": 159,
+          "content": "Settings",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1810,
+          "y": 48,
+          "width": 22,
+          "height": 21
+        },
+        {
+          "id": 160,
+          "content": "Properties",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1839,
+          "y": 16,
           "width": 26,
           "height": 26
         },
         {
-          "id": 72,
-          "content": "Restore",
+          "id": 161,
+          "content": "Decrease",
           "type": "icon",
           "interactivity": true,
-          "x": 1852,
-          "y": 28,
-          "width": 32,
-          "height": 36
-        },
-        {
-          "id": 73,
-          "content": "A video-related application or feature.",
-          "type": "icon",
-          "interactivity": true,
-          "x": 457,
-          "y": 481,
-          "width": 71,
-          "height": 97
-        },
-        {
-          "id": 75,
-          "content": "Add tab",
-          "type": "icon",
-          "interactivity": true,
-          "x": 349,
-          "y": 33,
-          "width": 25,
+          "x": 1386,
+          "y": 84,
+          "width": 34,
           "height": 28
         },
         {
-          "id": 77,
-          "content": "Google Chrome",
+          "id": 162,
+          "content": "Dentagon",
           "type": "icon",
           "interactivity": true,
-          "x": 113,
-          "y": 3,
-          "width": 131,
+          "x": 1743,
+          "y": 15,
+          "width": 40,
+          "height": 29
+        },
+        {
+          "id": 163,
+          "content": "Forward",
+          "type": "icon",
+          "interactivity": true,
+          "x": 746,
+          "y": 49,
+          "width": 21,
+          "height": 26
+        },
+        {
+          "id": 164,
+          "content": "Settings",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1833,
+          "y": 85,
+          "width": 23,
+          "height": 25
+        },
+        {
+          "id": 165,
+          "content": "More options",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1421,
+          "y": 857,
+          "width": 21,
+          "height": 26
+        },
+        {
+          "id": 166,
+          "content": "M0,0L9,0 4.5,5z",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1446,
+          "y": 857,
+          "width": 23,
+          "height": 24
+        },
+        {
+          "id": 167,
+          "content": "Clipboard",
+          "type": "icon",
+          "interactivity": true,
+          "x": 33,
+          "y": 261,
+          "width": 63,
+          "height": 58
+        },
+        {
+          "id": 168,
+          "content": "Mute",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1868,
+          "y": 14,
+          "width": 26,
+          "height": 26
+        },
+        {
+          "id": 169,
+          "content": "Remove",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1397,
+          "y": 856,
+          "width": 18,
+          "height": 28
+        },
+        {
+          "id": 170,
+          "content": "More options",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1472,
+          "y": 83,
+          "width": 23,
+          "height": 27
+        },
+        {
+          "id": 171,
+          "content": "Back",
+          "type": "icon",
+          "interactivity": true,
+          "x": 721,
+          "y": 48,
+          "width": 23,
+          "height": 25
+        },
+        {
+          "id": 172,
+          "content": "Notifications",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1898,
+          "y": 1068,
+          "width": 24,
+          "height": 22
+        },
+        {
+          "id": 173,
+          "content": "Next",
+          "type": "icon",
+          "interactivity": true,
+          "x": 938,
+          "y": 152,
+          "width": 20,
+          "height": 28
+        },
+        {
+          "id": 174,
+          "content": "Cut",
+          "type": "icon",
+          "interactivity": true,
+          "x": 174,
+          "y": 82,
+          "width": 28,
+          "height": 32
+        },
+        {
+          "id": 175,
+          "content": "Increase",
+          "type": "icon",
+          "interactivity": true,
+          "x": 34,
+          "y": 16,
+          "width": 59,
+          "height": 32
+        },
+        {
+          "id": 176,
+          "content": "Toggle",
+          "type": "icon",
+          "interactivity": true,
+          "x": 32,
+          "y": 1046,
+          "width": 57,
+          "height": 62
+        },
+        {
+          "id": 177,
+          "content": "Center",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1307,
+          "y": 150,
+          "width": 23,
+          "height": 32
+        },
+        {
+          "id": 178,
+          "content": "Power",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1896,
+          "y": 14,
+          "width": 24,
+          "height": 25
+        },
+        {
+          "id": 179,
+          "content": "Polygon",
+          "type": "icon",
+          "interactivity": true,
+          "x": 207,
+          "y": 82,
+          "width": 32,
+          "height": 31
+        },
+        {
+          "id": 180,
+          "content": "Close",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1332,
+          "y": 151,
+          "width": 22,
+          "height": 27
+        },
+        {
+          "id": 181,
+          "content": "Bunsen",
+          "type": "icon",
+          "interactivity": true,
+          "x": 193,
+          "y": 398,
+          "width": 252,
+          "height": 23
+        },
+        {
+          "id": 182,
+          "content": "Show Grid",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1446,
+          "y": 83,
+          "width": 21,
+          "height": 25
+        },
+        {
+          "id": 183,
+          "content": "Down",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1283,
+          "y": 149,
+          "width": 20,
+          "height": 31
+        },
+        {
+          "id": 184,
+          "content": "Bunsen",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1419,
+          "y": 83,
+          "width": 24,
+          "height": 24
+        },
+        {
+          "id": 185,
+          "content": "Hide",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1840,
+          "y": 49,
+          "width": 29,
+          "height": 25
+        },
+        {
+          "id": 186,
+          "content": "Code",
+          "type": "icon",
+          "interactivity": true,
+          "x": 81,
+          "y": 1068,
+          "width": 29,
+          "height": 23
+        },
+        {
+          "id": 187,
+          "content": "Polygon",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1074,
+          "y": 17,
+          "width": 17,
+          "height": 20
+        },
+        {
+          "id": 188,
+          "content": "Cactus",
+          "type": "icon",
+          "interactivity": true,
+          "x": 33,
+          "y": 393,
+          "width": 56,
+          "height": 59
+        },
+        {
+          "id": 189,
+          "content": "Add",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1856,
+          "y": 85,
+          "width": 18,
+          "height": 23
+        },
+        {
+          "id": 190,
+          "content": "Increase",
+          "type": "icon",
+          "interactivity": true,
+          "x": 347,
+          "y": 1017,
+          "width": 27,
+          "height": 29
+        },
+        {
+          "id": 191,
+          "content": "Close",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1887,
+          "y": 233,
+          "width": 31,
+          "height": 33
+        },
+        {
+          "id": 192,
+          "content": "View as full screen",
+          "type": "icon",
+          "interactivity": true,
+          "x": 197,
+          "y": 136,
+          "width": 245,
+          "height": 33
+        },
+        {
+          "id": 193,
+          "content": "M0,0L9,0 4.5,5z",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1488,
+          "y": 1017,
+          "width": 20,
+          "height": 22
+        },
+        {
+          "id": 194,
+          "content": "Time&Time",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1877,
+          "y": 85,
+          "width": 19,
+          "height": 22
+        },
+        {
+          "id": 195,
+          "content": "Spelling",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1138,
+          "y": 149,
+          "width": 21,
+          "height": 23
+        },
+        {
+          "id": 196,
+          "content": "Recycle Bin",
+          "type": "icon",
+          "interactivity": true,
+          "x": 33,
+          "y": 520,
+          "width": 56,
+          "height": 57
+        },
+        {
+          "id": 197,
+          "content": "New (\u2318N)",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1160,
+          "y": 149,
+          "width": 20,
+          "height": 24
+        },
+        {
+          "id": 198,
+          "content": "Show Properties",
+          "type": "icon",
+          "interactivity": true,
+          "x": 239,
+          "y": 82,
+          "width": 29,
+          "height": 32
+        },
+        {
+          "id": 199,
+          "content": "Go to previous month",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1892,
+          "y": 1031,
+          "width": 29,
+          "height": 32
+        },
+        {
+          "id": 200,
+          "content": "Toggle Up",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1890,
+          "y": 190,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "id": 201,
+          "content": "Close",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1901,
+          "y": 48,
+          "width": 23,
+          "height": 23
+        },
+        {
+          "id": 202,
+          "content": "More options",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1901,
+          "y": 84,
+          "width": 20,
           "height": 21
+        },
+        {
+          "id": 203,
+          "content": "Expand to the next item",
+          "type": "icon",
+          "interactivity": true,
+          "x": 270,
+          "y": 82,
+          "width": 29,
+          "height": 32
+        },
+        {
+          "id": 204,
+          "content": "Copy",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1871,
+          "y": 48,
+          "width": 30,
+          "height": 24
+        },
+        {
+          "id": 205,
+          "content": "Hold",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1488,
+          "y": 407,
+          "width": 24,
+          "height": 28
+        },
+        {
+          "id": 206,
+          "content": "Open",
+          "type": "icon",
+          "interactivity": true,
+          "x": 197,
+          "y": 175,
+          "width": 246,
+          "height": 29
+        },
+        {
+          "id": 207,
+          "content": "Night mode",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1081,
+          "y": 292,
+          "width": 18,
+          "height": 21
+        },
+        {
+          "id": 208,
+          "content": "M0,0L9,0 4.5,5z",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1695,
+          "y": 47,
+          "width": 41,
+          "height": 23
+        },
+        {
+          "id": 209,
+          "content": "M0,0L9,0 4.5,5z",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1914,
+          "y": 14,
+          "width": 11,
+          "height": 27
+        },
+        {
+          "id": 210,
+          "content": "Night mode",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1065,
+          "y": 404,
+          "width": 11,
+          "height": 17
+        },
+        {
+          "id": 211,
+          "content": "terminal",
+          "type": "icon",
+          "interactivity": true,
+          "x": 32,
+          "y": 322,
+          "width": 62,
+          "height": 55
+        },
+        {
+          "id": 212,
+          "content": "Show formatting",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1117,
+          "y": 149,
+          "width": 17,
+          "height": 22
+        },
+        {
+          "id": 213,
+          "content": "3D modeling",
+          "type": "icon",
+          "interactivity": true,
+          "x": 1219,
+          "y": 858,
+          "width": 18,
+          "height": 20
+        },
+        {
+          "id": 214,
+          "content": "Oval",
+          "type": "icon",
+          "interactivity": true,
+          "x": 300,
+          "y": 708,
+          "width": 23,
+          "height": 21
+        },
+        {
+          "id": 215,
+          "content": "a numbered list or option.",
+          "type": "icon",
+          "interactivity": true,
+          "x": 368,
+          "y": 647,
+          "width": 29,
+          "height": 20
+        },
+        {
+          "id": 216,
+          "content": "2, September, 2024",
+          "type": "icon",
+          "interactivity": true,
+          "x": 360,
+          "y": 195,
+          "width": 22,
+          "height": 16
+        },
+        {
+          "id": 217,
+          "content": "Close (Ctrl+F4)",
+          "type": "icon",
+          "interactivity": true,
+          "x": 188,
+          "y": 1068,
+          "width": 20,
+          "height": 23
+        },
+        {
+          "id": 218,
+          "content": "Terminal",
+          "type": "icon",
+          "interactivity": true,
+          "x": 616,
+          "y": 857,
+          "width": 68,
+          "height": 24
+        },
+        {
+          "id": 219,
+          "content": "Son-to-Son-Note: OneNote: Two",
+          "type": "icon",
+          "interactivity": true,
+          "x": 447,
+          "y": 403,
+          "width": 122,
+          "height": 17
+        },
+        {
+          "id": 220,
+          "content": "3, September, 2024",
+          "type": "icon",
+          "interactivity": true,
+          "x": 358,
+          "y": 214,
+          "width": 15,
+          "height": 16
+        },
+        {
+          "id": 221,
+          "content": "envelope",
+          "type": "icon",
+          "interactivity": true,
+          "x": 361,
+          "y": 83,
+          "width": 77,
+          "height": 33
+        },
+        {
+          "id": 222,
+          "content": "Monday",
+          "type": "icon",
+          "interactivity": true,
+          "x": 299,
+          "y": 861,
+          "width": 20,
+          "height": 17
+        }
+      ],
+      "edges": [
+        {
+          "source": 0,
+          "target": 113,
+          "label": "is_label_for"
+        },
+        {
+          "source": 1,
+          "target": 174,
+          "label": "is_label_for"
+        },
+        {
+          "source": 1,
+          "target": 179,
+          "label": "is_label_for"
+        },
+        {
+          "source": 1,
+          "target": 198,
+          "label": "is_label_for"
+        },
+        {
+          "source": 1,
+          "target": 203,
+          "label": "is_label_for"
+        },
+        {
+          "source": 2,
+          "target": 221,
+          "label": "is_label_for"
+        },
+        {
+          "source": 3,
+          "target": 111,
+          "label": "is_label_for"
+        },
+        {
+          "source": 4,
+          "target": 198,
+          "label": "is_label_for"
+        },
+        {
+          "source": 4,
+          "target": 203,
+          "label": "is_label_for"
+        },
+        {
+          "source": 6,
+          "target": 125,
+          "label": "is_label_for"
+        },
+        {
+          "source": 6,
+          "target": 139,
+          "label": "is_label_for"
+        },
+        {
+          "source": 8,
+          "target": 195,
+          "label": "is_label_for"
+        },
+        {
+          "source": 8,
+          "target": 212,
+          "label": "is_label_for"
+        },
+        {
+          "source": 11,
+          "target": 200,
+          "label": "is_label_for"
+        },
+        {
+          "source": 12,
+          "target": 85,
+          "label": "is_label_for"
+        },
+        {
+          "source": 12,
+          "target": 86,
+          "label": "is_label_for"
+        },
+        {
+          "source": 14,
+          "target": 86,
+          "label": "is_label_for"
+        },
+        {
+          "source": 15,
+          "target": 96,
+          "label": "is_label_for"
+        },
+        {
+          "source": 15,
+          "target": 97,
+          "label": "is_label_for"
+        },
+        {
+          "source": 15,
+          "target": 104,
+          "label": "is_label_for"
+        },
+        {
+          "source": 16,
+          "target": 207,
+          "label": "is_label_for"
+        },
+        {
+          "source": 18,
+          "target": 104,
+          "label": "is_label_for"
+        },
+        {
+          "source": 18,
+          "target": 114,
+          "label": "is_label_for"
+        },
+        {
+          "source": 19,
+          "target": 112,
+          "label": "is_label_for"
+        },
+        {
+          "source": 19,
+          "target": 114,
+          "label": "is_label_for"
+        },
+        {
+          "source": 21,
+          "target": 112,
+          "label": "is_label_for"
+        },
+        {
+          "source": 21,
+          "target": 181,
+          "label": "is_label_for"
+        },
+        {
+          "source": 22,
+          "target": 127,
+          "label": "is_label_for"
+        },
+        {
+          "source": 22,
+          "target": 132,
+          "label": "is_label_for"
+        },
+        {
+          "source": 22,
+          "target": 181,
+          "label": "is_label_for"
+        },
+        {
+          "source": 24,
+          "target": 115,
+          "label": "is_label_for"
+        },
+        {
+          "source": 24,
+          "target": 127,
+          "label": "is_label_for"
+        },
+        {
+          "source": 24,
+          "target": 132,
+          "label": "is_label_for"
+        },
+        {
+          "source": 26,
+          "target": 115,
+          "label": "is_label_for"
+        },
+        {
+          "source": 26,
+          "target": 123,
+          "label": "is_label_for"
+        },
+        {
+          "source": 26,
+          "target": 127,
+          "label": "is_label_for"
+        },
+        {
+          "source": 26,
+          "target": 132,
+          "label": "is_label_for"
+        },
+        {
+          "source": 28,
+          "target": 99,
+          "label": "is_label_for"
+        },
+        {
+          "source": 28,
+          "target": 123,
+          "label": "is_label_for"
+        },
+        {
+          "source": 28,
+          "target": 142,
+          "label": "is_label_for"
+        },
+        {
+          "source": 30,
+          "target": 92,
+          "label": "is_label_for"
+        },
+        {
+          "source": 30,
+          "target": 99,
+          "label": "is_label_for"
+        },
+        {
+          "source": 30,
+          "target": 142,
+          "label": "is_label_for"
+        },
+        {
+          "source": 31,
+          "target": 92,
+          "label": "is_label_for"
+        },
+        {
+          "source": 31,
+          "target": 142,
+          "label": "is_label_for"
+        },
+        {
+          "source": 33,
+          "target": 90,
+          "label": "is_label_for"
+        },
+        {
+          "source": 33,
+          "target": 92,
+          "label": "is_label_for"
+        },
+        {
+          "source": 35,
+          "target": 90,
+          "label": "is_label_for"
+        },
+        {
+          "source": 35,
+          "target": 94,
+          "label": "is_label_for"
+        },
+        {
+          "source": 36,
+          "target": 94,
+          "label": "is_label_for"
+        },
+        {
+          "source": 36,
+          "target": 98,
+          "label": "is_label_for"
+        },
+        {
+          "source": 38,
+          "target": 94,
+          "label": "is_label_for"
+        },
+        {
+          "source": 38,
+          "target": 98,
+          "label": "is_label_for"
+        },
+        {
+          "source": 38,
+          "target": 149,
+          "label": "is_label_for"
+        },
+        {
+          "source": 40,
+          "target": 98,
+          "label": "is_label_for"
+        },
+        {
+          "source": 40,
+          "target": 118,
+          "label": "is_label_for"
+        },
+        {
+          "source": 40,
+          "target": 149,
+          "label": "is_label_for"
+        },
+        {
+          "source": 42,
+          "target": 118,
+          "label": "is_label_for"
+        },
+        {
+          "source": 42,
+          "target": 149,
+          "label": "is_label_for"
+        },
+        {
+          "source": 42,
+          "target": 215,
+          "label": "is_label_for"
+        },
+        {
+          "source": 44,
+          "target": 118,
+          "label": "is_label_for"
+        },
+        {
+          "source": 44,
+          "target": 121,
+          "label": "is_label_for"
+        },
+        {
+          "source": 44,
+          "target": 133,
+          "label": "is_label_for"
+        },
+        {
+          "source": 44,
+          "target": 215,
+          "label": "is_label_for"
+        },
+        {
+          "source": 45,
+          "target": 121,
+          "label": "is_label_for"
+        },
+        {
+          "source": 45,
+          "target": 133,
+          "label": "is_label_for"
+        },
+        {
+          "source": 47,
+          "target": 121,
+          "label": "is_label_for"
+        },
+        {
+          "source": 47,
+          "target": 133,
+          "label": "is_label_for"
+        },
+        {
+          "source": 47,
+          "target": 214,
+          "label": "is_label_for"
+        },
+        {
+          "source": 50,
+          "target": 121,
+          "label": "is_label_for"
+        },
+        {
+          "source": 51,
+          "target": 101,
+          "label": "is_label_for"
+        },
+        {
+          "source": 51,
+          "target": 108,
+          "label": "is_label_for"
+        },
+        {
+          "source": 51,
+          "target": 214,
+          "label": "is_label_for"
+        },
+        {
+          "source": 53,
+          "target": 101,
+          "label": "is_label_for"
+        },
+        {
+          "source": 53,
+          "target": 106,
+          "label": "is_label_for"
+        },
+        {
+          "source": 53,
+          "target": 108,
+          "label": "is_label_for"
+        },
+        {
+          "source": 53,
+          "target": 131,
+          "label": "is_label_for"
+        },
+        {
+          "source": 55,
+          "target": 101,
+          "label": "is_label_for"
+        },
+        {
+          "source": 55,
+          "target": 106,
+          "label": "is_label_for"
+        },
+        {
+          "source": 55,
+          "target": 126,
+          "label": "is_label_for"
+        },
+        {
+          "source": 55,
+          "target": 131,
+          "label": "is_label_for"
+        },
+        {
+          "source": 57,
+          "target": 102,
+          "label": "is_label_for"
+        },
+        {
+          "source": 57,
+          "target": 106,
+          "label": "is_label_for"
+        },
+        {
+          "source": 57,
+          "target": 126,
+          "label": "is_label_for"
+        },
+        {
+          "source": 57,
+          "target": 131,
+          "label": "is_label_for"
+        },
+        {
+          "source": 60,
+          "target": 120,
+          "label": "is_label_for"
+        },
+        {
+          "source": 60,
+          "target": 128,
+          "label": "is_label_for"
+        },
+        {
+          "source": 60,
+          "target": 222,
+          "label": "is_label_for"
+        },
+        {
+          "source": 62,
+          "target": 93,
+          "label": "is_label_for"
+        },
+        {
+          "source": 62,
+          "target": 95,
+          "label": "is_label_for"
+        },
+        {
+          "source": 62,
+          "target": 128,
+          "label": "is_label_for"
+        },
+        {
+          "source": 62,
+          "target": 222,
+          "label": "contains"
+        },
+        {
+          "source": 69,
+          "target": 124,
+          "label": "is_label_for"
+        },
+        {
+          "source": 69,
+          "target": 190,
+          "label": "is_label_for"
+        },
+        {
+          "source": 84,
+          "target": 86,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 84,
+          "target": 87,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 84,
+          "target": 88,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 84,
+          "target": 89,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 84,
+          "target": 191,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 85,
+          "target": 86,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 85,
+          "target": 87,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 86,
+          "target": 87,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 88,
+          "target": 89,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 88,
+          "target": 91,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 89,
+          "target": 91,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 90,
+          "target": 38,
+          "label": "contains"
+        },
+        {
+          "source": 90,
+          "target": 98,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 90,
+          "target": 99,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 90,
+          "target": 142,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 90,
+          "target": 149,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 92,
+          "target": 94,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 92,
+          "target": 98,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 92,
+          "target": 99,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 92,
+          "target": 123,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 92,
+          "target": 142,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 93,
+          "target": 117,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 93,
+          "target": 119,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 93,
+          "target": 120,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 93,
+          "target": 136,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 93,
+          "target": 222,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 94,
+          "target": 40,
+          "label": "contains"
+        },
+        {
+          "source": 94,
+          "target": 98,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 94,
+          "target": 118,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 94,
+          "target": 142,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 94,
+          "target": 149,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 95,
+          "target": 117,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 95,
+          "target": 120,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 95,
+          "target": 222,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 96,
+          "target": 97,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 96,
+          "target": 100,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 96,
+          "target": 112,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 96,
+          "target": 114,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 96,
+          "target": 157,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 97,
+          "target": 104,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 97,
+          "target": 114,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 97,
+          "target": 152,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 97,
+          "target": 157,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 97,
+          "target": 167,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 98,
+          "target": 118,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 98,
+          "target": 121,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 99,
+          "target": 115,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 99,
+          "target": 123,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 99,
+          "target": 127,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 100,
+          "target": 15,
+          "label": "contains"
+        },
+        {
+          "source": 100,
+          "target": 104,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 100,
+          "target": 116,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 100,
+          "target": 152,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 100,
+          "target": 167,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 101,
+          "target": 102,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 101,
+          "target": 119,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 101,
+          "target": 214,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 102,
+          "target": 60,
+          "label": "contains"
+        },
+        {
+          "source": 102,
+          "target": 106,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 102,
+          "target": 108,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 102,
+          "target": 120,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 102,
+          "target": 222,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 103,
+          "target": 113,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 104,
+          "target": 112,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 104,
+          "target": 181,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 104,
+          "target": 211,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 106,
+          "target": 108,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 106,
+          "target": 119,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 106,
+          "target": 120,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 106,
+          "target": 214,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 107,
+          "target": 147,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 107,
+          "target": 164,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 107,
+          "target": 170,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 107,
+          "target": 189,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 108,
+          "target": 121,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 108,
+          "target": 214,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 109,
+          "target": 111,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 110,
+          "target": 113,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 110,
+          "target": 161,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 111,
+          "target": 221,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 112,
+          "target": 115,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 112,
+          "target": 127,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 114,
+          "target": 127,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 114,
+          "target": 181,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 114,
+          "target": 211,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 115,
+          "target": 28,
+          "label": "contains"
+        },
+        {
+          "source": 115,
+          "target": 123,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 115,
+          "target": 127,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 115,
+          "target": 142,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 115,
+          "target": 181,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 116,
+          "target": 157,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 116,
+          "target": 192,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 117,
+          "target": 69,
+          "label": "contains"
+        },
+        {
+          "source": 117,
+          "target": 124,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 118,
+          "target": 47,
+          "label": "contains"
+        },
+        {
+          "source": 118,
+          "target": 121,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 118,
+          "target": 214,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 118,
+          "target": 215,
+          "label": "contains"
+        },
+        {
+          "source": 119,
+          "target": 222,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 120,
+          "target": 222,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 121,
+          "target": 133,
+          "label": "contains"
+        },
+        {
+          "source": 121,
+          "target": 149,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 121,
+          "target": 214,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 122,
+          "target": 145,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 122,
+          "target": 147,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 122,
+          "target": 153,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 122,
+          "target": 159,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 122,
+          "target": 160,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 122,
+          "target": 162,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 122,
+          "target": 168,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 122,
+          "target": 178,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 122,
+          "target": 209,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 123,
+          "target": 127,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 123,
+          "target": 142,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 123,
+          "target": 181,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 126,
+          "target": 131,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 128,
+          "target": 222,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 129,
+          "target": 199,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 130,
+          "target": 176,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 130,
+          "target": 186,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 130,
+          "target": 217,
+          "label": "contains"
+        },
+        {
+          "source": 133,
+          "target": 215,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 134,
+          "target": 188,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 134,
+          "target": 196,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 135,
+          "target": 186,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 136,
+          "target": 222,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 137,
+          "target": 138,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 137,
+          "target": 141,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 137,
+          "target": 143,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 137,
+          "target": 174,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 137,
+          "target": 175,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 138,
+          "target": 192,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 139,
+          "target": 140,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 141,
+          "target": 143,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 141,
+          "target": 174,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 141,
+          "target": 179,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 141,
+          "target": 198,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 143,
+          "target": 174,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 143,
+          "target": 179,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 143,
+          "target": 198,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 143,
+          "target": 203,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 144,
+          "target": 151,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 144,
+          "target": 153,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 144,
+          "target": 159,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 144,
+          "target": 162,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 144,
+          "target": 185,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 145,
+          "target": 147,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 145,
+          "target": 162,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 145,
+          "target": 208,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 146,
+          "target": 156,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 146,
+          "target": 165,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 146,
+          "target": 166,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 146,
+          "target": 169,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 146,
+          "target": 213,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 147,
+          "target": 162,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 148,
+          "target": 177,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 148,
+          "target": 180,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 148,
+          "target": 195,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 148,
+          "target": 197,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 150,
+          "target": 156,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 150,
+          "target": 165,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 150,
+          "target": 166,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 150,
+          "target": 169,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 151,
+          "target": 153,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 151,
+          "target": 159,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 151,
+          "target": 162,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 151,
+          "target": 185,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 151,
+          "target": 204,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 151,
+          "target": 208,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 152,
+          "target": 206,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 153,
+          "target": 159,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 153,
+          "target": 185,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 153,
+          "target": 201,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 153,
+          "target": 204,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 153,
+          "target": 208,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 154,
+          "target": 156,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 154,
+          "target": 165,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 154,
+          "target": 166,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 154,
+          "target": 169,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 156,
+          "target": 165,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 156,
+          "target": 166,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 156,
+          "target": 169,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 157,
+          "target": 206,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 158,
+          "target": 167,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 159,
+          "target": 185,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 159,
+          "target": 201,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 159,
+          "target": 204,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 159,
+          "target": 208,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 160,
+          "target": 162,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 160,
+          "target": 164,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 160,
+          "target": 168,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 160,
+          "target": 178,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 160,
+          "target": 185,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 160,
+          "target": 189,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 160,
+          "target": 209,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 161,
+          "target": 170,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 161,
+          "target": 182,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 162,
+          "target": 168,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 163,
+          "target": 171,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 164,
+          "target": 185,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 164,
+          "target": 189,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 164,
+          "target": 194,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 164,
+          "target": 202,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 165,
+          "target": 166,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 165,
+          "target": 169,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 166,
+          "target": 169,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 167,
+          "target": 211,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 168,
+          "target": 178,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 168,
+          "target": 189,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 168,
+          "target": 194,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 168,
+          "target": 204,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 168,
+          "target": 209,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 170,
+          "target": 182,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 170,
+          "target": 184,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 172,
+          "target": 199,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 174,
+          "target": 179,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 174,
+          "target": 198,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 174,
+          "target": 203,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 176,
+          "target": 217,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 177,
+          "target": 180,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 177,
+          "target": 183,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 178,
+          "target": 201,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 178,
+          "target": 202,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 179,
+          "target": 198,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 179,
+          "target": 203,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 180,
+          "target": 183,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 181,
+          "target": 26,
+          "label": "contains"
+        },
+        {
+          "source": 181,
+          "target": 219,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 182,
+          "target": 184,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 185,
+          "target": 189,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 185,
+          "target": 201,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 185,
+          "target": 204,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 186,
+          "target": 217,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 188,
+          "target": 211,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 189,
+          "target": 194,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 189,
+          "target": 202,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 191,
+          "target": 200,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 192,
+          "target": 206,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 194,
+          "target": 202,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 194,
+          "target": 204,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 195,
+          "target": 197,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 195,
+          "target": 212,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 197,
+          "target": 212,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 198,
+          "target": 203,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 198,
+          "target": 221,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 201,
+          "target": 202,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 201,
+          "target": 204,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 201,
+          "target": 209,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 202,
+          "target": 209,
+          "label": "is_sibling_of"
+        },
+        {
+          "source": 203,
+          "target": 221,
+          "label": "is_sibling_of"
         }
       ]
     },
@@ -733,31 +3965,13 @@
           "function_call": {
             "name": "click",
             "args": {
-              "element_id": 25.0,
-              "wait_time": 1.0
-            }
-          }
-        },
-        {
-          "function_call": {
-            "name": "type_text",
-            "args": {
-              "text": "amazon.com",
-              "wait_time": 1.0
-            }
-          }
-        },
-        {
-          "function_call": {
-            "name": "press_key",
-            "args": {
-              "key": "enter",
+              "element_id": 137.0,
               "wait_time": 1.0
             }
           }
         }
       ]
     },
-    "action_result": "[{'function_name': 'click', 'function_args': {'element_id': 25.0, 'wait_time': 1.0}, 'output': {'status': 'success', 'message': 'Clicked element 25 at (633, 416)'}}, {'function_name': 'type_text', 'function_args': {'text': 'amazon.com', 'wait_time': 1.0}, 'output': {'status': 'success', 'message': 'Successfully typed: amazon.com'}}, {'function_name': 'press_key', 'function_args': {'key': 'enter', 'wait_time': 1.0}, 'output': {'status': 'success', 'message': 'Successfully pressed (xdotool): Return'}}]"
+    "action_result": "[{'function_name': 'click', 'function_args': {'element_id': 137.0, 'wait_time': 1.0}, 'output': {'status': 'success', 'message': 'Clicked element 137 at (33, 66)'}}]"
   }
 ]

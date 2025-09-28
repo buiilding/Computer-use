@@ -1,0 +1,60 @@
+Actions Called: ['click', 'type_text', 'press_key']
+Arguments: [
+  {
+    "element_id": 25.0,
+    "wait_time": 1.0
+  },
+  {
+    "text": "amazon.com",
+    "wait_time": 0.0
+  },
+  {
+    "key": "enter",
+    "wait_time": 1.0
+  }
+]
+Outputs: [
+  {
+    "status": "success",
+    "message": "Clicked element 25 at (633, 416)"
+  },
+  {
+    "status": "success",
+    "message": "Successfully typed: amazon.com"
+  },
+  {
+    "status": "success",
+    "message": "Successfully pressed (pyautogui): enter"
+  }
+]
+---
+Actions Called: ['click', 'type_text', 'press_key']
+Arguments: [
+  {
+    "element_id": 25.0,
+    "wait_time": 1.0
+  },
+  {
+    "text": "amazon.com",
+    "wait_time": 0.0
+  },
+  {
+    "key": "enter",
+    "wait_time": 1.0
+  }
+]
+Outputs: [
+  {
+    "status": "success",
+    "message": "Clicked element 25 at (633, 416)"
+  },
+  {
+    "status": "success",
+    "message": "Successfully typed: amazon.com"
+  },
+  {
+    "status": "success",
+    "message": "Successfully pressed (pyautogui): enter"
+  }
+]
+---

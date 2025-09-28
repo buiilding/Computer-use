@@ -1,0 +1,1202 @@
+[
+    {
+        "id": 0,
+        "content": "amazon.com/Dell-Chromebook-D44PV-11-6-Inch-Traditional/dp/B06X9QQ8YS/ref=sr_1_1?dib=eyJ2ljoiMSJ9.LoDG3pzHaMzL1c8NfHb1-fHmb4Qqk1ksHuAOTF205dJvuYf4wbA0oOlewltUvBtO9L--20rtzQRhiMPzYzktQnRqp9zdavzFlxGMqwqNQk..",
+        "type": "text",
+        "interactivity": false,
+        "x": 152,
+        "y": 52,
+        "width": 1544,
+        "height": 20
+    },
+    {
+        "id": 1,
+        "content": "Laptop",
+        "type": "text",
+        "interactivity": false,
+        "x": 395,
+        "y": 105,
+        "width": 56,
+        "height": 24
+    },
+    {
+        "id": 2,
+        "content": "Medical Care + Saks",
+        "type": "text",
+        "interactivity": false,
+        "x": 271,
+        "y": 158,
+        "width": 146,
+        "height": 16
+    },
+    {
+        "id": 3,
+        "content": "Handmade Kindle Books",
+        "type": "text",
+        "interactivity": false,
+        "x": 1349,
+        "y": 158,
+        "width": 181,
+        "height": 16
+    },
+    {
+        "id": 4,
+        "content": "Gift Cards\u2192Subscrlbe& Save",
+        "type": "text",
+        "interactivity": false,
+        "x": 1538,
+        "y": 157,
+        "width": 208,
+        "height": 17
+    },
+    {
+        "id": 5,
+        "content": "Laptops",
+        "type": "text",
+        "interactivity": false,
+        "x": 181,
+        "y": 203,
+        "width": 51,
+        "height": 20
+    },
+    {
+        "id": 6,
+        "content": "Desktops",
+        "type": "text",
+        "interactivity": false,
+        "x": 391,
+        "y": 201,
+        "width": 56,
+        "height": 21
+    },
+    {
+        "id": 7,
+        "content": "Monitors",
+        "type": "text",
+        "interactivity": false,
+        "x": 607,
+        "y": 204,
+        "width": 55,
+        "height": 16
+    },
+    {
+        "id": 8,
+        "content": "Tablets",
+        "type": "text",
+        "interactivity": false,
+        "x": 822,
+        "y": 204,
+        "width": 46,
+        "height": 16
+    },
+    {
+        "id": 9,
+        "content": "Computer Accessories",
+        "type": "text",
+        "interactivity": false,
+        "x": 1028,
+        "y": 205,
+        "width": 123,
+        "height": 15
+    },
+    {
+        "id": 10,
+        "content": "PC Components",
+        "type": "text",
+        "interactivity": false,
+        "x": 1311,
+        "y": 204,
+        "width": 92,
+        "height": 16
+    },
+    {
+        "id": 11,
+        "content": "PC Gaming",
+        "type": "text",
+        "interactivity": false,
+        "x": 1564,
+        "y": 201,
+        "width": 66,
+        "height": 21
+    },
+    {
+        "id": 12,
+        "content": "Deals",
+        "type": "text",
+        "interactivity": false,
+        "x": 1722,
+        "y": 205,
+        "width": 34,
+        "height": 14
+    },
+    {
+        "id": 13,
+        "content": "Dell 14 Plus Laptop DB14250-14-inch 16:10 2.5K (2560x1600) Display, Intel Core Ultra ..",
+        "type": "text",
+        "interactivity": false,
+        "x": 584,
+        "y": 255,
+        "width": 565,
+        "height": 19
+    },
+    {
+        "id": 14,
+        "content": " 1 sustainabilityfeature",
+        "type": "text",
+        "interactivity": false,
+        "x": 1174,
+        "y": 264,
+        "width": 127,
+        "height": 22
+    },
+    {
+        "id": 15,
+        "content": "Consider these alternative items",
+        "type": "text",
+        "interactivity": false,
+        "x": 154,
+        "y": 314,
+        "width": 352,
+        "height": 25
+    },
+    {
+        "id": 16,
+        "content": "Dell Chromebook113100 11.6\" Chromebook-",
+        "type": "text",
+        "interactivity": false,
+        "x": 1292,
+        "y": 360,
+        "width": 301,
+        "height": 16
+    },
+    {
+        "id": 17,
+        "content": "1366 x 768 - Celeron N4020-4 GB RAM - 16 GB",
+        "type": "text",
+        "interactivity": false,
+        "x": 1294,
+        "y": 378,
+        "width": 301,
+        "height": 17
+    },
+    {
+        "id": 18,
+        "content": "Flash Memory - Chrome OS - Intel HD Graphics -...",
+        "type": "text",
+        "interactivity": false,
+        "x": 1290,
+        "y": 394,
+        "width": 327,
+        "height": 21
+    },
+    {
+        "id": 19,
+        "content": "$6900",
+        "type": "text",
+        "interactivity": false,
+        "x": 292,
+        "y": 426,
+        "width": 45,
+        "height": 18
+    },
+    {
+        "id": 20,
+        "content": "$4887",
+        "type": "text",
+        "interactivity": false,
+        "x": 791,
+        "y": 444,
+        "width": 46,
+        "height": 20
+    },
+    {
+        "id": 21,
+        "content": "$5299",
+        "type": "text",
+        "interactivity": false,
+        "x": 1290,
+        "y": 442,
+        "width": 47,
+        "height": 23
+    },
+    {
+        "id": 22,
+        "content": "Electronics > Computers & Accessories > Computers & Tablets > Laptops > Traditional Laptops",
+        "type": "text",
+        "interactivity": false,
+        "x": 152,
+        "y": 530,
+        "width": 521,
+        "height": 18
+    },
+    {
+        "id": 23,
+        "content": "Dell Chromebook 11 3180D44PV 11.6-lnch",
+        "type": "text",
+        "interactivity": false,
+        "x": 836,
+        "y": 583,
+        "width": 479,
+        "height": 24
+    },
+    {
+        "id": 24,
+        "content": "Traditional Laptop (Black)",
+        "type": "text",
+        "interactivity": false,
+        "x": 835,
+        "y": 614,
+        "width": 280,
+        "height": 26
+    },
+    {
+        "id": 25,
+        "content": "3.2\u2605\u2605\u2605\u2606\u2606(20\uff09\u4e28Search this page",
+        "type": "text",
+        "interactivity": false,
+        "x": 832,
+        "y": 662,
+        "width": 237,
+        "height": 22
+    },
+    {
+        "id": 26,
+        "content": "9",
+        "type": "text",
+        "interactivity": false,
+        "x": 854,
+        "y": 701,
+        "width": 39,
+        "height": 19
+    },
+    {
+        "id": 27,
+        "content": "Get $175 off instantly: Pay $o.oo upon approval for Prime Visa.",
+        "type": "text",
+        "interactivity": false,
+        "x": 891,
+        "y": 753,
+        "width": 404,
+        "height": 20
+    },
+    {
+        "id": 28,
+        "content": "In Stock",
+        "type": "text",
+        "interactivity": false,
+        "x": 833,
+        "y": 788,
+        "width": 72,
+        "height": 21
+    },
+    {
+        "id": 29,
+        "content": "M",
+        "type": "text",
+        "interactivity": false,
+        "x": 544,
+        "y": 818,
+        "width": 14,
+        "height": 13
+    },
+    {
+        "id": 30,
+        "content": "Used: Good| Details",
+        "type": "text",
+        "interactivity": false,
+        "x": 1390,
+        "y": 816,
+        "width": 138,
+        "height": 21
+    },
+    {
+        "id": 31,
+        "content": "Brand",
+        "type": "text",
+        "interactivity": false,
+        "x": 833,
+        "y": 831,
+        "width": 46,
+        "height": 21
+    },
+    {
+        "id": 32,
+        "content": "Dell",
+        "type": "text",
+        "interactivity": false,
+        "x": 960,
+        "y": 833,
+        "width": 31,
+        "height": 17
+    },
+    {
+        "id": 33,
+        "content": "Sold by Printer Ready",
+        "type": "text",
+        "interactivity": false,
+        "x": 1393,
+        "y": 838,
+        "width": 139,
+        "height": 17
+    },
+    {
+        "id": 34,
+        "content": "Model Name",
+        "type": "text",
+        "interactivity": false,
+        "x": 835,
+        "y": 860,
+        "width": 87,
+        "height": 17
+    },
+    {
+        "id": 35,
+        "content": "Dell Chromebook 11 3180 D44PV",
+        "type": "text",
+        "interactivity": false,
+        "x": 960,
+        "y": 860,
+        "width": 217,
+        "height": 17
+    },
+    {
+        "id": 36,
+        "content": "Screen Size",
+        "type": "text",
+        "interactivity": false,
+        "x": 833,
+        "y": 884,
+        "width": 81,
+        "height": 19
+    },
+    {
+        "id": 37,
+        "content": "11.6 Inches",
+        "type": "text",
+        "interactivity": false,
+        "x": 959,
+        "y": 881,
+        "width": 78,
+        "height": 23
+    },
+    {
+        "id": 38,
+        "content": "Color",
+        "type": "text",
+        "interactivity": false,
+        "x": 835,
+        "y": 910,
+        "width": 41,
+        "height": 18
+    },
+    {
+        "id": 39,
+        "content": "Black",
+        "type": "text",
+        "interactivity": false,
+        "x": 959,
+        "y": 908,
+        "width": 41,
+        "height": 21
+    },
+    {
+        "id": 40,
+        "content": "CPU Model",
+        "type": "text",
+        "interactivity": false,
+        "x": 833,
+        "y": 936,
+        "width": 78,
+        "height": 19
+    },
+    {
+        "id": 41,
+        "content": "Intel Celeron D",
+        "type": "text",
+        "interactivity": false,
+        "x": 959,
+        "y": 936,
+        "width": 100,
+        "height": 19
+    },
+    {
+        "id": 42,
+        "content": "Ram Memory",
+        "type": "text",
+        "interactivity": false,
+        "x": 832,
+        "y": 960,
+        "width": 95,
+        "height": 21
+    },
+    {
+        "id": 43,
+        "content": "2 GB",
+        "type": "text",
+        "interactivity": false,
+        "x": 959,
+        "y": 962,
+        "width": 37,
+        "height": 18
+    },
+    {
+        "id": 44,
+        "content": "Installed Size",
+        "type": "text",
+        "interactivity": false,
+        "x": 832,
+        "y": 981,
+        "width": 96,
+        "height": 21
+    },
+    {
+        "id": 45,
+        "content": "About this item",
+        "type": "text",
+        "interactivity": false,
+        "x": 833,
+        "y": 1055,
+        "width": 151,
+        "height": 23
+    },
+    {
+        "id": 46,
+        "content": "$17.99 Vprime Only 4 left in stock - order soon. ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1780,
+        "y": 186,
+        "width": 122,
+        "height": 182
+    },
+    {
+        "id": 47,
+        "content": "Go to Cart ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1778,
+        "y": 140,
+        "width": 125,
+        "height": 29
+    },
+    {
+        "id": 48,
+        "content": "Subtotal $17.99 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1774,
+        "y": 85,
+        "width": 128,
+        "height": 53
+    },
+    {
+        "id": 49,
+        "content": "amazon prime ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 7,
+        "y": 88,
+        "width": 140,
+        "height": 58
+    },
+    {
+        "id": 50,
+        "content": "Hello, Bui Account & Lists  ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1453,
+        "y": 88,
+        "width": 133,
+        "height": 53
+    },
+    {
+        "id": 51,
+        "content": "Rufus ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 78,
+        "y": 152,
+        "width": 79,
+        "height": 28
+    },
+    {
+        "id": 52,
+        "content": "EN ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1378,
+        "y": 93,
+        "width": 71,
+        "height": 45
+    },
+    {
+        "id": 53,
+        "content": "Shop now ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1305,
+        "y": 251,
+        "width": 79,
+        "height": 25
+    },
+    {
+        "id": 54,
+        "content": "Add to Cart ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1393,
+        "y": 925,
+        "width": 210,
+        "height": 34
+    },
+    {
+        "id": 55,
+        "content": "Amazon Haul ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 159,
+        "y": 146,
+        "width": 107,
+        "height": 38
+    },
+    {
+        "id": 56,
+        "content": "Returns &Orders ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1590,
+        "y": 89,
+        "width": 80,
+        "height": 51
+    },
+    {
+        "id": 57,
+        "content": "Pickup and returns at...  West Lafa... 47907 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 154,
+        "y": 87,
+        "width": 165,
+        "height": 59
+    },
+    {
+        "id": 58,
+        "content": "Cart ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1674,
+        "y": 87,
+        "width": 85,
+        "height": 55
+    },
+    {
+        "id": 59,
+        "content": "a Amazon.com: Dell chron ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 38,
+        "y": 0,
+        "width": 236,
+        "height": 38
+    },
+    {
+        "id": 60,
+        "content": "4.0\u2605\u2605\u2605\u2605\u260633 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 293,
+        "y": 398,
+        "width": 124,
+        "height": 20
+    },
+    {
+        "id": 61,
+        "content": "Amazon Business  ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 870,
+        "y": 146,
+        "width": 138,
+        "height": 38
+    },
+    {
+        "id": 62,
+        "content": " Shop By Interest ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1009,
+        "y": 146,
+        "width": 122,
+        "height": 36
+    },
+    {
+        "id": 63,
+        "content": "Add to List ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1392,
+        "y": 1011,
+        "width": 217,
+        "height": 37
+    },
+    {
+        "id": 64,
+        "content": "Browsing History ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1212,
+        "y": 146,
+        "width": 130,
+        "height": 38
+    },
+    {
+        "id": 65,
+        "content": "Visit the Dell Store ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 832,
+        "y": 644,
+        "width": 124,
+        "height": 17
+    },
+    {
+        "id": 66,
+        "content": "Pharmacy ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1131,
+        "y": 146,
+        "width": 83,
+        "height": 37
+    },
+    {
+        "id": 67,
+        "content": "4.0\u2605\u2605\u2605\u2605\u26061.091 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1292,
+        "y": 415,
+        "width": 142,
+        "height": 21
+    },
+    {
+        "id": 68,
+        "content": "Amazon Basics ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 422,
+        "y": 146,
+        "width": 115,
+        "height": 39
+    },
+    {
+        "id": 69,
+        "content": "4.2\u2605\u2605\u2605\u2605\u260635 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 791,
+        "y": 416,
+        "width": 126,
+        "height": 20
+    },
+    {
+        "id": 70,
+        "content": "Buy Agaln ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 786,
+        "y": 146,
+        "width": 83,
+        "height": 38
+    },
+    {
+        "id": 71,
+        "content": "VSeemore ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 834,
+        "y": 1014,
+        "width": 79,
+        "height": 19
+    },
+    {
+        "id": 72,
+        "content": "Computers ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 16,
+        "y": 186,
+        "width": 85,
+        "height": 47
+    },
+    {
+        "id": 73,
+        "content": "@ Pickup and returns at Purdue - KRCH - West La... 47907 ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1394,
+        "y": 759,
+        "width": 207,
+        "height": 48
+    },
+    {
+        "id": 74,
+        "content": "Books ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 537,
+        "y": 146,
+        "width": 58,
+        "height": 39
+    },
+    {
+        "id": 75,
+        "content": "Sponsored  ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1692,
+        "y": 289,
+        "width": 76,
+        "height": 21
+    },
+    {
+        "id": 76,
+        "content": "In Stock ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1393,
+        "y": 884,
+        "width": 210,
+        "height": 38
+    },
+    {
+        "id": 77,
+        "content": "Corporation (USA) ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1390,
+        "y": 846,
+        "width": 212,
+        "height": 33
+    },
+    {
+        "id": 78,
+        "content": "$1,128.48 prime ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1176,
+        "y": 246,
+        "width": 122,
+        "height": 18
+    },
+    {
+        "id": 79,
+        "content": "Best Sellers ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 595,
+        "y": 145,
+        "width": 92,
+        "height": 39
+    },
+    {
+        "id": 80,
+        "content": "Dell Chromebook 11 3180 DP1T3 11.6-lnch Traditional Laptop (Black) (Renewed),32 GB Storage ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 792,
+        "y": 360,
+        "width": 307,
+        "height": 54
+    },
+    {
+        "id": 81,
+        "content": "Buy used: $29.00 Sorry, your selected delivery location is beyond seller's shipping coverage for this item. Please choose a different delivery location or purchase from another seller. Learn more ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1374,
+        "y": 578,
+        "width": 241,
+        "height": 186
+    },
+    {
+        "id": 82,
+        "content": "Dell Chromebook 11 3180 D44PV 11.6-lnch Traditional Laptop (Black) (Renewed) ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 292,
+        "y": 358,
+        "width": 292,
+        "height": 38
+    },
+    {
+        "id": 83,
+        "content": "Prime Video ",
+        "type": "icon",
+        "interactivity": true,
+        "x": 688,
+        "y": 145,
+        "width": 97,
+        "height": 39
+    },
+    {
+        "id": 84,
+        "content": "All",
+        "type": "icon",
+        "interactivity": true,
+        "x": 338,
+        "y": 95,
+        "width": 53,
+        "height": 41
+    },
+    {
+        "id": 85,
+        "content": "search functionality.",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1308,
+        "y": 94,
+        "width": 47,
+        "height": 42
+    },
+    {
+        "id": 86,
+        "content": "Paste",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1755,
+        "y": 42,
+        "width": 34,
+        "height": 37
+    },
+    {
+        "id": 87,
+        "content": "Laptop",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1152,
+        "y": 359,
+        "width": 135,
+        "height": 135
+    },
+    {
+        "id": 88,
+        "content": "System",
+        "type": "icon",
+        "interactivity": true,
+        "x": 153,
+        "y": 359,
+        "width": 136,
+        "height": 135
+    },
+    {
+        "id": 89,
+        "content": "Account manager",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1845,
+        "y": 43,
+        "width": 35,
+        "height": 34
+    },
+    {
+        "id": 90,
+        "content": "Expand",
+        "type": "icon",
+        "interactivity": true,
+        "x": 2,
+        "y": 2,
+        "width": 35,
+        "height": 37
+    },
+    {
+        "id": 91,
+        "content": "Music",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1809,
+        "y": 43,
+        "width": 32,
+        "height": 34
+    },
+    {
+        "id": 92,
+        "content": "Healthcarecare",
+        "type": "icon",
+        "interactivity": true,
+        "x": 265,
+        "y": 146,
+        "width": 112,
+        "height": 39
+    },
+    {
+        "id": 93,
+        "content": "Laptop",
+        "type": "icon",
+        "interactivity": true,
+        "x": 151,
+        "y": 729,
+        "width": 52,
+        "height": 50
+    },
+    {
+        "id": 94,
+        "content": "Laptop",
+        "type": "icon",
+        "interactivity": true,
+        "x": 150,
+        "y": 680,
+        "width": 51,
+        "height": 46
+    },
+    {
+        "id": 95,
+        "content": "Laptop",
+        "type": "icon",
+        "interactivity": true,
+        "x": 150,
+        "y": 579,
+        "width": 50,
+        "height": 47
+    },
+    {
+        "id": 96,
+        "content": "Reload",
+        "type": "icon",
+        "interactivity": true,
+        "x": 77,
+        "y": 44,
+        "width": 32,
+        "height": 33
+    },
+    {
+        "id": 97,
+        "content": "Gallery",
+        "type": "icon",
+        "interactivity": true,
+        "x": 151,
+        "y": 630,
+        "width": 49,
+        "height": 46
+    },
+    {
+        "id": 98,
+        "content": "All",
+        "type": "icon",
+        "interactivity": true,
+        "x": 11,
+        "y": 146,
+        "width": 62,
+        "height": 39
+    },
+    {
+        "id": 99,
+        "content": "Share",
+        "type": "icon",
+        "interactivity": true,
+        "x": 770,
+        "y": 586,
+        "width": 37,
+        "height": 39
+    },
+    {
+        "id": 100,
+        "content": "Forward",
+        "type": "icon",
+        "interactivity": true,
+        "x": 40,
+        "y": 44,
+        "width": 32,
+        "height": 33
+    },
+    {
+        "id": 101,
+        "content": "More options",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1885,
+        "y": 45,
+        "width": 25,
+        "height": 31
+    },
+    {
+        "id": 102,
+        "content": "Handmade",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1341,
+        "y": 146,
+        "width": 91,
+        "height": 37
+    },
+    {
+        "id": 103,
+        "content": "Restore",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1854,
+        "y": 6,
+        "width": 29,
+        "height": 26
+    },
+    {
+        "id": 104,
+        "content": "Minimize",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1824,
+        "y": 6,
+        "width": 25,
+        "height": 26
+    },
+    {
+        "id": 105,
+        "content": "Saks",
+        "type": "icon",
+        "interactivity": true,
+        "x": 377,
+        "y": 146,
+        "width": 46,
+        "height": 39
+    },
+    {
+        "id": 106,
+        "content": "Kinder Books",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1431,
+        "y": 146,
+        "width": 104,
+        "height": 37
+    },
+    {
+        "id": 107,
+        "content": "Subscriptive & Save",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1625,
+        "y": 145,
+        "width": 129,
+        "height": 39
+    },
+    {
+        "id": 108,
+        "content": "Back",
+        "type": "icon",
+        "interactivity": true,
+        "x": 7,
+        "y": 45,
+        "width": 31,
+        "height": 32
+    },
+    {
+        "id": 109,
+        "content": "Gift Cards",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1532,
+        "y": 146,
+        "width": 94,
+        "height": 38
+    },
+    {
+        "id": 110,
+        "content": "Close",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1888,
+        "y": 8,
+        "width": 26,
+        "height": 23
+    },
+    {
+        "id": 111,
+        "content": "Laptop",
+        "type": "icon",
+        "interactivity": true,
+        "x": 653,
+        "y": 359,
+        "width": 132,
+        "height": 135
+    },
+    {
+        "id": 112,
+        "content": "Star",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1704,
+        "y": 43,
+        "width": 41,
+        "height": 36
+    },
+    {
+        "id": 113,
+        "content": "Add new item",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1862,
+        "y": 388,
+        "width": 34,
+        "height": 33
+    },
+    {
+        "id": 114,
+        "content": "Move up",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1904,
+        "y": 86,
+        "width": 15,
+        "height": 40
+    },
+    {
+        "id": 115,
+        "content": "Delete",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1784,
+        "y": 388,
+        "width": 38,
+        "height": 33
+    },
+    {
+        "id": 116,
+        "content": "1",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1819,
+        "y": 387,
+        "width": 41,
+        "height": 34
+    },
+    {
+        "id": 117,
+        "content": "Add tab",
+        "type": "icon",
+        "interactivity": true,
+        "x": 284,
+        "y": 10,
+        "width": 14,
+        "height": 17
+    },
+    {
+        "id": 118,
+        "content": "Move down",
+        "type": "icon",
+        "interactivity": true,
+        "x": 1905,
+        "y": 1061,
+        "width": 14,
+        "height": 18
+    },
+    {
+        "id": 120,
+        "content": "Site information",
+        "type": "icon",
+        "interactivity": true,
+        "x": 119,
+        "y": 43,
+        "width": 37,
+        "height": 36
+    }
+]

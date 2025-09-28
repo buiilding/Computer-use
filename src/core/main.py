@@ -1,5 +1,6 @@
 import os
 import sys
+import io
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SRC_DIR = os.path.dirname(SCRIPT_DIR)
@@ -39,7 +40,7 @@ def run_workflow(initial_request: str, initial_expected_output: str, simulation_
     som_model, caption_model_processor, rapid_ocr_engine = initialize_omni_models(
         settings.OMNI_DEVICE, settings.SOM_MODEL_PATH, settings.CAPTION_MODEL_PATH, settings.RAPID_OCR_ENABLED
     )
-    search_agent = SearchAgent(model_name=settings.SEARCH_MODEL_NAME)
+    search_agent = SearchAgent()
     main_agent = MainAgent()
 
     # Initial state
@@ -54,138 +55,110 @@ def run_workflow(initial_request: str, initial_expected_output: str, simulation_
     state["search_agent_guide"] = search_result.get("search_agent_guide")
     print(f"Search Agent Guide:\n{state['search_agent_guide']}")
 
+    main_loop_iterator = None
     if simulation_mode:
         print("\n--- Running in Simulation Mode ---")
-        # Define the sequence of simulated screenshots (JSON files)
         simulation_files = [
-            "desktop_elements.json",
-            "newtab_elements.json",
-            "amazon_homepage.json",
-            "laptop_page.json",
-            "laptop_page_dropdown.json",
-            "cheapest_laptop_page.json",
-            "single_cheapest.json"
+            "desktop_elements.json", "newtab_elements.json", "amazon_homepage.json",
+            "laptop_page.json", "laptop_page_dropdown.json",
+            "cheapest_laptop_page.json", "single_cheapest.json"
         ]
         simulation_path = os.path.join(SRC_DIR, "core", "test_json_elements")
         simulation_file_paths = [os.path.join(simulation_path, f) for f in simulation_files]
+        main_loop_iterator = iter(simulation_file_paths)
+    else:
+        # Create an infinite generator for live mode
+        def live_iterator():
+            i = 0
+            while True:
+                yield i
+                i += 1
+        main_loop_iterator = live_iterator()
 
-        # Simulation loop
-        for i, json_file_path in enumerate(simulation_file_paths):
-            print(f"\n--- Simulation Iteration {i + 1}: Using {os.path.basename(json_file_path)} ---")
+    iteration = 0
+    for loop_item in main_loop_iterator:
+        iteration += 1
+        if iteration > 100: # Safety break
+            print("Safety break after 100 iterations.")
+            break
 
-            # Load elements from JSON file
+        if simulation_mode:
+            json_file_path = loop_item
+            print(f"\n--- Simulation Iteration {iteration}: Using {os.path.basename(json_file_path)} ---")
             try:
                 with open(json_file_path, "r", encoding='utf-8') as f:
-                    elements = json.load(f)
-                state["current_elements"] = elements
-                state["current_screenshot"] = None # No image in simulation mode
-                print(f"Loaded {len(elements) if elements else 0} elements from simulation file.")
+                    ui_elements = json.load(f)
+                # The JSON files contain arrays of UI elements, not graph data
+                state["current_elements"] = ui_elements
+                state["current_screenshot"] = None
+                print(f"Loaded {len(ui_elements)} UI elements for simulation.")
             except FileNotFoundError:
                 print(f"Error: Simulation file not found: {json_file_path}. Ending workflow.")
                 break
             except json.JSONDecodeError:
                 print(f"Error: Could not decode JSON from {json_file_path}. Ending workflow.")
                 break
-            
-            # Call Main Agent
-            agent_output = main_agent(state)
-
-            # Update state with the results of the last action for the next turn
-            state["previous_thinking"] = agent_output.get("thoughts")
-            state["previous_action_result"] = str(agent_output.get("action_result"))
-
-            if "error" in agent_output:
-                print(f"Error from Main Agent: {agent_output['error']}")
-                time.sleep(2)
-                continue
-                
-            function_call = agent_output.get("function_call")
-            
-            # Check for task completion
-            is_task_done = False
-            if isinstance(function_call, str) and function_call == "task_done":
-                is_task_done = True
-            elif isinstance(function_call, list) and "task_done" in function_call:
-                is_task_done = True
-
-            if is_task_done:
-                print("--- Task Complete ---")
-                
-                reason = "No reason given."
-                action_result = agent_output.get("action_result")
-                if isinstance(action_result, list):
-                    # Find the 'task_done' output in the list of results
-                    task_done_output = next((r for r in action_result if r.get("function_name") == "task_done"), None)
-                    if task_done_output and isinstance(task_done_output.get("output"), dict):
-                        reason = task_done_output["output"].get("message", reason)
-                elif isinstance(action_result, dict):
-                     reason = action_result.get("message", reason)
-
-                print(f"Reason: {reason}")
-                break
-            
-            time.sleep(1)
-    else:
-        # Step 2: Main loop
-        iteration = 0
-        while iteration < 100: # Safety break
-            iteration += 1
+        else:
             print(f"\n--- Iteration {iteration} ---")
-
-            # Take screenshot
             print("--- Taking Screenshot ---")
-            screenshot_bytes_io, elements = screenshot_util.take_screenshot(
-                som_model, caption_model_processor, rapid_ocr_engine, omni_enabled=True
-            )
-            if screenshot_bytes_io:
-                screenshot_bytes_io.seek(0)
-                state["current_screenshot"] = Image.open(screenshot_bytes_io)
-                state["current_elements"] = elements
-                print(f"Screenshot taken. {len(elements) if elements else 0} elements identified.")
+            raw_screenshot, monitor_info = screenshot_util.capture_screen()
+            
+            if raw_screenshot and monitor_info:
+                # Analyze the raw image first to get nodes and edges
+                nodes, edges = screenshot_util.analyze_screen(
+                    raw_screenshot, monitor_info, som_model, caption_model_processor, rapid_ocr_engine
+                )
+                # Then draw the cursor for the state screenshot
+                screenshot_with_cursor = screenshot_util.draw_cursor(raw_screenshot, monitor_info)
+                
+                # Convert PIL image to bytes for state, if needed, or handle as PIL object
+                img_byte_arr = io.BytesIO()
+                screenshot_with_cursor.save(img_byte_arr, format='PNG')
+                img_byte_arr.seek(0)
+                
+                state["current_screenshot"] = Image.open(img_byte_arr) # Store as PIL Image
+                state["nodes"] = nodes
+                state["edges"] = edges
+                print(f"Screenshot taken and analyzed. {len(nodes)} nodes and {len(edges)} edges identified.")
             else:
                 print("Error: Failed to take screenshot. Ending workflow.")
                 break
+        
+        # Call Main Agent
+        agent_output = main_agent(state)
+
+        # Update state 
+        state["previous_thinking"] = agent_output.get("thoughts")
+        state["previous_action_result"] = str(agent_output.get("action_result"))
+
+        if "error" in agent_output:
+            print(f"Error from Main Agent: {agent_output['error']}")
+            time.sleep(2)
+            continue
             
-            # Call Main Agent
-            agent_output = main_agent(state)
+        function_call = agent_output.get("function_call")
+        
+        # Check for task completion
+        is_task_done = False
+        if isinstance(function_call, str) and function_call == "task_done":
+            is_task_done = True
+        elif isinstance(function_call, list) and "task_done" in function_call:
+            is_task_done = True
 
-            # Update state with the results of the last action for the next turn
-            state["previous_thinking"] = agent_output.get("thoughts")
-            state["previous_action_result"] = str(agent_output.get("action_result"))
-
-            if "error" in agent_output:
-                print(f"Error from Main Agent: {agent_output['error']}")
-                time.sleep(2)
-                continue
-                
-            function_call = agent_output.get("function_call")
-            
-            # Check for task completion
-            # Can be a single string or a list of strings
-            is_task_done = False
-            if isinstance(function_call, str) and function_call == "task_done":
-                is_task_done = True
-            elif isinstance(function_call, list) and "task_done" in function_call:
-                is_task_done = True
-
-            if is_task_done:
-                print("--- Task Complete ---")
-                
-                # Extract reason from the potentially nested action_result
-                reason = "No reason given."
-                action_result = agent_output.get("action_result")
-                if isinstance(action_result, list):
-                    # Find the 'task_done' output in the list of results
-                    task_done_output = next((r for r in action_result if r.get("function_name") == "task_done"), None)
-                    if task_done_output and isinstance(task_done_output.get("output"), dict):
-                        reason = task_done_output["output"].get("message", reason)
-                elif isinstance(action_result, dict):
-                     reason = action_result.get("message", reason)
-
-                print(f"Reason: {reason}")
-                break
-            
-            time.sleep(1)
+        if is_task_done:
+            print("--- Task Complete ---")
+            reason = "No reason given."
+            action_result = agent_output.get("action_result")
+            if isinstance(action_result, list):
+                task_done_output = next((r for r in action_result if r.get("function_name") == "task_done"), None)
+                if task_done_output and isinstance(task_done_output.get("output"), dict):
+                    reason = task_done_output["output"].get("message", reason)
+            elif isinstance(action_result, dict):
+                 reason = action_result.get("message", reason)
+            print(f"Reason: {reason}")
+            break
+        
+        time.sleep(1)
 
     print("\nWorkflow finished.")
 
@@ -195,5 +168,5 @@ if __name__ == "__main__":
     run_workflow(
         initial_request=settings.REQUEST,
         initial_expected_output=settings.EXPECTED_OUTPUT,
-        simulation_mode=True
+        simulation_mode=False
     ) 
